@@ -906,6 +906,16 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!Date.Value</FilterExpression>
+                <Operator>Between</Operator>
+                <FilterValues>
+                  <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
+                  <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
             <Top>1.12736in</Top>
             <Left>0.22792in</Left>
             <Height>2.72556in</Height>
