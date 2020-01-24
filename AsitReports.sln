@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "AsitReports", "AsitReports\AsitReports.rptproj", "{F7C34B4D-580A-4157-A880-CB814168236A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7C34B4D-580A-4157-A880-CB814168236A}.Debug|Default.ActiveCfg = Debug
+		{F7C34B4D-580A-4157-A880-CB814168236A}.Debug|Default.Build.0 = Debug
+		{F7C34B4D-580A-4157-A880-CB814168236A}.Debug|Default.Deploy.0 = Debug
+		{F7C34B4D-580A-4157-A880-CB814168236A}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{F7C34B4D-580A-4157-A880-CB814168236A}.DebugLocal|Default.Build.0 = DebugLocal
+		{F7C34B4D-580A-4157-A880-CB814168236A}.Release|Default.ActiveCfg = Release
+		{F7C34B4D-580A-4157-A880-CB814168236A}.Release|Default.Build.0 = Release
+		{F7C34B4D-580A-4157-A880-CB814168236A}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30BCF1CD-E34B-4460-BC77-380EAE346EA2}
+	EndGlobalSection
+EndGlobal
