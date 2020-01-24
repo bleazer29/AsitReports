@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="testDataSource1">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=SRV-BANDYRKA\SQLEXPRESS;Initial Catalog=Asit2</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>b0f5723e-791b-4c5f-92a2-632cd432cb63</DataSourceID>
+</RptDataSource>
