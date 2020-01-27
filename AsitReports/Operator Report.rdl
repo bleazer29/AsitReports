@@ -13,10 +13,11 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>testDataSource1</DataSourceName>
-        <CommandText>SELECT        Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Users.Name, Logs.ErrorEventTypeId
-FROM            Logs INNER JOIN
-                         Users ON Logs.UserId = Users.Id
-WHERE        (Logs.UserId IS NOT NULL)</CommandText>
+        <CommandText>SELECT Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Users.Name, Logs.ErrorEventTypeId, Users.Email, Users.PhoneNumber, Users.Card, ErrorEventTypes.Id, ErrorEventTypes.Name AS Expr1, ErrorEventTypes.KeyErrorEvent
+FROM     Logs INNER JOIN
+                  Users ON Logs.UserId = Users.Id INNER JOIN
+                  ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id
+WHERE  (Logs.UserId IS NOT NULL)</CommandText>
       </Query>
       <Fields>
         <Field Name="Date">
@@ -43,6 +44,30 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
           <DataField>ErrorEventTypeId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PhoneNumber">
+          <DataField>PhoneNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Card">
+          <DataField>Card</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Expr1">
+          <DataField>Expr1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="KeyErrorEvent">
+          <DataField>KeyErrorEvent</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -50,45 +75,20 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="textbox1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Operator Report</Value>
-                    <Style>
-                      <FontFamily>Segoe UI Light</FontFamily>
-                      <FontSize>24pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>textbox1</rd:DefaultName>
-            <Height>0.43in</Height>
-            <Width>5in</Width>
-            <Style>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="table1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.5in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.98333in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>5.025in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.45833in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -104,7 +104,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Check Date</Value>
+                                  <Value>Дата отметки</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -142,7 +142,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Module</Value>
+                                  <Value>Модуль</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -180,7 +180,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Record</Value>
+                                  <Value>Запись</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -201,6 +201,43 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                               <Style>Solid</Style>
                             </BottomBorder>
                             <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#666666</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -322,12 +359,48 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily />
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -377,7 +450,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.5in</Size>
                         <CellContents>
                           <Textbox Name="Textbox9">
                             <CanGrow>true</CanGrow>
@@ -386,7 +459,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Date</Value>
+                                    <Value>Дата события</Value>
                                     <Style>
                                       <FontFamily />
                                       <FontSize>11pt</FontSize>
@@ -487,7 +560,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.5in</Size>
                         <CellContents>
                           <Textbox Name="Date1">
                             <CanGrow>true</CanGrow>
@@ -551,10 +624,9 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                 </FilterValues>
               </Filter>
             </Filters>
-            <Top>0.43in</Top>
+            <Top>0.62444in</Top>
             <Height>0.43in</Height>
-            <Width>6.45833in</Width>
-            <ZIndex>1</ZIndex>
+            <Width>12.00833in</Width>
             <Style />
           </Tablix>
           <Chart Name="Chart1">
@@ -906,11 +978,365 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.12736in</Top>
-            <Left>0.22792in</Left>
+            <Top>1.39833in</Top>
             <Height>2.72556in</Height>
             <Width>6.23042in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Color>LightGrey</Color>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+              <BackgroundGradientType>None</BackgroundGradientType>
+            </Style>
+          </Chart>
+          <Textbox Name="textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!Name.Value</Value>
+                    <Style>
+                      <FontFamily>Arial</FontFamily>
+                      <FontSize>18pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>textbox1</rd:DefaultName>
+            <Top>0.46567cm</Top>
+            <Left>0.84667cm</Left>
+            <Height>0.37167in</Height>
+            <Width>5in</Width>
             <ZIndex>2</ZIndex>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Chart Name="Chart2">
+            <ChartCategoryHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Group Name="ChartGroup" />
+                  <Label />
+                </ChartMember>
+              </ChartMembers>
+            </ChartCategoryHierarchy>
+            <ChartSeriesHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Label />
+                </ChartMember>
+              </ChartMembers>
+            </ChartSeriesHierarchy>
+            <ChartData>
+              <ChartSeriesCollection>
+                <ChartSeries Name="EmptySeriesName">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues />
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Type>Line</Type>
+                  <Style />
+                </ChartSeries>
+              </ChartSeriesCollection>
+            </ChartData>
+            <ChartAreas>
+              <ChartArea Name="Default">
+                <ChartCategoryAxes>
+                  <ChartAxis Name="Primary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Enabled>False</Enabled>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                  <ChartAxis Name="Secondary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Enabled>False</Enabled>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Location>Opposite</Location>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                </ChartCategoryAxes>
+                <ChartValueAxes>
+                  <ChartAxis Name="Primary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                  <ChartAxis Name="Secondary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Location>Opposite</Location>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                </ChartValueAxes>
+                <Style>
+                  <BackgroundColor>#00ffffff</BackgroundColor>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                </Style>
+              </ChartArea>
+            </ChartAreas>
+            <ChartLegends>
+              <ChartLegend Name="Default">
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <Position>TopLeft</Position>
+                <ChartLegendTitle>
+                  <Caption />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </ChartLegendTitle>
+                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+              </ChartLegend>
+            </ChartLegends>
+            <ChartTitles>
+              <ChartTitle Name="Default">
+                <Caption>Активность операторов</Caption>
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextAlign>Left</TextAlign>
+                  <VerticalAlign>Top</VerticalAlign>
+                  <Color>#a6a6a6</Color>
+                </Style>
+                <Position>TopLeft</Position>
+              </ChartTitle>
+            </ChartTitles>
+            <Palette>Pacific</Palette>
+            <ChartBorderSkin>
+              <Style>
+                <BackgroundColor>Gray</BackgroundColor>
+                <BackgroundGradientType>None</BackgroundGradientType>
+                <Color>White</Color>
+              </Style>
+            </ChartBorderSkin>
+            <ChartNoDataMessage Name="NoDataMessage">
+              <Caption>No Data Available</Caption>
+              <Style>
+                <BackgroundGradientType>None</BackgroundGradientType>
+                <FontWeight>Bold</FontWeight>
+                <TextAlign>General</TextAlign>
+                <VerticalAlign>Top</VerticalAlign>
+              </Style>
+            </ChartNoDataMessage>
+            <Top>1.39833in</Top>
+            <Left>6.47167in</Left>
+            <Height>2in</Height>
+            <Width>3in</Width>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -924,12 +1350,151 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
         <Height>4.19333in</Height>
         <Style />
       </Body>
-      <Width>6.875in</Width>
+      <Width>20.94668in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageHeader>
+          <Height>1.255in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Image Name="Image1">
+              <Source>Embedded</Source>
+              <Value>youlogohere</Value>
+              <Sizing>FitProportional</Sizing>
+              <Height>0.86889in</Height>
+              <Width>4.54167in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>5pt</PaddingLeft>
+                <PaddingRight>5pt</PaddingRight>
+                <PaddingTop>5pt</PaddingTop>
+                <PaddingBottom>5pt</PaddingBottom>
+              </Style>
+            </Image>
+            <Textbox Name="textbox2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Отчёт об активности операторов</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <FontSize>28pt</FontSize>
+                        <FontWeight>Light</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>textbox1</rd:DefaultName>
+              <Left>11.90414cm</Left>
+              <Height>0.74667in</Height>
+              <Width>8.52668in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox8">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>[Адрес]</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox8</rd:DefaultName>
+              <Top>0.86889in</Top>
+              <Height>0.25in</Height>
+              <Width>4.54167in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox10">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>[Дата] [Автор]</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox8</rd:DefaultName>
+              <Top>0.81611in</Top>
+              <Left>11.90414cm</Left>
+              <Height>0.30277in</Height>
+              <Width>8.52668in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>1in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <PageHeight>11.69in</PageHeight>
+        <PageWidth>8.27in</PageWidth>
+        <LeftMargin>3cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
@@ -972,6 +1537,32 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <EmbeddedImages>
+    <EmbeddedImage Name="youlogohere">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
   <Language>ru-RU</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
