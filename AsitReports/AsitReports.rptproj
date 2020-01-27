@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Report Include="Controlpoint report.rdl" />
+    <Report Include="Current Processes Lab Subreport.rdl" />
+    <Report Include="Current Processes Logs Subreport.rdl" />
+    <Report Include="Current Processes Report.rdl" />
     <Report Include="Equipment Report.rdl" />
     <Report Include="Logs Report.rdl" />
     <Report Include="Operator report 2.rdl" />

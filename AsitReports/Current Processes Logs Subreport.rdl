@@ -3,22 +3,31 @@
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="testDataSource1">
-      <DataSourceReference>testDataSource1</DataSourceReference>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>DataSource1</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>25386c98-817d-425b-9310-8d717d21946c</rd:DataSourceID>
+      <rd:DataSourceID>77b845a2-a839-4d00-a0e3-619cfdfe6a95</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>testDataSource1</DataSourceName>
-        <CommandText>SELECT        Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Users.Name, Logs.ErrorEventTypeId
-FROM            Logs INNER JOIN
-                         Users ON Logs.UserId = Users.Id
-WHERE        (Logs.UserId IS NOT NULL)</CommandText>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT        Logs.Module, Logs.Date, Logs.CheckDate, Logs.Record, Logs.ProcessId AS ProcId, Logs.ErrorEventTypeId, Logs.EquimpmentId, LogFiles.FilePath, LogFiles.LogId, 
+                         Equimpments.IsEnable, Equimpments.Name, ErrorEventTypes.Name AS Expr1, Processes.Id, Cameras.Ip, Cameras.Port, Cameras.Name AS Expr2, 
+                         Logs.Id AS LogId1
+FROM            Processes RIGHT OUTER JOIN
+                         Logs LEFT OUTER JOIN
+                         LogFiles ON Logs.Id = LogFiles.LogId LEFT OUTER JOIN
+                         Cameras ON LogFiles.CameraId = Cameras.Id LEFT OUTER JOIN
+                         Equimpments ON Logs.EquimpmentId = Equimpments.Id AND Cameras.EquimpmentId = Equimpments.Id LEFT OUTER JOIN
+                         ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id ON Processes.Id = Logs.ProcessId</CommandText>
       </Query>
       <Fields>
+        <Field Name="Module">
+          <DataField>Module</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Date">
           <DataField>Date</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -27,23 +36,72 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
           <DataField>CheckDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Module">
-          <DataField>Module</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Record">
           <DataField>Record</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="ProcId">
+          <DataField>ProcId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="ErrorEventTypeId">
           <DataField>ErrorEventTypeId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="EquimpmentId">
+          <DataField>EquimpmentId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FilePath">
+          <DataField>FilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LogId">
+          <DataField>LogId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IsEnable">
+          <DataField>IsEnable</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Expr1">
+          <DataField>Expr1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Ip">
+          <DataField>Ip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Port">
+          <DataField>Port</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Expr2">
+          <DataField>Expr2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LogId1">
+          <DataField>LogId1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=Fields!ProcId.Value</FilterExpression>
+          <Operator>Equal</Operator>
+          <FilterValues>
+            <FilterValue>=Parameters!ProcIdLogs.Value</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -57,7 +115,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Operator Report</Value>
+                    <Value>Logs</Value>
                     <Style>
                       <FontFamily>Segoe UI Light</FontFamily>
                       <FontSize>24pt</FontSize>
@@ -70,7 +128,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
             </Paragraphs>
             <rd:DefaultName>textbox1</rd:DefaultName>
             <Height>0.43in</Height>
-            <Width>5in</Width>
+            <Width>16in</Width>
             <Style>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
@@ -88,13 +146,57 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                   <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45833in</Width>
+                  <Width>1.125in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.20833in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.98958in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
                   <Height>0.22in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Module</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#666666</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="textbox3">
@@ -104,7 +206,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Check Date</Value>
+                                  <Value>Date</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -142,7 +244,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Module</Value>
+                                  <Value>Check Date</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -209,31 +311,31 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>0.21in</Height>
-                  <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CheckDate">
+                        <Textbox Name="textbox7">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CheckDate.Value</Value>
+                                  <Value>Error Event Type</Value>
                                   <Style>
                                     <FontFamily />
-                                    <Color>#333333</Color>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#666666</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <FontFamily />
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CheckDate</rd:DefaultName>
+                          <rd:DefaultName>textbox7</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -250,6 +352,11 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.21in</Height>
+                  <TablixCells>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Module">
@@ -270,6 +377,78 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Module</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Date">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Date.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Date</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CheckDate">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CheckDate.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CheckDate</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -322,6 +501,42 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Expr1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Expr1.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Expr1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
@@ -331,229 +546,44 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <TablixHeader>
-                    <Size>1in</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox7">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Name</Value>
-                                <Style>
-                                  <FontFamily />
-                                  <FontSize>11pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>#666666</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Textbox7</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                          </Border>
-                          <BottomBorder>
-                            <Style>Solid</Style>
-                          </BottomBorder>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>1in</Size>
-                        <CellContents>
-                          <Textbox Name="Textbox9">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>Date</Value>
-                                    <Style>
-                                      <FontFamily />
-                                      <FontSize>11pt</FontSize>
-                                      <FontWeight>Bold</FontWeight>
-                                      <Color>#666666</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style />
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>Textbox9</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                              </Border>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <KeepTogether>true</KeepTogether>
-                        </TablixMember>
-                      </TablixMembers>
-                    </TablixMember>
-                  </TablixMembers>
                   <KeepWithGroup>After</KeepWithGroup>
                   <RepeatOnNewPage>true</RepeatOnNewPage>
+                  <KeepTogether>true</KeepTogether>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Name">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Name.Value</GroupExpression>
-                    </GroupExpressions>
-                    <PageBreak>
-                      <BreakLocation>Between</BreakLocation>
-                    </PageBreak>
+                  <Group Name="table1_Details_Group">
+                    <DataElementName>Detail</DataElementName>
                   </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Name.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixHeader>
-                    <Size>1in</Size>
-                    <CellContents>
-                      <Textbox Name="Name1">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!Name.Value</Value>
-                                <Style>
-                                  <FontFamily />
-                                  <Color>#333333</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Name1</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                          </Border>
-                          <BottomBorder>
-                            <Style>Solid</Style>
-                          </BottomBorder>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
                   <TablixMembers>
-                    <TablixMember>
-                      <Group Name="Date">
-                        <GroupExpressions>
-                          <GroupExpression>=Format(DateValue(Fields!Date.Value), "dd.MM.yyyy")</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Date.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                      <TablixHeader>
-                        <Size>1in</Size>
-                        <CellContents>
-                          <Textbox Name="Date1">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!Date.Value</Value>
-                                    <Style>
-                                      <FontFamily />
-                                      <Color>#333333</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style />
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>Date1</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                              </Border>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <Group Name="table1_Details_Group">
-                            <DataElementName>Detail</DataElementName>
-                          </Group>
-                          <TablixMembers>
-                            <TablixMember />
-                          </TablixMembers>
-                          <DataElementName>Detail_Collection</DataElementName>
-                          <DataElementOutput>Output</DataElementOutput>
-                          <KeepTogether>true</KeepTogether>
-                        </TablixMember>
-                      </TablixMembers>
-                    </TablixMember>
+                    <TablixMember />
                   </TablixMembers>
+                  <DataElementName>Detail_Collection</DataElementName>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Filters>
               <Filter>
-                <FilterExpression>=Fields!Date.Value</FilterExpression>
-                <Operator>Between</Operator>
+                <FilterExpression>=Fields!Id.Value</FilterExpression>
+                <Operator>Equal</Operator>
                 <FilterValues>
-                  <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
-                  <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
+                  <FilterValue>=Parameters!ProcIdLogs.Value</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
-            <Top>0.43in</Top>
+            <Top>3.64875in</Top>
+            <Left>0.3175cm</Left>
             <Height>0.43in</Height>
-            <Width>6.45833in</Width>
+            <Width>7.32292in</Width>
             <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
@@ -563,15 +593,15 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                 <ChartMember>
                   <Group Name="Chart1_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Name.Value</GroupExpression>
+                      <GroupExpression>=Fields!Expr1.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Name.Value</Value>
+                      <Value>=Fields!Expr1.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Name.Value</Label>
+                  <Label>=Fields!Expr1.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -584,16 +614,14 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="Record">
+                <ChartSeries Name="ErrorEventTypeId">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Count(Fields!ErrorEventTypeId.Value)</Y>
+                        <Y>=Sum(Fields!ErrorEventTypeId.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <UseValueAsLabel>true</UseValueAsLabel>
-                        <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
@@ -602,6 +630,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
+                  <Type>Shape</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -612,9 +641,6 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <ChartItemInLegend>
-                    <LegendText>Error events</LegendText>
-                  </ChartItemInLegend>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -908,19 +934,21 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
             <DataSetName>DataSet1</DataSetName>
             <Filters>
               <Filter>
-                <FilterExpression>=Fields!Date.Value</FilterExpression>
-                <Operator>Between</Operator>
+                <FilterExpression>=Fields!ProcId.Value</FilterExpression>
+                <Operator>Equal</Operator>
                 <FilterValues>
-                  <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
-                  <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
+                  <FilterValue>=Parameters!ProcIdLogs.Value</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
-            <Top>1.12736in</Top>
-            <Left>0.22792in</Left>
-            <Height>2.72556in</Height>
-            <Width>6.23042in</Width>
+            <Top>0.55083in</Top>
+            <Left>0.125in</Left>
+            <Height>2.8125in</Height>
+            <Width>4.20833in</Width>
             <ZIndex>2</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(IsNothing(First(Fields!Expr1.Value, "DataSet1")), True, False)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -931,10 +959,10 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
             </Style>
           </Chart>
         </ReportItems>
-        <Height>4.19333in</Height>
+        <Height>6.93292in</Height>
         <Style />
       </Body>
-      <Width>6.875in</Width>
+      <Width>16in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -945,23 +973,10 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="StartDateParam">
-      <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>=DateAdd("d", -7, Today)</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Start Date: </Prompt>
-    </ReportParameter>
-    <ReportParameter Name="EndDateParam">
-      <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>=DateAdd("d", 0, Today)</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>End Date: </Prompt>
+    <ReportParameter Name="ProcIdLogs">
+      <DataType>Integer</DataType>
+      <Prompt>ReportParameter1</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -972,12 +987,7 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>StartDateParam</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>EndDateParam</ParameterName>
+          <ParameterName>ProcIdLogs</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -985,5 +995,5 @@ WHERE        (Logs.UserId IS NOT NULL)</CommandText>
   <Language>ru-RU</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>bf4a08bc-b2b6-4d90-a864-945f06314370</rd:ReportID>
+  <rd:ReportID>2c43cd71-8858-4418-8f67-0f058e166c87</rd:ReportID>
 </Report>
