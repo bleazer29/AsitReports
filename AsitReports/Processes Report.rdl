@@ -13,23 +13,20 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>testDataSource1</DataSourceName>
-        <CommandText>SELECT        Processes.Id, Processes.StrProcess1CId, Processes.IsLoading, Processes.IsAnotherCounterpartyTrailer, Processes.CurrentControlPointId, Processes.RouteId, 
+        <CommandText>SELECT DISTINCT 
+                         Processes.Id, Processes.StrProcess1CId, Processes.IsLoading, Processes.IsAnotherCounterpartyTrailer, Processes.CurrentControlPointId, Processes.RouteId, 
                          Processes.DriverId, Processes.CounterpartyId, Processes.VehicleTruckId, Processes.VehicleTrailerId, Processes.StrRfidId, Processes.NetWeight1С_Truck, 
                          Processes.GrossWeight_Truck, Processes.NetWeightActual_Truck, Processes.NetWeight1С_Trailer, Processes.GrossWeight_Trailer, 
                          Processes.NetWeightActual_Trailer, Processes.IsCompleted, Processes.IsRun, Processes.IsFirstWeight, Processes.IsSending, Processes.Unloaded, 
-                         Processes.Loaded, Processes.CargoId, Counterparties.Name, Counterparties.Id AS Expr1, Owners.Id AS Expr2, Owners.Name AS Expr3, ControlPoints.Id AS Expr4, 
-                         ControlPoints.Name AS Expr5, RoutePoints.Id AS Expr6, RoutePoints.[Order], RoutePoints.RouteId AS Expr7, RoutePoints.ControlPointId, Routes.Id AS Expr8, 
-                         Drivers.Id AS Expr9, Drivers.Name AS Expr10, Vehicles.Id AS Expr11, Vehicles.Weight, Vehicles.Name AS Expr12, Vehicles.OwnerId, Cargoes.Name AS CargoName, 
-                         Logs.Date
-FROM            Owners INNER JOIN
+                         Processes.Loaded, Processes.CargoId, Counterparties.Name, Owners.Name AS Expr3, ControlPoints.Name AS Expr5, Drivers.Name AS Expr10, Vehicles.Weight, 
+                         Vehicles.Name AS Expr12, Vehicles.OwnerId, Cargoes.Name AS CargoName, Logs.Date
+FROM            Cargoes INNER JOIN
+                         Owners INNER JOIN
                          Vehicles ON Owners.Id = Vehicles.OwnerId INNER JOIN
                          Processes INNER JOIN
                          Drivers ON Processes.DriverId = Drivers.Id INNER JOIN
-                         Counterparties ON Processes.CounterpartyId = Counterparties.Id INNER JOIN
-                         RoutePoints INNER JOIN
-                         Routes ON RoutePoints.RouteId = Routes.Id INNER JOIN
-                         ControlPoints ON RoutePoints.ControlPointId = ControlPoints.Id ON Processes.RouteId = Routes.Id ON Vehicles.Id = Processes.VehicleTruckId INNER JOIN
-                         Cargoes ON Processes.CargoId = Cargoes.Id INNER JOIN
+                         Counterparties ON Processes.CounterpartyId = Counterparties.Id ON Vehicles.Id = Processes.VehicleTruckId ON Cargoes.Id = Processes.CargoId INNER JOIN
+                         ControlPoints ON Processes.CurrentControlPointId = ControlPoints.Id LEFT OUTER JOIN
                          Logs ON Processes.Id = Logs.ProcessId</CommandText>
       </Query>
       <Fields>
@@ -133,57 +130,17 @@ FROM            Owners INNER JOIN
           <DataField>Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Expr1">
-          <DataField>Expr1</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Expr2">
-          <DataField>Expr2</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="Expr3">
           <DataField>Expr3</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Expr4">
-          <DataField>Expr4</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Expr5">
           <DataField>Expr5</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Expr6">
-          <DataField>Expr6</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Order">
-          <DataField>Order</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Expr7">
-          <DataField>Expr7</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="ControlPointId">
-          <DataField>ControlPointId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Expr8">
-          <DataField>Expr8</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Expr9">
-          <DataField>Expr9</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="Expr10">
           <DataField>Expr10</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Expr11">
-          <DataField>Expr11</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Weight">
           <DataField>Weight</DataField>
@@ -206,6 +163,16 @@ FROM            Owners INNER JOIN
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=Fields!Date.Value</FilterExpression>
+          <Operator>Between</Operator>
+          <FilterValues>
+            <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
+            <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -281,15 +248,6 @@ FROM            Owners INNER JOIN
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.07292in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.09375in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
@@ -839,58 +797,7 @@ FROM            Owners INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox72">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Route</Value>
-                                  <Style>
-                                    <FontFamily />
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox72</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Width>2pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Width>2pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Width>2pt</Width>
-                            </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <ColSpan>4</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox188">
+                        <Textbox Name="Textbox248">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -906,30 +813,56 @@ FROM            Owners INNER JOIN
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox188</rd:DefaultName>
+                          <rd:DefaultName>Textbox248</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                              <Width>2pt</Width>
-                            </TopBorder>
                             <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
+                            </BottomBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox251">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox251</rd:DefaultName>
+                          <Style>
+                            <Border>
                               <Style>None</Style>
-                              <Width>2pt</Width>
-                            </RightBorder>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1521,59 +1454,14 @@ FROM            Owners INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox30">
+                        <Textbox Name="Textbox249">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Control Point Id</Value>
-                                  <Style>
-                                    <FontFamily />
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>#666666</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily />
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>textbox30</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Width>2pt</Width>
-                            </LeftBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox31">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Control Point Name</Value>
+                                  <Value>Unloaded</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -1587,7 +1475,7 @@ FROM            Owners INNER JOIN
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>textbox31</rd:DefaultName>
+                          <rd:DefaultName>Textbox249</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1596,7 +1484,6 @@ FROM            Owners INNER JOIN
                               <Style>Solid</Style>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1607,14 +1494,14 @@ FROM            Owners INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox32">
+                        <Textbox Name="Textbox252">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Route Point Id</Value>
+                                  <Value>Loaded</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -1624,12 +1511,11 @@ FROM            Owners INNER JOIN
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <FontFamily />
                                 <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>textbox32</rd:DefaultName>
+                          <rd:DefaultName>Textbox252</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1638,98 +1524,6 @@ FROM            Owners INNER JOIN
                               <Style>Solid</Style>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox33">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Route Point Order</Value>
-                                  <Style>
-                                    <FontFamily />
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>#666666</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily />
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>textbox33</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                              <Width>2pt</Width>
-                            </RightBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox189">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily />
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox189</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                              <Width>2pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2166,7 +1960,6 @@ FROM            Owners INNER JOIN
                       <CellContents>
                         <Textbox Name="IsCompleted">
                           <CanGrow>true</CanGrow>
-                          <HideDuplicates>DataSet1</HideDuplicates>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -2205,7 +1998,6 @@ FROM            Owners INNER JOIN
                       <CellContents>
                         <Textbox Name="IsRun">
                           <CanGrow>true</CanGrow>
-                          <HideDuplicates>DataSet1</HideDuplicates>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -2228,9 +2020,6 @@ FROM            Owners INNER JOIN
                             <Border>
                               <Style>Solid</Style>
                             </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2281,14 +2070,14 @@ FROM            Owners INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Expr4">
+                        <Textbox Name="Unloaded">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Expr4.Value</Value>
+                                  <Value>=Fields!Unloaded.Value</Value>
                                   <Style>
                                     <FontFamily />
                                     <Color>#333333</Color>
@@ -2300,7 +2089,7 @@ FROM            Owners INNER JOIN
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Expr4</rd:DefaultName>
+                          <rd:DefaultName>Unloaded</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2308,10 +2097,6 @@ FROM            Owners INNER JOIN
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
-                            <LeftBorder>
-                              <Width>2pt</Width>
-                            </LeftBorder>
-                            <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2322,14 +2107,14 @@ FROM            Owners INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Expr5">
+                        <Textbox Name="Loaded">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Expr5.Value</Value>
+                                  <Value>=Fields!Loaded.Value</Value>
                                   <Style>
                                     <FontFamily />
                                     <Color>#333333</Color>
@@ -2341,7 +2126,7 @@ FROM            Owners INNER JOIN
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Expr5</rd:DefaultName>
+                          <rd:DefaultName>Loaded</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2349,131 +2134,6 @@ FROM            Owners INNER JOIN
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Expr6">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Expr6.Value</Value>
-                                  <Style>
-                                    <FontFamily />
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Expr6</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Order">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Order.Value</Value>
-                                  <Style>
-                                    <FontFamily />
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Order</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                              <Width>2pt</Width>
-                            </RightBorder>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox190">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily />
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox190</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                              <Width>2pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2488,9 +2148,6 @@ FROM            Owners INNER JOIN
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -2592,8 +2249,52 @@ FROM            Owners INNER JOIN
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
-                      <KeepWithGroup>After</KeepWithGroup>
-                      <RepeatOnNewPage>true</RepeatOnNewPage>
+                      <TablixMembers>
+                        <TablixMember>
+                          <TablixHeader>
+                            <Size>1in</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox254">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value />
+                                        <Style>
+                                          <FontFamily />
+                                          <FontSize>11pt</FontSize>
+                                          <FontWeight>Bold</FontWeight>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Left</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Textbox254</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Style>None</Style>
+                                  </Border>
+                                  <BottomBorder>
+                                    <Style>Solid</Style>
+                                  </BottomBorder>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember />
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
                     </TablixMember>
                   </TablixMembers>
                   <KeepWithGroup>After</KeepWithGroup>
@@ -2686,13 +2387,54 @@ FROM            Owners INNER JOIN
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
-                          <KeepWithGroup>After</KeepWithGroup>
-                          <RepeatOnNewPage>true</RepeatOnNewPage>
-                          <KeepTogether>true</KeepTogether>
+                          <TablixHeader>
+                            <Size>1in</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox255">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>Is Loading</Value>
+                                        <Style>
+                                          <FontFamily />
+                                          <FontSize>11pt</FontSize>
+                                          <FontWeight>Bold</FontWeight>
+                                          <Color>#666666</Color>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Left</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Textbox255</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <BottomBorder>
+                                    <Style>Solid</Style>
+                                  </BottomBorder>
+                                  <BackgroundColor>LightSteelBlue</BackgroundColor>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <KeepTogether>true</KeepTogether>
+                            </TablixMember>
+                          </TablixMembers>
                         </TablixMember>
                       </TablixMembers>
-                      <KeepWithGroup>After</KeepWithGroup>
-                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                   </TablixMembers>
                   <KeepWithGroup>After</KeepWithGroup>
@@ -2722,7 +2464,7 @@ FROM            Owners INNER JOIN
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Format(DateValue(Fields!Date.Value), "dd.MM.yyyy")</Value>
+                                <Value>=Fields!Date.Value</Value>
                                 <Style>
                                   <FontFamily />
                                   <Color>#333333</Color>
@@ -2803,16 +2545,44 @@ FROM            Owners INNER JOIN
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
-                          <Group Name="Order">
-                            <GroupExpressions>
-                              <GroupExpression>=Fields!Order.Value</GroupExpression>
-                            </GroupExpressions>
-                          </Group>
-                          <SortExpressions>
-                            <SortExpression>
-                              <Value>=Fields!Order.Value</Value>
-                            </SortExpression>
-                          </SortExpressions>
+                          <TablixHeader>
+                            <Size>1in</Size>
+                            <CellContents>
+                              <Textbox Name="IsLoading">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!IsLoading.Value</Value>
+                                        <Style>
+                                          <FontFamily />
+                                          <Color>#333333</Color>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>IsLoading</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <BottomBorder>
+                                    <Style>Solid</Style>
+                                  </BottomBorder>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
                           <TablixMembers>
                             <TablixMember />
                           </TablixMembers>
@@ -2823,7 +2593,8 @@ FROM            Owners INNER JOIN
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <KeepTogether>true</KeepTogether>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <FixedColumnHeaders>true</FixedColumnHeaders>
             <DataSetName>DataSet1</DataSetName>
             <Filters>
               <Filter>
@@ -2837,7 +2608,7 @@ FROM            Owners INNER JOIN
             </Filters>
             <Top>0.43in</Top>
             <Height>0.68in</Height>
-            <Width>22.03125in</Width>
+            <Width>19.86458in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2850,74 +2621,38 @@ FROM            Owners INNER JOIN
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label />
+                  <Group Name="Chart1_CategoryGroup">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!IsLoading.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!IsLoading.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=Fields!IsLoading.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>Is Completed</Label>
-                </ChartMember>
-                <ChartMember>
-                  <Label>Is Run</Label>
+                  <Label>Is Loading</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="IsCompleted">
+                <ChartSeries Name="IsLoading">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Count(IIF(IsNothing(Fields!IsCompleted), 0, IIF(Fields!IsCompleted.Value = True, 1, 0)))</Y>
+                        <Y>=Count(Fields!IsLoading.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <Label>#PERCENT</Label>
-                        <Visible>true</Visible>
-                      </ChartDataLabel>
-                      <Style>
-                        <Color>CornflowerBlue</Color>
-                        <BackgroundGradientType>None</BackgroundGradientType>
-                        <BackgroundHatchType>None</BackgroundHatchType>
-                      </Style>
-                      <ChartMarker>
-                        <Style />
-                      </ChartMarker>
-                      <DataElementOutput>Output</DataElementOutput>
-                      <ChartItemInLegend>
-                        <LegendText>Погрузка</LegendText>
-                      </ChartItemInLegend>
-                    </ChartDataPoint>
-                  </ChartDataPoints>
-                  <Type>Shape</Type>
-                  <Style />
-                  <ChartEmptyPoints>
-                    <Style />
-                    <ChartMarker>
-                      <Style />
-                    </ChartMarker>
-                    <ChartDataLabel>
-                      <Style />
-                    </ChartDataLabel>
-                  </ChartEmptyPoints>
-                  <ValueAxisName>Primary</ValueAxisName>
-                  <CategoryAxisName>Primary</CategoryAxisName>
-                  <ChartSmartLabel>
-                    <CalloutLineColor>Black</CalloutLineColor>
-                    <MinMovingDistance>0pt</MinMovingDistance>
-                  </ChartSmartLabel>
-                </ChartSeries>
-                <ChartSeries Name="IsRun">
-                  <ChartDataPoints>
-                    <ChartDataPoint>
-                      <ChartDataPointValues>
-                        <Y>=Count(IIF(IsNothing(Fields!IsRun), 0, IIF(Fields!IsRun.Value = True, 1, 0)))</Y>
-                      </ChartDataPointValues>
-                      <ChartDataLabel>
-                        <Style />
-                        <Label>#PERCENT</Label>
+                        <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
@@ -2925,9 +2660,6 @@ FROM            Owners INNER JOIN
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
-                      <ChartItemInLegend>
-                        <LegendText>Отгрузка</LegendText>
-                      </ChartItemInLegend>
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
@@ -3211,7 +2943,6 @@ FROM            Owners INNER JOIN
                 </Style>
               </ChartTitle>
             </ChartTitles>
-            <Palette>Pacific</Palette>
             <ChartBorderSkin>
               <Style>
                 <BackgroundColor>Gray</BackgroundColor>
@@ -3262,12 +2993,12 @@ FROM            Owners INNER JOIN
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!CargoName.Value</GroupExpression>
+                      <GroupExpression>=Fields!CargoId.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!CargoName.Value</Value>
+                      <Value>=Fields!CargoId.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <Label>=Fields!CargoName.Value</Label>
@@ -3611,8 +3342,8 @@ FROM            Owners INNER JOIN
                 <FilterExpression>=Fields!Date.Value</FilterExpression>
                 <Operator>Between</Operator>
                 <FilterValues>
-                  <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
-                  <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
+                  <FilterValue>=DateValue(Parameters!StartDateParam.Value)</FilterValue>
+                  <FilterValue>=DateValue(Parameters!EndDateParam.Value)</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
@@ -3631,10 +3362,10 @@ FROM            Owners INNER JOIN
             </Style>
           </Chart>
         </ReportItems>
-        <Height>8.27666in</Height>
+        <Height>5.54749in</Height>
         <Style />
       </Body>
-      <Width>22.03125in</Width>
+      <Width>24.42583in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -3654,7 +3385,7 @@ FROM            Owners INNER JOIN
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>=DateAdd("d", -7, Today)</Value>
+          <Value>=DateAdd("d", -7, DateValue(Today))</Value>
         </Values>
       </DefaultValue>
       <Prompt>Показывать процессы от: </Prompt>
@@ -3663,7 +3394,7 @@ FROM            Owners INNER JOIN
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>=DateAdd("d", 0, Today)</Value>
+          <Value>=DateValue(Today)</Value>
         </Values>
       </DefaultValue>
       <Prompt>до: </Prompt>
