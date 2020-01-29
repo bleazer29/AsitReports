@@ -49,10 +49,10 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
+    <DataSource Include="DataSource1.rds" />
     <DataSource Include="testDataSource1.rds" />
   </ItemGroup>
   <ItemGroup>
-    <Report Include="Controlpoint report.rdl" />
     <Report Include="Current Processes Lab Subreport.rdl" />
     <Report Include="Current Processes Logs Subreport.rdl" />
     <Report Include="Current Processes Report.rdl" />
@@ -62,6 +62,7 @@
     <Report Include="Operator Report.rdl" />
     <Report Include="Processes Report.rdl" />
     <Report Include="Report1.rdl" />
+    <Report Include="Template1.rdl" />
     <Report Include="VehiclesOnPointsReport.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />

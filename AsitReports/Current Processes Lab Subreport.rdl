@@ -13,12 +13,18 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ProcIdLabs">
+            <Value>=Parameters!ProcIdLabs.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
         <CommandText>SELECT        Laboratories.Result, Laboratories.ProcessId, Laboratories.StrRfidId, Laboratories.VehicleNumberTrucks, Laboratories.StrProcess1CId, 
                          Laboratories.VehicleNumberTrailers, Laboratories.Date, Laboratories.Humidity, Laboratories.Oiliness, Laboratories.WeedAdmixture, 
                          LaboratoryTestResults.LaboratoryId, Processes.Id, Laboratories.Id AS LabId
 FROM            LaboratoryTestResults RIGHT OUTER JOIN
                          Laboratories ON LaboratoryTestResults.LaboratoryId = Laboratories.Id LEFT OUTER JOIN
-                         Processes ON Laboratories.ProcessId = Processes.Id</CommandText>
+                         Processes ON Laboratories.ProcessId = Processes.Id
+WHERE Laboratories.ProcessId = @ProcIdLabs</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>

@@ -13,15 +13,20 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>SELECT        Logs.Module, Logs.Date, Logs.CheckDate, Logs.Record, Logs.ProcessId AS ProcId, Logs.ErrorEventTypeId, Logs.EquimpmentId, LogFiles.FilePath, LogFiles.LogId, 
-                         Equimpments.IsEnable, Equimpments.Name, ErrorEventTypes.Name AS Expr1, Processes.Id, Cameras.Ip, Cameras.Port, Cameras.Name AS Expr2, 
-                         Logs.Id AS LogId1
-FROM            Processes RIGHT OUTER JOIN
-                         Logs LEFT OUTER JOIN
-                         LogFiles ON Logs.Id = LogFiles.LogId LEFT OUTER JOIN
-                         Cameras ON LogFiles.CameraId = Cameras.Id LEFT OUTER JOIN
-                         Equimpments ON Logs.EquimpmentId = Equimpments.Id AND Cameras.EquimpmentId = Equimpments.Id LEFT OUTER JOIN
-                         ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id ON Processes.Id = Logs.ProcessId</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@ProcIdLogs">
+            <Value>=Parameters!ProcIdLogs.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT Logs.Module, Logs.Date, Logs.CheckDate, Logs.Record, Logs.ProcessId AS LogsProcId, Logs.ErrorEventTypeId, Logs.EquimpmentId, LogFiles.FilePath, LogFiles.LogId AS LogFilesLogId, Equimpments.IsEnable, 
+                  Equimpments.Name AS EquimpmentName, ErrorEventTypes.Name AS ErrorEventTypeName, Processes.Id, Cameras.Ip, Cameras.Port, Cameras.Name AS CamerasName, Logs.Id AS LogsId
+FROM     Processes RIGHT OUTER JOIN
+                  Logs LEFT OUTER JOIN
+                  LogFiles ON Logs.Id = LogFiles.LogId LEFT OUTER JOIN
+                  Cameras ON LogFiles.CameraId = Cameras.Id LEFT OUTER JOIN
+                  Equimpments ON Logs.EquimpmentId = Equimpments.Id AND Cameras.EquimpmentId = Equimpments.Id LEFT OUTER JOIN
+                  ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id ON Processes.Id = Logs.ProcessId
+WHERE  (Processes.Id = @ProcIdLogs)</CommandText>
       </Query>
       <Fields>
         <Field Name="Module">
@@ -583,7 +588,7 @@ FROM            Processes RIGHT OUTER JOIN
             <Top>3.64875in</Top>
             <Left>0.3175cm</Left>
             <Height>0.43in</Height>
-            <Width>7.32292in</Width>
+            <Width>7.32291in</Width>
             <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
