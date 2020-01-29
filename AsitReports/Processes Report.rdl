@@ -18,16 +18,19 @@
                          Processes.DriverId, Processes.CounterpartyId, Processes.VehicleTruckId, Processes.VehicleTrailerId, Processes.StrRfidId, Processes.NetWeight1С_Truck, 
                          Processes.GrossWeight_Truck, Processes.NetWeightActual_Truck, Processes.NetWeight1С_Trailer, Processes.GrossWeight_Trailer, 
                          Processes.NetWeightActual_Trailer, Processes.IsCompleted, Processes.IsRun, Processes.IsFirstWeight, Processes.IsSending, Processes.Unloaded, 
-                         Processes.Loaded, Processes.CargoId, Counterparties.Name, Owners.Name AS Expr3, ControlPoints.Name AS Expr5, Drivers.Name AS Expr10, Vehicles.Weight, 
-                         Vehicles.Name AS Expr12, Vehicles.OwnerId, Cargoes.Name AS CargoName, Logs.Date
-FROM            ControlPoints INNER JOIN
+                         Processes.Loaded, Processes.CargoId, Counterparties.Name, Owners_1.Name AS Expr3, ControlPoints.Name AS ControlpointName, Drivers.Name AS DriverName, 
+                         Vehicles.Weight, Vehicles.Name AS TruckName, Vehicles.OwnerId, Cargoes.Name AS CargoName, Logs.Date, Vehicles.VehicleNumber, 
+                         Vehicles_1.VehicleNumber AS TrailerNumber, Vehicles_1.Name AS TrailerName, Owners.Name AS TruckOwnerName
+FROM            Owners INNER JOIN
+                         Vehicles AS Vehicles_1 ON Owners.Id = Vehicles_1.OwnerId RIGHT OUTER JOIN
+                         ControlPoints INNER JOIN
                          Cargoes INNER JOIN
                          Processes INNER JOIN
                          Drivers ON Processes.DriverId = Drivers.Id INNER JOIN
-                         Counterparties ON Processes.CounterpartyId = Counterparties.Id ON Cargoes.Id = Processes.CargoId ON 
-                         ControlPoints.Id = Processes.CurrentControlPointId INNER JOIN
-                         Owners INNER JOIN
-                         Vehicles ON Owners.Id = Vehicles.OwnerId ON Processes.VehicleTruckId = Vehicles.Id LEFT OUTER JOIN
+                         Counterparties ON Processes.CounterpartyId = Counterparties.Id ON Cargoes.Id = Processes.CargoId ON ControlPoints.Id = Processes.CurrentControlPointId ON 
+                         Vehicles_1.Id = Processes.VehicleTrailerId LEFT OUTER JOIN
+                         Owners AS Owners_1 INNER JOIN
+                         Vehicles ON Owners_1.Id = Vehicles.OwnerId ON Processes.VehicleTruckId = Vehicles.Id LEFT OUTER JOIN
                          Logs ON Processes.Id = Logs.ProcessId</CommandText>
       </Query>
       <Fields>
@@ -135,20 +138,20 @@ FROM            ControlPoints INNER JOIN
           <DataField>Expr3</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Expr5">
-          <DataField>Expr5</DataField>
+        <Field Name="ControlpointName">
+          <DataField>ControlpointName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Expr10">
-          <DataField>Expr10</DataField>
+        <Field Name="DriverName">
+          <DataField>DriverName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Weight">
           <DataField>Weight</DataField>
           <rd:TypeName>System.Single</rd:TypeName>
         </Field>
-        <Field Name="Expr12">
-          <DataField>Expr12</DataField>
+        <Field Name="TruckName">
+          <DataField>TruckName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="OwnerId">
@@ -162,6 +165,22 @@ FROM            ControlPoints INNER JOIN
         <Field Name="Date">
           <DataField>Date</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="VehicleNumber">
+          <DataField>VehicleNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TrailerNumber">
+          <DataField>TrailerNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TrailerName">
+          <DataField>TrailerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TruckOwnerName">
+          <DataField>TruckOwnerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <Filters>
