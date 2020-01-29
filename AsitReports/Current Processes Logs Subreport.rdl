@@ -13,15 +13,20 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>SELECT        Logs.Module, Logs.Date, Logs.CheckDate, Logs.Record, Logs.ProcessId AS ProcId, Logs.ErrorEventTypeId, Logs.EquimpmentId, LogFiles.FilePath, LogFiles.LogId, 
-                         Equimpments.IsEnable, Equimpments.Name, ErrorEventTypes.Name AS Expr1, Processes.Id, Cameras.Ip, Cameras.Port, Cameras.Name AS Expr2, 
-                         Logs.Id AS LogId1
-FROM            Processes RIGHT OUTER JOIN
-                         Logs LEFT OUTER JOIN
-                         LogFiles ON Logs.Id = LogFiles.LogId LEFT OUTER JOIN
-                         Cameras ON LogFiles.CameraId = Cameras.Id LEFT OUTER JOIN
-                         Equimpments ON Logs.EquimpmentId = Equimpments.Id AND Cameras.EquimpmentId = Equimpments.Id LEFT OUTER JOIN
-                         ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id ON Processes.Id = Logs.ProcessId</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@ProcIdLogs">
+            <Value>=Parameters!ProcIdLogs.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT Logs.Module, Logs.Date, Logs.CheckDate, Logs.Record, Logs.ProcessId AS LogsProcId, Logs.ErrorEventTypeId, Logs.EquimpmentId, LogFiles.FilePath, LogFiles.LogId AS LogFilesLogId, Equimpments.IsEnable, 
+                  Equimpments.Name AS EquimpmentName, ErrorEventTypes.Name AS ErrorEventTypeName, Processes.Id, Cameras.Ip, Cameras.Port, Cameras.Name AS CamerasName, Logs.Id AS LogsId
+FROM     Processes RIGHT OUTER JOIN
+                  Logs LEFT OUTER JOIN
+                  LogFiles ON Logs.Id = LogFiles.LogId LEFT OUTER JOIN
+                  Cameras ON LogFiles.CameraId = Cameras.Id LEFT OUTER JOIN
+                  Equimpments ON Logs.EquimpmentId = Equimpments.Id AND Cameras.EquimpmentId = Equimpments.Id LEFT OUTER JOIN
+                  ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id ON Processes.Id = Logs.ProcessId
+WHERE  (Processes.Id = @ProcIdLogs)</CommandText>
       </Query>
       <Fields>
         <Field Name="Module">
@@ -149,10 +154,10 @@ FROM            Processes RIGHT OUTER JOIN
                   <Width>1.125in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.48958in</Width>
+                  <Width>2.20833in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.27083in</Width>
+                  <Width>1.98958in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -355,7 +360,7 @@ FROM            Processes RIGHT OUTER JOIN
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.74125in</Height>
+                  <Height>0.21in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -582,8 +587,8 @@ FROM            Processes RIGHT OUTER JOIN
             </Filters>
             <Top>3.64875in</Top>
             <Left>0.3175cm</Left>
-            <Height>0.96125in</Height>
-            <Width>7.88541in</Width>
+            <Height>0.43in</Height>
+            <Width>7.32291in</Width>
             <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
@@ -992,27 +997,6 @@ FROM            Processes RIGHT OUTER JOIN
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
-  <Code>Public Shared Function GetImageFromFTPServer(ByVal imageURL As String) As Byte()
-
- 
-
-        Dim request As System.Net.WebClient = New System.Net.WebClient()
-
-        request.Credentials = New System.Net.NetworkCredential("FTP-UserName", "FTP-Password", "FTP-UserDomain")
-
-        Try
-
-            Return request.DownloadData(imageURL)
-
-        Catch ex As Exception
-
-            Return Nothing
-
-        End Try
-
- 
-
-    End Function</Code>
   <Language>ru-RU</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
