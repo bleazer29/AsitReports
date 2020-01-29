@@ -1124,7 +1124,6 @@ FROM            Drivers INNER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1564,7 +1563,7 @@ FROM            Drivers INNER JOIN
             </Filters>
             <Top>0.43in</Top>
             <Height>0.78417in</Height>
-            <Width>18.79167in</Width>
+            <Width>18.79168in</Width>
             <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
@@ -1572,7 +1571,7 @@ FROM            Drivers INNER JOIN
         <Height>1.32in</Height>
         <Style />
       </Body>
-      <Width>18.79167in</Width>
+      <Width>18.79168in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

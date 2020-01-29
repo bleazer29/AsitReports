@@ -20,13 +20,14 @@
                          Processes.NetWeightActual_Trailer, Processes.IsCompleted, Processes.IsRun, Processes.IsFirstWeight, Processes.IsSending, Processes.Unloaded, 
                          Processes.Loaded, Processes.CargoId, Counterparties.Name, Owners.Name AS Expr3, ControlPoints.Name AS Expr5, Drivers.Name AS Expr10, Vehicles.Weight, 
                          Vehicles.Name AS Expr12, Vehicles.OwnerId, Cargoes.Name AS CargoName, Logs.Date
-FROM            Cargoes INNER JOIN
-                         Owners INNER JOIN
-                         Vehicles ON Owners.Id = Vehicles.OwnerId INNER JOIN
+FROM            ControlPoints INNER JOIN
+                         Cargoes INNER JOIN
                          Processes INNER JOIN
                          Drivers ON Processes.DriverId = Drivers.Id INNER JOIN
-                         Counterparties ON Processes.CounterpartyId = Counterparties.Id ON Vehicles.Id = Processes.VehicleTruckId ON Cargoes.Id = Processes.CargoId INNER JOIN
-                         ControlPoints ON Processes.CurrentControlPointId = ControlPoints.Id LEFT OUTER JOIN
+                         Counterparties ON Processes.CounterpartyId = Counterparties.Id ON Cargoes.Id = Processes.CargoId ON 
+                         ControlPoints.Id = Processes.CurrentControlPointId INNER JOIN
+                         Owners INNER JOIN
+                         Vehicles ON Owners.Id = Vehicles.OwnerId ON Processes.VehicleTruckId = Vehicles.Id LEFT OUTER JOIN
                          Logs ON Processes.Id = Logs.ProcessId</CommandText>
       </Query>
       <Fields>
@@ -173,6 +174,28 @@ FROM            Cargoes INNER JOIN
           </FilterValues>
         </Filter>
       </Filters>
+    </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <DataSourceName>testDataSource1</DataSourceName>
+        <CommandText>SELECT        Cargoes.Name, Processes.IsLoading, Processes.CargoId
+FROM            Processes INNER JOIN
+                         Cargoes ON Processes.CargoId = Cargoes.Id</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IsLoading">
+          <DataField>IsLoading</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="CargoId">
+          <DataField>CargoId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -2652,7 +2675,7 @@ FROM            Cargoes INNER JOIN
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Label>#PERCENT</Label>
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
@@ -2934,7 +2957,7 @@ FROM            Cargoes INNER JOIN
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Title1">
-                <Caption>Создать заголовок</Caption>
+                <Caption>Соотношение процессов отгрузки и погрузки за всё время</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontWeight>Bold</FontWeight>
@@ -2959,20 +2982,10 @@ FROM            Cargoes INNER JOIN
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>DataSet2</DataSetName>
             <PageBreak>
               <BreakLocation>Start</BreakLocation>
             </PageBreak>
-            <Filters>
-              <Filter>
-                <FilterExpression>=Fields!Date.Value</FilterExpression>
-                <Operator>Between</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
-                  <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-            </Filters>
             <Top>1.67583in</Top>
             <Left>1in</Left>
             <Height>3.66667in</Height>
@@ -2993,22 +3006,22 @@ FROM            Cargoes INNER JOIN
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!CargoId.Value</GroupExpression>
+                      <GroupExpression>=Fields!Name.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!CargoId.Value</Value>
+                      <Value>=Fields!Name.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!CargoName.Value</Label>
+                  <Label>=Fields!Name.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>Cargo Name</Label>
+                  <Label>Name</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
@@ -3018,7 +3031,7 @@ FROM            Cargoes INNER JOIN
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Count(Fields!CargoName.Value)</Y>
+                        <Y>=Count(Fields!Name.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -3303,17 +3316,15 @@ FROM            Cargoes INNER JOIN
               </ChartLegend>
             </ChartLegends>
             <ChartTitles>
-              <ChartTitle Name="Default">
-                <Caption>Заголовок диаграммы</Caption>
+              <ChartTitle Name="Title1">
+                <Caption>Соотношение типов продукции процессов</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontSize>9pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextAlign>Left</TextAlign>
+                  <FontWeight>Bold</FontWeight>
+                  <TextAlign>General</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
                 </Style>
-                <Position>TopLeft</Position>
+                <DockOutsideChartArea>true</DockOutsideChartArea>
               </ChartTitle>
             </ChartTitles>
             <Palette>Pacific</Palette>
@@ -3333,20 +3344,10 @@ FROM            Cargoes INNER JOIN
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>DataSet2</DataSetName>
             <PageBreak>
               <BreakLocation>Start</BreakLocation>
             </PageBreak>
-            <Filters>
-              <Filter>
-                <FilterExpression>=Fields!Date.Value</FilterExpression>
-                <Operator>Between</Operator>
-                <FilterValues>
-                  <FilterValue>=DateValue(Parameters!StartDateParam.Value)</FilterValue>
-                  <FilterValue>=DateValue(Parameters!EndDateParam.Value)</FilterValue>
-                </FilterValues>
-              </Filter>
-            </Filters>
             <Top>1.67583in</Top>
             <Left>9.86458in</Left>
             <Height>3.66667in</Height>
