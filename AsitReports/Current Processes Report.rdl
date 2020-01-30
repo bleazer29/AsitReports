@@ -160,7 +160,7 @@ FROM            Vehicles AS Vehicles_1 INNER JOIN
       <Filters>
         <Filter>
           <FilterExpression>=Fields!IsCompleted.Value</FilterExpression>
-          <Operator>Equal</Operator>
+          <Operator>NotEqual</Operator>
           <FilterValues>
             <FilterValue>=True</FilterValue>
           </FilterValues>
@@ -179,7 +179,7 @@ FROM            Vehicles AS Vehicles_1 INNER JOIN
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Current Processes Report</Value>
+                    <Value>Отчёт о текущих процессах</Value>
                     <Style>
                       <FontFamily>Segoe UI Light</FontFamily>
                       <FontSize>24pt</FontSize>

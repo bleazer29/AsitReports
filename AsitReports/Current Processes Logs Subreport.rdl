@@ -115,7 +115,7 @@ FROM            Processes RIGHT OUTER JOIN
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Logs</Value>
+                    <Value>События</Value>
                     <Style>
                       <FontFamily>Segoe UI Light</FontFamily>
                       <FontSize>24pt</FontSize>
@@ -168,7 +168,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Module</Value>
+                                  <Value>Модуль</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -177,7 +177,9 @@ FROM            Processes RIGHT OUTER JOIN
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>textbox2</rd:DefaultName>
@@ -195,6 +197,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -206,7 +209,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Date</Value>
+                                  <Value>Дата события</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -215,7 +218,9 @@ FROM            Processes RIGHT OUTER JOIN
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>textbox3</rd:DefaultName>
@@ -233,6 +238,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -244,7 +250,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Check Date</Value>
+                                  <Value>Дата подтверждения</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -253,7 +259,9 @@ FROM            Processes RIGHT OUTER JOIN
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>textbox4</rd:DefaultName>
@@ -271,6 +279,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -282,7 +291,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Record</Value>
+                                  <Value>Запись</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -291,7 +300,9 @@ FROM            Processes RIGHT OUTER JOIN
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>textbox5</rd:DefaultName>
@@ -309,6 +320,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -320,7 +332,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Error Event Type</Value>
+                                  <Value>Тип события</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -331,7 +343,7 @@ FROM            Processes RIGHT OUTER JOIN
                               </TextRuns>
                               <Style>
                                 <FontFamily />
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -350,6 +362,7 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -583,7 +596,7 @@ FROM            Processes RIGHT OUTER JOIN
             <Top>3.64875in</Top>
             <Left>0.3175cm</Left>
             <Height>0.43in</Height>
-            <Width>7.32292in</Width>
+            <Width>7.32291in</Width>
             <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
@@ -902,7 +915,7 @@ FROM            Processes RIGHT OUTER JOIN
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Заголовок диаграммы</Caption>
+                <Caption>Соотношение типов событий</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>

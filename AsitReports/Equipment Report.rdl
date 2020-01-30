@@ -43,7 +43,7 @@ FROM            Equimpments</CommandText>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Equipment Report</Value>
+                    <Value>Отчёт об оборудовании</Value>
                     <Style>
                       <FontFamily>Segoe UI Light</FontFamily>
                       <FontSize>24pt</FontSize>
@@ -136,7 +136,7 @@ FROM            Equimpments</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Is Enable</Value>
+                                  <Value>Активность</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -175,7 +175,7 @@ FROM            Equimpments</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Name</Value>
+                                  <Value>Название</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>

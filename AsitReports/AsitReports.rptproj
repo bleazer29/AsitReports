@@ -59,9 +59,7 @@
     <Report Include="Equipment Report.rdl" />
     <Report Include="Logs Report.rdl" />
     <Report Include="Operator report 2.rdl" />
-    <Report Include="Operator Report.rdl" />
     <Report Include="Processes Report.rdl" />
-    <Report Include="Report1.rdl" />
     <Report Include="VehiclesOnPointsReport.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />

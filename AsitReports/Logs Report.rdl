@@ -83,7 +83,7 @@ FROM            Logs INNER JOIN
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Logs Report</Value>
+                    <Value>Отчёт о событиях</Value>
                     <Style>
                       <FontFamily>Segoe UI Light</FontFamily>
                       <FontSize>24pt</FontSize>
@@ -133,7 +133,7 @@ FROM            Logs INNER JOIN
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Check Date</Value>
+                                  <Value>Дата подтверждения</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -174,7 +174,7 @@ FROM            Logs INNER JOIN
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Record</Value>
+                                  <Value>Запись</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -215,7 +215,7 @@ FROM            Logs INNER JOIN
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>User</Value>
+                                  <Value>Оператор</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>11pt</FontSize>
@@ -244,6 +244,7 @@ FROM            Logs INNER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -392,7 +393,7 @@ FROM            Logs INNER JOIN
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Date</Value>
+                                <Value>Дата события</Value>
                                 <Style>
                                   <FontFamily />
                                   <FontSize>11pt</FontSize>
@@ -476,7 +477,6 @@ FROM            Logs INNER JOIN
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
