@@ -791,15 +791,18 @@ FROM            LaboratoryTestResults RIGHT OUTER JOIN
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>0.86in</Height>
+        <Height>2.1844cm</Height>
         <Style />
       </Body>
-      <Width>13in</Width>
+      <Width>33.02cm</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
+        <LeftMargin>2.54cm</LeftMargin>
+        <RightMargin>2.54cm</RightMargin>
+        <TopMargin>2.54cm</TopMargin>
+        <BottomMargin>2.54cm</BottomMargin>
+        <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />
       </Page>
     </ReportSection>
@@ -826,6 +829,6 @@ FROM            LaboratoryTestResults RIGHT OUTER JOIN
   </ReportParametersLayout>
   <Language>ru-RU</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>1034bb24-5ec0-403b-bd7d-3f51df8740c4</rd:ReportID>
 </Report>

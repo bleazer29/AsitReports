@@ -515,7 +515,7 @@ ORDER BY Users.Name</CommandText>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -552,7 +552,7 @@ ORDER BY Users.Name</CommandText>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -589,7 +589,7 @@ ORDER BY Users.Name</CommandText>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -626,7 +626,7 @@ ORDER BY Users.Name</CommandText>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -663,7 +663,7 @@ ORDER BY Users.Name</CommandText>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -700,7 +700,7 @@ ORDER BY Users.Name</CommandText>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -1200,7 +1200,7 @@ ORDER BY Users.Name</CommandText>
             <Top>0.40389in</Top>
             <Left>0.93959cm</Left>
             <Height>2.11688in</Height>
-            <Width>10.98293in</Width>
+            <Width>10.98292in</Width>
             <Style>
               <FontSize>12pt</FontSize>
             </Style>
@@ -1580,6 +1580,7 @@ ORDER BY Users.Name</CommandText>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
                 </Style>
+                <DockOutsideChartArea>true</DockOutsideChartArea>
               </ChartTitle>
             </ChartTitles>
             <Palette>Pacific</Palette>
@@ -1637,6 +1638,7 @@ ORDER BY Users.Name</CommandText>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <PaddingLeft>25pt</PaddingLeft>
               </Style>
             </Image>
             <Textbox Name="textbox19">
@@ -1662,7 +1664,7 @@ ORDER BY Users.Name</CommandText>
               <rd:DefaultName>textbox1</rd:DefaultName>
               <Top>1.14303cm</Top>
               <Left>11.3912cm</Left>
-              <Height>0.54667in</Height>
+              <Height>0.91889in</Height>
               <Width>6.86812in</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -1711,47 +1713,12 @@ ORDER BY Users.Name</CommandText>
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox10">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Sample Author</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <FontSize>14pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>1.06613in</Top>
-              <Left>11.3912cm</Left>
-              <Height>0.30277in</Height>
-              <Width>6.86812in</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Line Name="Line1">
               <Top>1.505in</Top>
               <Left>0.93959cm</Left>
               <Height>0in</Height>
               <Width>10.98293in</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1764,7 +1731,7 @@ ORDER BY Users.Name</CommandText>
               <Left>0.93959cm</Left>
               <Height>0in</Height>
               <Width>10.98293in</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1832,7 +1799,9 @@ ORDER BY Users.Name</CommandText>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox115</rd:DefaultName>
