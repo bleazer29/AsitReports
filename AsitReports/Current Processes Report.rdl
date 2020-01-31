@@ -4,7 +4,7 @@
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource1">
-      <DataSourceReference>DataSource1</DataSourceReference>
+      <DataSourceReference>testDataSource1</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>08679434-2a92-4c23-8100-e6682b194012</rd:DataSourceID>
     </DataSource>
