@@ -21,15 +21,15 @@
             <Value>=Parameters!ReportParameter2.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT Logs.Id, Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Logs.UserId, Logs.ProcessId, Logs.ErrorEventTypeId, Logs.EquimpmentId, Users.Name, Roles.Name AS RolesName, ErrorEventTypes.Name AS EventTypesName, 
-                  Equimpments.Name AS EquipmentName
-FROM     ErrorEventTypes INNER JOIN
-                  Logs ON ErrorEventTypes.Id = Logs.ErrorEventTypeId INNER JOIN
-                  Equimpments ON Logs.EquimpmentId = Equimpments.Id LEFT OUTER JOIN
-                  Roles INNER JOIN
-                  Users ON Roles.Id = Users.RoleId ON Logs.UserId = Users.Id
-WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportParameter2)) AND (MONTH(Logs.CheckDate) BETWEEN MONTH(@ReportParameter1) AND MONTH(@ReportParameter2)) AND (DAY(Logs.CheckDate) 
-                  BETWEEN DAY(@ReportParameter1) AND DAY(@ReportParameter2))</CommandText>
+        <CommandText>SELECT        Logs.Id, Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Logs.UserId, Logs.ProcessId, Logs.ErrorEventTypeId, Logs.EquimpmentId, Users.Name, 
+                         Roles.Name AS RolesName, ErrorEventTypes.Name AS EventTypesName, Equimpments.Name AS EquipmentName
+FROM            Equimpments RIGHT OUTER JOIN
+                         Logs ON Equimpments.Id = Logs.EquimpmentId LEFT OUTER JOIN
+                         ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id LEFT OUTER JOIN
+                         Roles INNER JOIN
+                         Users ON Roles.Id = Users.RoleId ON Logs.UserId = Users.Id
+WHERE        (YEAR(Logs.Date) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportParameter2)) AND (MONTH(Logs.Date) BETWEEN MONTH(@ReportParameter1) AND 
+                         MONTH(@ReportParameter2)) AND (DAY(Logs.Date) BETWEEN DAY(@ReportParameter1) AND DAY(@ReportParameter2))</CommandText>
       </Query>
       <Fields>
         <Field Name="Id">
@@ -102,9 +102,6 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.97739in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.12316in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.32684in</Width>
@@ -230,51 +227,6 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox4">
-                          <CanGrow>true</CanGrow>
-                          <UserSort>
-                            <SortExpression>=Fields!CheckDate.Value</SortExpression>
-                          </UserSort>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Дата подтверждения</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>WhiteSmoke</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>textbox4</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <BackgroundColor>#0c4484</BackgroundColor>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -346,6 +298,7 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -382,6 +335,7 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -417,41 +371,7 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox32">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!CheckDate.Value</Value>
-                                  <Style>
-                                    <FontFamily />
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox32</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -488,6 +408,7 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -502,7 +423,6 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -558,19 +478,23 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.09236in</Size>
+                        <Size>0.98425in</Size>
                         <CellContents>
-                          <Textbox Name="Textbox64">
+                          <Textbox Name="textbox5">
                             <CanGrow>true</CanGrow>
+                            <UserSort>
+                              <SortExpression>=Fields!CheckDate.Value</SortExpression>
+                            </UserSort>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Тип события</Value>
+                                    <Value>Дата подтверждения</Value>
                                     <Style>
                                       <FontFamily>Arial</FontFamily>
                                       <FontSize>12pt</FontSize>
+                                      <FontWeight>Bold</FontWeight>
                                       <Color>WhiteSmoke</Color>
                                     </Style>
                                   </TextRun>
@@ -580,13 +504,17 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox55</rd:DefaultName>
+                            <rd:DefaultName>textbox4</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>DimGray</Color>
                                 <Style>Solid</Style>
                               </Border>
+                              <BottomBorder>
+                                <Style>Solid</Style>
+                              </BottomBorder>
                               <BackgroundColor>#0c4484</BackgroundColor>
+                              <FontFamily />
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -597,197 +525,94 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
-                          <KeepTogether>true</KeepTogether>
-                        </TablixMember>
-                      </TablixMembers>
-                    </TablixMember>
-                  </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Date">
-                    <GroupExpressions>
-                      <GroupExpression>=Format(DateValue(Fields!Date.Value), "dd.MM.yyyy")</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Date.Value</Value>
-                      <Direction>Descending</Direction>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixHeader>
-                    <Size>1.21178in</Size>
-                    <CellContents>
-                      <Textbox Name="Date1">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!Date.Value</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <FontSize>12pt</FontSize>
-                                  <Color>#333333</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Left</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Date1</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>DimGray</Color>
-                            <Style>Solid</Style>
-                          </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>2.09236in</Size>
-                        <CellContents>
-                          <Rectangle Name="Rectangle3">
-                            <ReportItems>
-                              <GaugePanel Name="GaugePanel3">
-                                <StateIndicators>
-                                  <StateIndicator Name="Indicator1">
-                                    <GaugeInputValue>
-                                      <Value>=IIF(IsNothing(Fields!ErrorEventTypeId.Value), 1, 0)</Value>
-                                      <Multiplier>1</Multiplier>
-                                      <DataElementOutput>NoOutput</DataElementOutput>
-                                    </GaugeInputValue>
-                                    <TransformationType>None</TransformationType>
-                                    <TransformationScope>table2</TransformationScope>
-                                    <MinimumValue>
-                                      <Value>NaN</Value>
-                                      <Multiplier>1</Multiplier>
-                                    </MinimumValue>
-                                    <MaximumValue>
-                                      <Value>NaN</Value>
-                                      <Multiplier>1</Multiplier>
-                                    </MaximumValue>
-                                    <IndicatorStyle>None</IndicatorStyle>
-                                    <IndicatorImage>
-                                      <Source>External</Source>
-                                      <Value />
-                                    </IndicatorImage>
-                                    <ScaleFactor>1</ScaleFactor>
-                                    <IndicatorStates>
-                                      <IndicatorState Name="ThreeSymbolCross">
-                                        <StartValue>
-                                          <Value>0</Value>
-                                          <Multiplier>1</Multiplier>
-                                        </StartValue>
-                                        <EndValue>
-                                          <Value>0</Value>
-                                          <Multiplier>1</Multiplier>
-                                        </EndValue>
-                                        <Color>#c0433a</Color>
-                                        <ScaleFactor>1</ScaleFactor>
-                                        <IndicatorStyle>ThreeSymbolCross</IndicatorStyle>
-                                        <IndicatorImage>
-                                          <Source>External</Source>
-                                          <Value />
-                                        </IndicatorImage>
-                                      </IndicatorState>
-                                      <IndicatorState Name="ThreeSymbolExclamation">
-                                        <StartValue>
-                                          <Value>1</Value>
-                                          <Multiplier>1</Multiplier>
-                                        </StartValue>
-                                        <EndValue>
-                                          <Value>1</Value>
-                                          <Multiplier>1</Multiplier>
-                                        </EndValue>
-                                        <Color>LimeGreen</Color>
-                                        <ScaleFactor>1</ScaleFactor>
-                                        <IndicatorStyle>ThreeSymbolCheck</IndicatorStyle>
-                                        <IndicatorImage>
-                                          <Source>External</Source>
-                                          <Value />
-                                        </IndicatorImage>
-                                      </IndicatorState>
-                                    </IndicatorStates>
-                                    <Angle>0</Angle>
-                                    <StateDataElementName />
-                                    <rd:IconsSet>ThreeCircledSymbols</rd:IconsSet>
-                                    <Style>
-                                      <Border>
-                                        <Style>None</Style>
-                                      </Border>
-                                      <ShadowOffset>0pt</ShadowOffset>
-                                    </Style>
-                                    <Top>4</Top>
-                                    <Left>4</Left>
-                                    <Height>92</Height>
-                                    <Width>92</Width>
-                                  </StateIndicator>
-                                </StateIndicators>
-                                <AutoLayout>true</AutoLayout>
-                                <BackFrame>
-                                  <Style>
-                                    <Border>
-                                      <Style>None</Style>
-                                    </Border>
-                                    <BackgroundColor>Gainsboro</BackgroundColor>
-                                    <BackgroundGradientType>None</BackgroundGradientType>
-                                    <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                                    <BackgroundHatchType>None</BackgroundHatchType>
-                                    <ShadowOffset>0pt</ShadowOffset>
-                                  </Style>
-                                  <FrameBackground>
-                                    <Style>
-                                      <BackgroundColor>Silver</BackgroundColor>
-                                      <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                                      <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                                      <BackgroundHatchType>None</BackgroundHatchType>
-                                    </Style>
-                                  </FrameBackground>
-                                  <FrameImage>
-                                    <Source>External</Source>
-                                    <Value />
-                                  </FrameImage>
-                                </BackFrame>
-                                <TopImage>
-                                  <Source>External</Source>
-                                  <Value />
-                                </TopImage>
-                                <DataSetName>DataSet1</DataSetName>
-                                <Left>0.05556in</Left>
-                                <Height>0.325in</Height>
-                                <Width>0.25937in</Width>
-                                <Style>
-                                  <Border>
-                                    <Color>LightGrey</Color>
-                                    <Style>None</Style>
-                                  </Border>
-                                  <BackgroundColor>White</BackgroundColor>
-                                </Style>
-                              </GaugePanel>
-                              <Textbox Name="EventTypesName">
+                          <TablixHeader>
+                            <Size>2.09236in</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox64">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Fields!EventTypesName.Value</Value>
+                                        <Value>Тип события</Value>
                                         <Style>
-                                          <FontFamily />
+                                          <FontFamily>Arial</FontFamily>
                                           <FontSize>12pt</FontSize>
+                                          <Color>WhiteSmoke</Color>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Textbox55</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>DimGray</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <BackgroundColor>#0c4484</BackgroundColor>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <KeepTogether>true</KeepTogether>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Date1">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Date.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Date.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Date">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!Date.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!Date.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixMembers>
+                        <TablixMember>
+                          <TablixHeader>
+                            <Size>1.21178in</Size>
+                            <CellContents>
+                              <Textbox Name="Date1">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!Date.Value</Value>
+                                        <Style>
+                                          <FontFamily>Arial</FontFamily>
+                                          <FontSize>12pt</FontSize>
+                                          <Color>#333333</Color>
                                         </Style>
                                       </TextRun>
                                     </TextRuns>
@@ -796,39 +621,242 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>EventTypesName</rd:DefaultName>
-                                <Left>0.87048cm</Left>
-                                <Height>0.65812in</Height>
-                                <Width>1.74965in</Width>
-                                <ZIndex>1</ZIndex>
+                                <rd:DefaultName>Date1</rd:DefaultName>
                                 <Style>
                                   <Border>
-                                    <Color>LightGrey</Color>
-                                    <Style>None</Style>
-                                  </Border>
-                                  <RightBorder>
                                     <Color>DimGray</Color>
-                                  </RightBorder>
-                                  <FontFamily />
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <BackgroundColor>LightSteelBlue</BackgroundColor>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
                                   <PaddingTop>2pt</PaddingTop>
                                   <PaddingBottom>2pt</PaddingBottom>
                                 </Style>
                               </Textbox>
-                            </ReportItems>
-                            <KeepTogether>true</KeepTogether>
-                            <Style>
-                              <Border>
-                                <Color>DimGray</Color>
-                                <Style>Solid</Style>
-                              </Border>
-                            </Style>
-                          </Rectangle>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember />
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>0.98425in</Size>
+                                <CellContents>
+                                  <Textbox Name="Textbox35">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Fields!CheckDate.Value</Value>
+                                            <Style>
+                                              <FontFamily />
+                                              <FontSize>12pt</FontSize>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style>
+                                          <TextAlign>Left</TextAlign>
+                                        </Style>
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox32</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>DimGray</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <BackgroundColor>LightSteelBlue</BackgroundColor>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember>
+                                  <TablixHeader>
+                                    <Size>2.09236in</Size>
+                                    <CellContents>
+                                      <Rectangle Name="Rectangle3">
+                                        <ReportItems>
+                                          <GaugePanel Name="GaugePanel3">
+                                            <StateIndicators>
+                                              <StateIndicator Name="Indicator1">
+                                                <GaugeInputValue>
+                                                  <Value>=IIF(IsNothing(Fields!ErrorEventTypeId.Value), 1, 0)</Value>
+                                                  <Multiplier>1</Multiplier>
+                                                  <DataElementOutput>NoOutput</DataElementOutput>
+                                                </GaugeInputValue>
+                                                <TransformationType>None</TransformationType>
+                                                <TransformationScope>table1</TransformationScope>
+                                                <MinimumValue>
+                                                  <Value>NaN</Value>
+                                                  <Multiplier>1</Multiplier>
+                                                </MinimumValue>
+                                                <MaximumValue>
+                                                  <Value>NaN</Value>
+                                                  <Multiplier>1</Multiplier>
+                                                </MaximumValue>
+                                                <IndicatorStyle>None</IndicatorStyle>
+                                                <IndicatorImage>
+                                                  <Source>External</Source>
+                                                  <Value />
+                                                </IndicatorImage>
+                                                <ScaleFactor>1</ScaleFactor>
+                                                <IndicatorStates>
+                                                  <IndicatorState Name="ThreeSymbolCross">
+                                                    <StartValue>
+                                                      <Value>0</Value>
+                                                      <Multiplier>1</Multiplier>
+                                                    </StartValue>
+                                                    <EndValue>
+                                                      <Value>0</Value>
+                                                      <Multiplier>1</Multiplier>
+                                                    </EndValue>
+                                                    <Color>#c0433a</Color>
+                                                    <ScaleFactor>1</ScaleFactor>
+                                                    <IndicatorStyle>ThreeSymbolCross</IndicatorStyle>
+                                                    <IndicatorImage>
+                                                      <Source>External</Source>
+                                                      <Value />
+                                                    </IndicatorImage>
+                                                  </IndicatorState>
+                                                  <IndicatorState Name="ThreeSymbolExclamation">
+                                                    <StartValue>
+                                                      <Value>1</Value>
+                                                      <Multiplier>1</Multiplier>
+                                                    </StartValue>
+                                                    <EndValue>
+                                                      <Value>1</Value>
+                                                      <Multiplier>1</Multiplier>
+                                                    </EndValue>
+                                                    <Color>LimeGreen</Color>
+                                                    <ScaleFactor>1</ScaleFactor>
+                                                    <IndicatorStyle>ThreeSymbolCheck</IndicatorStyle>
+                                                    <IndicatorImage>
+                                                      <Source>External</Source>
+                                                      <Value />
+                                                    </IndicatorImage>
+                                                  </IndicatorState>
+                                                </IndicatorStates>
+                                                <Angle>0</Angle>
+                                                <StateDataElementName />
+                                                <rd:IconsSet>ThreeCircledSymbols</rd:IconsSet>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>None</Style>
+                                                  </Border>
+                                                  <ShadowOffset>0pt</ShadowOffset>
+                                                </Style>
+                                                <Top>4</Top>
+                                                <Left>4</Left>
+                                                <Height>92</Height>
+                                                <Width>92</Width>
+                                              </StateIndicator>
+                                            </StateIndicators>
+                                            <AutoLayout>true</AutoLayout>
+                                            <BackFrame>
+                                              <Style>
+                                                <Border>
+                                                  <Style>None</Style>
+                                                </Border>
+                                                <BackgroundColor>Gainsboro</BackgroundColor>
+                                                <BackgroundGradientType>None</BackgroundGradientType>
+                                                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
+                                                <BackgroundHatchType>None</BackgroundHatchType>
+                                                <ShadowOffset>0pt</ShadowOffset>
+                                              </Style>
+                                              <FrameBackground>
+                                                <Style>
+                                                  <BackgroundColor>Silver</BackgroundColor>
+                                                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
+                                                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
+                                                  <BackgroundHatchType>None</BackgroundHatchType>
+                                                </Style>
+                                              </FrameBackground>
+                                              <FrameImage>
+                                                <Source>External</Source>
+                                                <Value />
+                                              </FrameImage>
+                                            </BackFrame>
+                                            <TopImage>
+                                              <Source>External</Source>
+                                              <Value />
+                                            </TopImage>
+                                            <DataSetName>DataSet1</DataSetName>
+                                            <Left>0.05556in</Left>
+                                            <Height>0.325in</Height>
+                                            <Width>0.25937in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <BackgroundColor>White</BackgroundColor>
+                                            </Style>
+                                          </GaugePanel>
+                                          <Textbox Name="EventTypesName">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!EventTypesName.Value</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontSize>12pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Left</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>EventTypesName</rd:DefaultName>
+                                            <Left>0.87048cm</Left>
+                                            <Height>0.65812in</Height>
+                                            <Width>1.74965in</Width>
+                                            <ZIndex>1</ZIndex>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <RightBorder>
+                                                <Color>DimGray</Color>
+                                              </RightBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </ReportItems>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Style>
+                                          <Border>
+                                            <Color>DimGray</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BackgroundColor>LightSteelBlue</BackgroundColor>
+                                        </Style>
+                                      </Rectangle>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember />
+                                  </TablixMembers>
+                                </TablixMember>
+                              </TablixMembers>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
                       </TablixMembers>
                     </TablixMember>
                   </TablixMembers>
@@ -838,20 +866,10 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
             <KeepTogether>true</KeepTogether>
             <NoRowsMessage>Нет данных.</NoRowsMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Filters>
-              <Filter>
-                <FilterExpression>=Fields!Date.Value</FilterExpression>
-                <Operator>Between</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ReportParameter1.Value</FilterValue>
-                  <FilterValue>=Parameters!ReportParameter2.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-            </Filters>
             <Top>0.43in</Top>
             <Left>0.82707cm</Left>
             <Height>0.87812in</Height>
-            <Width>10.99406in</Width>
+            <Width>10.85515in</Width>
             <Style />
           </Tablix>
           <Chart Name="Chart1">
@@ -889,8 +907,9 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <Label>#VALY</Label>
+                        <Label>#PERCENT{P0}</Label>
                         <Visible>true</Visible>
+                        <Position>Outside</Position>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
@@ -910,6 +929,16 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
+                  <CustomProperties>
+                    <CustomProperty>
+                      <Name>PieLabelStyle</Name>
+                      <Value>Outside</Value>
+                    </CustomProperty>
+                    <CustomProperty>
+                      <Name>PieLineColor</Name>
+                      <Value>Black</Value>
+                    </CustomProperty>
+                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -1158,7 +1187,7 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartLegendTitle>
-                  <Caption>Module</Caption>
+                  <Caption>Модули</Caption>
                   <Style>
                     <FontSize>8pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -1171,12 +1200,11 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Диаграмма типов тревожных событий</Caption>
+                <Caption>Соотношение количества тревожных событий по модулям</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontFamily>Arial</FontFamily>
                   <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
                 </Style>
@@ -1201,6 +1229,23 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!Date.Value</FilterExpression>
+                <Operator>Between</Operator>
+                <FilterValues>
+                  <FilterValue>=Parameters!ReportParameter1.Value</FilterValue>
+                  <FilterValue>=Parameters!ReportParameter2.Value</FilterValue>
+                </FilterValues>
+              </Filter>
+              <Filter>
+                <FilterExpression>=Fields!ErrorEventTypeId.Value</FilterExpression>
+                <Operator>NotEqual</Operator>
+                <FilterValues>
+                  <FilterValue>=Nothing</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
             <Top>1.57792in</Top>
             <Left>0.32562in</Left>
             <Height>4.54167in</Height>
@@ -1271,7 +1316,7 @@ WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPar
                     </ChartDataLabel>
                   </ChartEmptyPoints>
                   <ChartItemInLegend>
-                    <LegendText>Error event count</LegendText>
+                    <LegendText>Кол-во тревожных событий</LegendText>
                   </ChartItemInLegend>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
