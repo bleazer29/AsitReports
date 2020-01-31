@@ -4,7 +4,7 @@
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource1">
-      <DataSourceReference>DataSource1</DataSourceReference>
+      <DataSourceReference>testDataSource1</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>77b845a2-a839-4d00-a0e3-619cfdfe6a95</rd:DataSourceID>
     </DataSource>
@@ -197,7 +197,6 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -238,7 +237,6 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -279,7 +277,6 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -320,7 +317,6 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -362,7 +358,6 @@ FROM            Processes RIGHT OUTER JOIN
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -593,7 +588,7 @@ FROM            Processes RIGHT OUTER JOIN
                 </FilterValues>
               </Filter>
             </Filters>
-            <Top>3.64875in</Top>
+            <Top>3.87792in</Top>
             <Left>0.3175cm</Left>
             <Height>0.43in</Height>
             <Width>7.32291in</Width>
@@ -608,6 +603,15 @@ FROM            Processes RIGHT OUTER JOIN
                     <GroupExpressions>
                       <GroupExpression>=Fields!Expr1.Value</GroupExpression>
                     </GroupExpressions>
+                    <Filters>
+                      <Filter>
+                        <FilterExpression>=Fields!ErrorEventTypeId.Value</FilterExpression>
+                        <Operator>GreaterThan</Operator>
+                        <FilterValues>
+                          <FilterValue>=0</FilterValue>
+                        </FilterValues>
+                      </Filter>
+                    </Filters>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
@@ -628,13 +632,16 @@ FROM            Processes RIGHT OUTER JOIN
             <ChartData>
               <ChartSeriesCollection>
                 <ChartSeries Name="ErrorEventTypeId">
+                  <Hidden>=IIF(IsNothing(Fields!ErrorEventTypeId.Value), True, False)</Hidden>
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!ErrorEventTypeId.Value)</Y>
+                        <Y>=Count(Fields!ErrorEventTypeId.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
+                        <Label>#PERCENT</Label>
+                        <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
@@ -901,6 +908,8 @@ FROM            Processes RIGHT OUTER JOIN
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>8pt</FontSize>
                 </Style>
+                <DockToChartArea>Default</DockToChartArea>
+                <DockOutsideChartArea>true</DockOutsideChartArea>
                 <ChartLegendTitle>
                   <Caption />
                   <Style>
@@ -914,17 +923,14 @@ FROM            Processes RIGHT OUTER JOIN
               </ChartLegend>
             </ChartLegends>
             <ChartTitles>
-              <ChartTitle Name="Default">
-                <Caption>Соотношение типов событий</Caption>
+              <ChartTitle Name="Title1">
+                <Caption>Соотношение типов тревожных событий</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontSize>9pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextAlign>Left</TextAlign>
+                  <FontWeight>Bold</FontWeight>
+                  <TextAlign>General</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
                 </Style>
-                <Position>TopLeft</Position>
               </ChartTitle>
             </ChartTitles>
             <Palette>Pacific</Palette>
@@ -956,8 +962,8 @@ FROM            Processes RIGHT OUTER JOIN
             </Filters>
             <Top>0.55083in</Top>
             <Left>0.125in</Left>
-            <Height>2.8125in</Height>
-            <Width>4.20833in</Width>
+            <Height>3.125in</Height>
+            <Width>6.17708in</Width>
             <ZIndex>2</ZIndex>
             <Visibility>
               <Hidden>=IIF(IsNothing(First(Fields!Expr1.Value, "DataSet1")), True, False)</Hidden>
