@@ -13,8 +13,10 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>testDataSource1</DataSourceName>
-        <CommandText>SELECT        Id, IsEnable, Name
-FROM            Equimpments</CommandText>
+        <CommandText>SELECT Equimpments.Id, Equimpments.IsEnable, Equimpments.Name, EquipmentControlPoints.ControlPointId, ControlPoints.Name AS ControlPointsName
+FROM     ControlPoints INNER JOIN
+                  EquipmentControlPoints ON ControlPoints.Id = EquipmentControlPoints.ControlPointId RIGHT OUTER JOIN
+                  Equimpments ON EquipmentControlPoints.EquimpmentId = Equimpments.Id</CommandText>
       </Query>
       <Fields>
         <Field Name="Id">
@@ -27,6 +29,14 @@ FROM            Equimpments</CommandText>
         </Field>
         <Field Name="Name">
           <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ControlPointId">
+          <DataField>ControlPointId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ControlPointsName">
+          <DataField>ControlPointsName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -187,14 +197,14 @@ FROM            Equimpments</CommandText>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Id">
+                        <Textbox Name="ControlPointsName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!ControlPointsName.Value</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>12pt</FontSize>
@@ -205,7 +215,7 @@ FROM            Equimpments</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Id</rd:DefaultName>
+                          <rd:DefaultName>ControlPointsName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -415,23 +425,36 @@ FROM            Equimpments</CommandText>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
                   <KeepTogether>true</KeepTogether>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="table1_Details_Group">
-                    <DataElementName>Detail</DataElementName>
+                  <Group Name="ControlPointId">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!ControlPointId.Value</GroupExpression>
+                    </GroupExpressions>
                   </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!ControlPointId.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
                   <TablixMembers>
-                    <TablixMember />
+                    <TablixMember>
+                      <Group Name="table1_Details_Group">
+                        <DataElementName>Detail</DataElementName>
+                      </Group>
+                      <TablixMembers>
+                        <TablixMember />
+                      </TablixMembers>
+                      <DataElementName>Detail_Collection</DataElementName>
+                      <DataElementOutput>Output</DataElementOutput>
+                      <KeepTogether>true</KeepTogether>
+                    </TablixMember>
                   </TablixMembers>
-                  <DataElementName>Detail_Collection</DataElementName>
-                  <DataElementOutput>Output</DataElementOutput>
-                  <KeepTogether>true</KeepTogether>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <NoRowsMessage>Нет данных.</NoRowsMessage>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.455in</Top>
             <Left>0.97367cm</Left>
@@ -476,16 +499,26 @@ FROM            Equimpments</CommandText>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Label>#PERCENT</Label>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <Style />
+                      <Style>
+                        <Color>=SWITCH(
+ IsNothing(Fields!IsEnable.Value) = true, "#e8d62e"
+  , Fields!IsEnable.Value = true, "#79c75b"
+   , Fields!IsEnable.Value = false, "#c0433a"   
+)</Color>
+                      </Style>
                       <ChartMarker>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                       <ChartItemInLegend>
-                        <LegendText>=IIF(IsNothing(Fields!IsEnable.Value), "Unknown", IIF(Fields!IsEnable.Value = True, "Enabled", IIF(Fields!IsEnable.Value = False, "Disabled", "Unknown")))</LegendText>
+                        <LegendText>=SWITCH(
+ IsNothing(Fields!IsEnable.Value) = true, "Неизвестно"
+  , Fields!IsEnable.Value = true, "Активно"
+   , Fields!IsEnable.Value = false, "Неактивно"   
+)</LegendText>
                       </ChartItemInLegend>
                     </ChartDataPoint>
                   </ChartDataPoints>
@@ -781,7 +814,7 @@ FROM            Equimpments</CommandText>
               </Style>
             </ChartBorderSkin>
             <ChartNoDataMessage Name="NoDataMessage">
-              <Caption>Данные недоступны</Caption>
+              <Caption>Нет данных.</Caption>
               <Style>
                 <BackgroundGradientType>None</BackgroundGradientType>
                 <FontWeight>Bold</FontWeight>
@@ -790,7 +823,7 @@ FROM            Equimpments</CommandText>
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.57584in</Top>
+            <Top>1.39251in</Top>
             <Left>0.38333in</Left>
             <Height>2.41667in</Height>
             <Width>7.4996in</Width>
@@ -808,7 +841,7 @@ FROM            Equimpments</CommandText>
         <Height>15.91946cm</Height>
         <Style />
       </Body>
-      <Width>21.86414cm</Width>
+      <Width>22.52265cm</Width>
       <Page>
         <PageHeader>
           <Height>4.22343cm</Height>

@@ -1592,7 +1592,7 @@ ORDER BY Users.Name</CommandText>
               </Style>
             </ChartBorderSkin>
             <ChartNoDataMessage Name="NoDataMessage">
-              <Caption>No Data Available</Caption>
+              <Caption>Нет данных.</Caption>
               <Style>
                 <BackgroundGradientType>None</BackgroundGradientType>
                 <FontWeight>Bold</FontWeight>
