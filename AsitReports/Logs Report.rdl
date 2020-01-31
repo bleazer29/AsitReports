@@ -13,12 +13,23 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>testDataSource1</DataSourceName>
-        <CommandText>SELECT        Logs.Id, Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Logs.UserId, Logs.ProcessId, Logs.ErrorEventTypeId, Logs.EquimpmentId, Users.Name, 
-                         Roles.Name AS Expr1, ErrorEventTypes.Name AS EventType
-FROM            Logs INNER JOIN
-                         Users ON Logs.UserId = Users.Id INNER JOIN
-                         Roles ON Users.RoleId = Roles.Id INNER JOIN
-                         ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@ReportParameter1">
+            <Value>=Parameters!ReportParameter1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ReportParameter2">
+            <Value>=Parameters!ReportParameter2.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT Logs.Id, Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Logs.UserId, Logs.ProcessId, Logs.ErrorEventTypeId, Logs.EquimpmentId, Users.Name, Roles.Name AS RolesName, ErrorEventTypes.Name AS EventTypesName, 
+                  Equimpments.Name AS EquipmentName
+FROM     ErrorEventTypes INNER JOIN
+                  Logs ON ErrorEventTypes.Id = Logs.ErrorEventTypeId INNER JOIN
+                  Equimpments ON Logs.EquimpmentId = Equimpments.Id LEFT OUTER JOIN
+                  Roles INNER JOIN
+                  Users ON Roles.Id = Users.RoleId ON Logs.UserId = Users.Id
+WHERE  (YEAR(Logs.CheckDate) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportParameter2)) AND (MONTH(Logs.CheckDate) BETWEEN MONTH(@ReportParameter1) AND MONTH(@ReportParameter2)) AND (DAY(Logs.CheckDate) 
+                  BETWEEN DAY(@ReportParameter1) AND DAY(@ReportParameter2))</CommandText>
       </Query>
       <Fields>
         <Field Name="Id">
@@ -61,12 +72,16 @@ FROM            Logs INNER JOIN
           <DataField>Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Expr1">
-          <DataField>Expr1</DataField>
+        <Field Name="RolesName">
+          <DataField>RolesName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="EventType">
-          <DataField>EventType</DataField>
+        <Field Name="EventTypesName">
+          <DataField>EventTypesName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EquipmentName">
+          <DataField>EquipmentName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -76,51 +91,143 @@ FROM            Logs INNER JOIN
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="textbox1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Отчёт о событиях</Value>
-                    <Style>
-                      <FontFamily>Segoe UI Light</FontFamily>
-                      <FontSize>24pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>textbox1</rd:DefaultName>
-            <Height>0.43in</Height>
-            <Width>9in</Width>
-            <Style>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="table1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>0.91774in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.49875in</Width>
+                  <Width>1.34479in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>2.97739in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.12316in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.32684in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
                   <Height>0.22in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox65">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Модуль</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>WhiteSmoke</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox56</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#0c4484</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox66">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Оборудование</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>WhiteSmoke</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox57</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#0c4484</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox33">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Запись</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>WhiteSmoke</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox33</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#0c4484</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="textbox4">
@@ -135,9 +242,10 @@ FROM            Logs INNER JOIN
                                 <TextRun>
                                   <Value>Дата подтверждения</Value>
                                   <Style>
-                                    <FontFamily />
-                                    <FontSize>11pt</FontSize>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>WhiteSmoke</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -149,54 +257,13 @@ FROM            Logs INNER JOIN
                           <rd:DefaultName>textbox4</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
+                              <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox6">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Запись</Value>
-                                  <Style>
-                                    <FontFamily />
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>textbox6</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <BackgroundColor>#0c4484</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -217,9 +284,10 @@ FROM            Logs INNER JOIN
                                 <TextRun>
                                   <Value>Оператор</Value>
                                   <Style>
-                                    <FontFamily />
-                                    <FontSize>11pt</FontSize>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>WhiteSmoke</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -231,13 +299,13 @@ FROM            Logs INNER JOIN
                           <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
+                              <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <BackgroundColor>#0c4484</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -249,21 +317,21 @@ FROM            Logs INNER JOIN
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.53292in</Height>
+                  <Height>0.65812in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CheckDate">
+                        <Textbox Name="Module">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CheckDate.Value</Value>
+                                  <Value>=Fields!Module.Value</Value>
                                   <Style>
                                     <FontFamily />
-                                    <Color>#333333</Color>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -272,15 +340,48 @@ FROM            Logs INNER JOIN
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CheckDate</rd:DefaultName>
+                          <rd:DefaultName>Module</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                            </Border>
-                            <BottomBorder>
+                              <Color>DimGray</Color>
                               <Style>Solid</Style>
-                            </BottomBorder>
+                            </Border>
                             <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="EquipmentName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!EquipmentName.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>EquipmentName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -301,7 +402,7 @@ FROM            Logs INNER JOIN
                                   <Value>=Fields!Record.Value</Value>
                                   <Style>
                                     <FontFamily />
-                                    <Color>#333333</Color>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -313,12 +414,44 @@ FROM            Logs INNER JOIN
                           <rd:DefaultName>Record</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                            </Border>
-                            <BottomBorder>
+                              <Color>DimGray</Color>
                               <Style>Solid</Style>
-                            </BottomBorder>
-                            <FontFamily />
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox32">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CheckDate.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox32</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -338,7 +471,8 @@ FROM            Logs INNER JOIN
                                 <TextRun>
                                   <Value>=Fields!Name.Value</Value>
                                   <Style>
-                                    <FontFamily />
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -351,11 +485,9 @@ FROM            Logs INNER JOIN
                           <rd:DefaultName>Name</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                            </Border>
-                            <BottomBorder>
+                              <Color>DimGray</Color>
                               <Style>Solid</Style>
-                            </BottomBorder>
+                            </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -373,13 +505,15 @@ FROM            Logs INNER JOIN
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>1.21178in</Size>
                     <CellContents>
                       <Textbox Name="Textbox11">
                         <CanGrow>true</CanGrow>
@@ -394,9 +528,10 @@ FROM            Logs INNER JOIN
                               <TextRun>
                                 <Value>Дата события</Value>
                                 <Style>
-                                  <FontFamily />
-                                  <FontSize>11pt</FontSize>
+                                  <FontFamily>Arial</FontFamily>
+                                  <FontSize>12pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
+                                  <Color>WhiteSmoke</Color>
                                 </Style>
                               </TextRun>
                             </TextRuns>
@@ -408,10 +543,10 @@ FROM            Logs INNER JOIN
                         <rd:DefaultName>Textbox11</rd:DefaultName>
                         <Style>
                           <Border>
-                            <Color>LightGrey</Color>
+                            <Color>DimGray</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>LightSteelBlue</BackgroundColor>
+                          <BackgroundColor>#0c4484</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -422,7 +557,49 @@ FROM            Logs INNER JOIN
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <KeepTogether>true</KeepTogether>
+                      <TablixHeader>
+                        <Size>2.09236in</Size>
+                        <CellContents>
+                          <Textbox Name="Textbox64">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>Тип события</Value>
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <FontSize>12pt</FontSize>
+                                      <Color>WhiteSmoke</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Textbox55</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Color>DimGray</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <BackgroundColor>#0c4484</BackgroundColor>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <KeepTogether>true</KeepTogether>
+                        </TablixMember>
+                      </TablixMembers>
                     </TablixMember>
                   </TablixMembers>
                   <KeepWithGroup>After</KeepWithGroup>
@@ -441,7 +618,7 @@ FROM            Logs INNER JOIN
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>1.21178in</Size>
                     <CellContents>
                       <Textbox Name="Date1">
                         <CanGrow>true</CanGrow>
@@ -452,7 +629,8 @@ FROM            Logs INNER JOIN
                               <TextRun>
                                 <Value>=Fields!Date.Value</Value>
                                 <Style>
-                                  <FontFamily />
+                                  <FontFamily>Arial</FontFamily>
+                                  <FontSize>12pt</FontSize>
                                   <Color>#333333</Color>
                                 </Style>
                               </TextRun>
@@ -465,11 +643,9 @@ FROM            Logs INNER JOIN
                         <rd:DefaultName>Date1</rd:DefaultName>
                         <Style>
                           <Border>
-                            <Color>LightGrey</Color>
-                          </Border>
-                          <BottomBorder>
+                            <Color>DimGray</Color>
                             <Style>Solid</Style>
-                          </BottomBorder>
+                          </Border>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -480,21 +656,187 @@ FROM            Logs INNER JOIN
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="table1_Details_Group">
-                        <DataElementName>Detail</DataElementName>
-                      </Group>
+                      <TablixHeader>
+                        <Size>2.09236in</Size>
+                        <CellContents>
+                          <Rectangle Name="Rectangle3">
+                            <ReportItems>
+                              <GaugePanel Name="GaugePanel3">
+                                <StateIndicators>
+                                  <StateIndicator Name="Indicator1">
+                                    <GaugeInputValue>
+                                      <Value>=IIF(IsNothing(Fields!ErrorEventTypeId.Value), 1, 0)</Value>
+                                      <Multiplier>1</Multiplier>
+                                      <DataElementOutput>NoOutput</DataElementOutput>
+                                    </GaugeInputValue>
+                                    <TransformationType>None</TransformationType>
+                                    <TransformationScope>table2</TransformationScope>
+                                    <MinimumValue>
+                                      <Value>NaN</Value>
+                                      <Multiplier>1</Multiplier>
+                                    </MinimumValue>
+                                    <MaximumValue>
+                                      <Value>NaN</Value>
+                                      <Multiplier>1</Multiplier>
+                                    </MaximumValue>
+                                    <IndicatorStyle>None</IndicatorStyle>
+                                    <IndicatorImage>
+                                      <Source>External</Source>
+                                      <Value />
+                                    </IndicatorImage>
+                                    <ScaleFactor>1</ScaleFactor>
+                                    <IndicatorStates>
+                                      <IndicatorState Name="ThreeSymbolCross">
+                                        <StartValue>
+                                          <Value>0</Value>
+                                          <Multiplier>1</Multiplier>
+                                        </StartValue>
+                                        <EndValue>
+                                          <Value>0</Value>
+                                          <Multiplier>1</Multiplier>
+                                        </EndValue>
+                                        <Color>#c0433a</Color>
+                                        <ScaleFactor>1</ScaleFactor>
+                                        <IndicatorStyle>ThreeSymbolCross</IndicatorStyle>
+                                        <IndicatorImage>
+                                          <Source>External</Source>
+                                          <Value />
+                                        </IndicatorImage>
+                                      </IndicatorState>
+                                      <IndicatorState Name="ThreeSymbolExclamation">
+                                        <StartValue>
+                                          <Value>1</Value>
+                                          <Multiplier>1</Multiplier>
+                                        </StartValue>
+                                        <EndValue>
+                                          <Value>1</Value>
+                                          <Multiplier>1</Multiplier>
+                                        </EndValue>
+                                        <Color>LimeGreen</Color>
+                                        <ScaleFactor>1</ScaleFactor>
+                                        <IndicatorStyle>ThreeSymbolCheck</IndicatorStyle>
+                                        <IndicatorImage>
+                                          <Source>External</Source>
+                                          <Value />
+                                        </IndicatorImage>
+                                      </IndicatorState>
+                                    </IndicatorStates>
+                                    <Angle>0</Angle>
+                                    <StateDataElementName />
+                                    <rd:IconsSet>ThreeCircledSymbols</rd:IconsSet>
+                                    <Style>
+                                      <Border>
+                                        <Style>None</Style>
+                                      </Border>
+                                      <ShadowOffset>0pt</ShadowOffset>
+                                    </Style>
+                                    <Top>4</Top>
+                                    <Left>4</Left>
+                                    <Height>92</Height>
+                                    <Width>92</Width>
+                                  </StateIndicator>
+                                </StateIndicators>
+                                <AutoLayout>true</AutoLayout>
+                                <BackFrame>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <BackgroundColor>Gainsboro</BackgroundColor>
+                                    <BackgroundGradientType>None</BackgroundGradientType>
+                                    <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
+                                    <BackgroundHatchType>None</BackgroundHatchType>
+                                    <ShadowOffset>0pt</ShadowOffset>
+                                  </Style>
+                                  <FrameBackground>
+                                    <Style>
+                                      <BackgroundColor>Silver</BackgroundColor>
+                                      <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
+                                      <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
+                                      <BackgroundHatchType>None</BackgroundHatchType>
+                                    </Style>
+                                  </FrameBackground>
+                                  <FrameImage>
+                                    <Source>External</Source>
+                                    <Value />
+                                  </FrameImage>
+                                </BackFrame>
+                                <TopImage>
+                                  <Source>External</Source>
+                                  <Value />
+                                </TopImage>
+                                <DataSetName>DataSet1</DataSetName>
+                                <Left>0.05556in</Left>
+                                <Height>0.325in</Height>
+                                <Width>0.25937in</Width>
+                                <Style>
+                                  <Border>
+                                    <Color>LightGrey</Color>
+                                    <Style>None</Style>
+                                  </Border>
+                                  <BackgroundColor>White</BackgroundColor>
+                                </Style>
+                              </GaugePanel>
+                              <Textbox Name="EventTypesName">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!EventTypesName.Value</Value>
+                                        <Style>
+                                          <FontFamily />
+                                          <FontSize>12pt</FontSize>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Left</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>EventTypesName</rd:DefaultName>
+                                <Left>0.87048cm</Left>
+                                <Height>0.65812in</Height>
+                                <Width>1.74965in</Width>
+                                <ZIndex>1</ZIndex>
+                                <Style>
+                                  <Border>
+                                    <Color>LightGrey</Color>
+                                    <Style>None</Style>
+                                  </Border>
+                                  <RightBorder>
+                                    <Color>DimGray</Color>
+                                  </RightBorder>
+                                  <FontFamily />
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </ReportItems>
+                            <KeepTogether>true</KeepTogether>
+                            <Style>
+                              <Border>
+                                <Color>DimGray</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                            </Style>
+                          </Rectangle>
+                        </CellContents>
+                      </TablixHeader>
                       <TablixMembers>
                         <TablixMember />
                       </TablixMembers>
-                      <DataElementName>Detail_Collection</DataElementName>
-                      <DataElementOutput>Output</DataElementOutput>
-                      <KeepTogether>true</KeepTogether>
                     </TablixMember>
                   </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <KeepTogether>true</KeepTogether>
+            <NoRowsMessage>Нет данных.</NoRowsMessage>
             <DataSetName>DataSet1</DataSetName>
             <Filters>
               <Filter>
@@ -507,9 +849,9 @@ FROM            Logs INNER JOIN
               </Filter>
             </Filters>
             <Top>0.43in</Top>
-            <Height>0.75292in</Height>
-            <Width>6.49875in</Width>
-            <ZIndex>1</ZIndex>
+            <Left>0.82707cm</Left>
+            <Height>0.87812in</Height>
+            <Width>10.99406in</Width>
             <Style />
           </Tablix>
           <Chart Name="Chart1">
@@ -829,16 +1171,16 @@ FROM            Logs INNER JOIN
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Module error events</Caption>
+                <Caption>Диаграмма типов тревожных событий</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontSize>9pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
+                  <FontFamily>Arial</FontFamily>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
                 </Style>
-                <Position>TopLeft</Position>
+                <DockOutsideChartArea>true</DockOutsideChartArea>
               </ChartTitle>
             </ChartTitles>
             <Palette>Pacific</Palette>
@@ -859,11 +1201,11 @@ FROM            Logs INNER JOIN
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.31125in</Top>
-            <Left>0.60708in</Left>
+            <Top>1.57792in</Top>
+            <Left>0.32562in</Left>
             <Height>4.54167in</Height>
-            <Width>5.89167in</Width>
-            <ZIndex>2</ZIndex>
+            <Width>5.56667in</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -1194,16 +1536,15 @@ FROM            Logs INNER JOIN
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Error event count</Caption>
+                <Caption>Диаграмма количества тревожных событий</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontSize>9pt</FontSize>
+                  <FontFamily>Arial</FontFamily>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
                 </Style>
-                <Position>TopLeft</Position>
               </ChartTitle>
             </ChartTitles>
             <Palette>Pacific</Palette>
@@ -1224,11 +1565,11 @@ FROM            Logs INNER JOIN
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.31125in</Top>
-            <Left>6.70708in</Left>
+            <Top>1.57792in</Top>
+            <Left>6.09875in</Left>
             <Height>4.54167in</Height>
-            <Width>5.08333in</Width>
-            <ZIndex>3</ZIndex>
+            <Width>5.2098in</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -1242,7 +1583,7 @@ FROM            Logs INNER JOIN
         <Height>17.37995cm</Height>
         <Style />
       </Body>
-      <Width>36.11245cm</Width>
+      <Width>36.22372cm</Width>
       <Page>
         <PageHeader>
           <Height>3.97787cm</Height>
