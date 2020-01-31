@@ -795,7 +795,6 @@ WHERE        (YEAR(Logs.Date) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPa
                                                 <Color>LightGrey</Color>
                                                 <Style>None</Style>
                                               </Border>
-                                              <BackgroundColor>White</BackgroundColor>
                                             </Style>
                                           </GaugePanel>
                                           <Textbox Name="EventTypesName">
