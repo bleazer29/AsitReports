@@ -242,7 +242,7 @@ FROM            Processes INNER JOIN
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.15773in</Width>
+                  <Width>1.21606in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -298,132 +298,7 @@ FROM            Processes INNER JOIN
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <GaugePanel Name="GaugePanel1">
-                          <StateIndicators>
-                            <StateIndicator Name="Indicator1">
-                              <GaugeInputValue>
-                                <Value>=IIF(Fields!IsCompleted.Value = true, 1, 0)</Value>
-                                <Multiplier>1</Multiplier>
-                                <DataElementOutput>NoOutput</DataElementOutput>
-                              </GaugeInputValue>
-                              <TransformationType>None</TransformationType>
-                              <TransformationScope>table1</TransformationScope>
-                              <MinimumValue>
-                                <Value>NaN</Value>
-                                <Multiplier>1</Multiplier>
-                              </MinimumValue>
-                              <MaximumValue>
-                                <Value>NaN</Value>
-                                <Multiplier>1</Multiplier>
-                              </MaximumValue>
-                              <IndicatorStyle>None</IndicatorStyle>
-                              <IndicatorImage>
-                                <Source>External</Source>
-                                <Value />
-                              </IndicatorImage>
-                              <ScaleFactor>1</ScaleFactor>
-                              <IndicatorStates>
-                                <IndicatorState Name="ThreeSymbolCross">
-                                  <StartValue>
-                                    <Value>0</Value>
-                                    <Multiplier>1</Multiplier>
-                                  </StartValue>
-                                  <EndValue>
-                                    <Value>0</Value>
-                                    <Multiplier>1</Multiplier>
-                                  </EndValue>
-                                  <Color>#c0433a</Color>
-                                  <ScaleFactor>1</ScaleFactor>
-                                  <IndicatorStyle>ThreeSymbolCross</IndicatorStyle>
-                                  <IndicatorImage>
-                                    <Source>External</Source>
-                                    <Value />
-                                  </IndicatorImage>
-                                </IndicatorState>
-                                <IndicatorState Name="ThreeSymbolCheck">
-                                  <StartValue>
-                                    <Value>1</Value>
-                                    <Multiplier>1</Multiplier>
-                                  </StartValue>
-                                  <EndValue>
-                                    <Value>1</Value>
-                                    <Multiplier>1</Multiplier>
-                                  </EndValue>
-                                  <Color>#79c75b</Color>
-                                  <ScaleFactor>1</ScaleFactor>
-                                  <IndicatorStyle>ThreeSymbolCheck</IndicatorStyle>
-                                  <IndicatorImage>
-                                    <Source>External</Source>
-                                    <Value />
-                                  </IndicatorImage>
-                                </IndicatorState>
-                              </IndicatorStates>
-                              <Angle>0</Angle>
-                              <StateDataElementName />
-                              <rd:IconsSet>ThreeCircledSymbols</rd:IconsSet>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <BackgroundColor>LightSteelBlue</BackgroundColor>
-                                <ShadowOffset>0pt</ShadowOffset>
-                              </Style>
-                              <Top>4</Top>
-                              <Left>4</Left>
-                              <Height>100</Height>
-                              <Width>100</Width>
-                            </StateIndicator>
-                          </StateIndicators>
-                          <BackFrame>
-                            <Style>
-                              <Border>
-                                <Style>None</Style>
-                              </Border>
-                              <BackgroundColor>Gainsboro</BackgroundColor>
-                              <BackgroundGradientType>None</BackgroundGradientType>
-                              <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                              <BackgroundHatchType>None</BackgroundHatchType>
-                              <ShadowOffset>0pt</ShadowOffset>
-                            </Style>
-                            <FrameBackground>
-                              <Style>
-                                <BackgroundColor>Silver</BackgroundColor>
-                                <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                                <BackgroundHatchType>None</BackgroundHatchType>
-                              </Style>
-                            </FrameBackground>
-                            <FrameImage>
-                              <Source>External</Source>
-                              <Value />
-                            </FrameImage>
-                          </BackFrame>
-                          <TopImage>
-                            <Source>External</Source>
-                            <Value />
-                          </TopImage>
-                          <DataSetName>DataSet1</DataSetName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                          </Style>
-                        </GaugePanel>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>0.23622in</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox159">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -431,78 +306,21 @@ FROM            Processes INNER JOIN
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
+                              <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox159</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>0.23622in</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox276">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox276</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
+                            <RightBorder>
                               <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -540,6 +358,204 @@ FROM            Processes INNER JOIN
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox291</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.23622in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="Rectangle1">
+                          <ReportItems>
+                            <GaugePanel Name="GaugePanel1">
+                              <StateIndicators>
+                                <StateIndicator Name="Indicator1">
+                                  <GaugeInputValue>
+                                    <Value>=IIF(Fields!IsCompleted.Value = true, 1, 0)</Value>
+                                    <Multiplier>1</Multiplier>
+                                    <DataElementOutput>NoOutput</DataElementOutput>
+                                  </GaugeInputValue>
+                                  <TransformationType>None</TransformationType>
+                                  <TransformationScope />
+                                  <MinimumValue>
+                                    <Value>NaN</Value>
+                                    <Multiplier>1</Multiplier>
+                                  </MinimumValue>
+                                  <MaximumValue>
+                                    <Value>NaN</Value>
+                                    <Multiplier>1</Multiplier>
+                                  </MaximumValue>
+                                  <IndicatorStyle>None</IndicatorStyle>
+                                  <IndicatorImage>
+                                    <Source>External</Source>
+                                    <Value />
+                                  </IndicatorImage>
+                                  <ScaleFactor>1</ScaleFactor>
+                                  <IndicatorStates>
+                                    <IndicatorState Name="ThreeSymbolCross">
+                                      <StartValue>
+                                        <Value>0</Value>
+                                        <Multiplier>1</Multiplier>
+                                      </StartValue>
+                                      <EndValue>
+                                        <Value>0</Value>
+                                        <Multiplier>1</Multiplier>
+                                      </EndValue>
+                                      <Color>#c0433a</Color>
+                                      <ScaleFactor>1</ScaleFactor>
+                                      <IndicatorStyle>ThreeSymbolCross</IndicatorStyle>
+                                      <IndicatorImage>
+                                        <Source>External</Source>
+                                        <Value />
+                                      </IndicatorImage>
+                                    </IndicatorState>
+                                    <IndicatorState Name="ThreeSymbolCheck">
+                                      <StartValue>
+                                        <Value>1</Value>
+                                        <Multiplier>1</Multiplier>
+                                      </StartValue>
+                                      <EndValue>
+                                        <Value>1</Value>
+                                        <Multiplier>1</Multiplier>
+                                      </EndValue>
+                                      <Color>#79c75b</Color>
+                                      <ScaleFactor>1</ScaleFactor>
+                                      <IndicatorStyle>ThreeSymbolCheck</IndicatorStyle>
+                                      <IndicatorImage>
+                                        <Source>External</Source>
+                                        <Value />
+                                      </IndicatorImage>
+                                    </IndicatorState>
+                                  </IndicatorStates>
+                                  <Angle>0</Angle>
+                                  <StateDataElementName />
+                                  <rd:IconsSet>ThreeCircledSymbols</rd:IconsSet>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <BackgroundColor>LightSteelBlue</BackgroundColor>
+                                    <ShadowOffset>0pt</ShadowOffset>
+                                  </Style>
+                                  <Top>4</Top>
+                                  <Left>4</Left>
+                                  <Height>92</Height>
+                                  <Width>92</Width>
+                                </StateIndicator>
+                              </StateIndicators>
+                              <AutoLayout>true</AutoLayout>
+                              <BackFrame>
+                                <Style>
+                                  <Border>
+                                    <Style>None</Style>
+                                  </Border>
+                                  <BackgroundColor>Gainsboro</BackgroundColor>
+                                  <BackgroundGradientType>None</BackgroundGradientType>
+                                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
+                                  <BackgroundHatchType>None</BackgroundHatchType>
+                                  <ShadowOffset>0pt</ShadowOffset>
+                                </Style>
+                                <FrameBackground>
+                                  <Style>
+                                    <BackgroundColor>Silver</BackgroundColor>
+                                    <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
+                                    <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
+                                    <BackgroundHatchType>None</BackgroundHatchType>
+                                  </Style>
+                                </FrameBackground>
+                                <FrameImage>
+                                  <Source>External</Source>
+                                  <Value />
+                                </FrameImage>
+                              </BackFrame>
+                              <TopImage>
+                                <Source>External</Source>
+                                <Value />
+                              </TopImage>
+                              <DataSetName>DataSet1</DataSetName>
+                              <Left>0.00002cm</Left>
+                              <Height>0.23622in</Height>
+                              <Width>1.21606in</Width>
+                              <Style>
+                                <Border>
+                                  <Color>DimGray</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <TopBorder>
+                                  <Style>None</Style>
+                                </TopBorder>
+                                <BottomBorder>
+                                  <Style>None</Style>
+                                </BottomBorder>
+                                <RightBorder>
+                                  <Style>None</Style>
+                                </RightBorder>
+                                <BackgroundColor>LightSteelBlue</BackgroundColor>
+                              </Style>
+                            </GaugePanel>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                          </Style>
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.23622in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox276">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox276</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -757,7 +773,7 @@ FROM            Processes INNER JOIN
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>1.19524in</Size>
+                            <Size>1.77024in</Size>
                             <CellContents>
                               <Textbox Name="Textbox7">
                                 <CanGrow>true</CanGrow>
@@ -1064,7 +1080,7 @@ FROM            Processes INNER JOIN
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!Date.Value</Value>
+                                <Value>=Format(Fields!Date.Value, "dd.MM.yyyy")</Value>
                                 <Style>
                                   <FontFamily>Arial</FontFamily>
                                   <FontSize>12pt</FontSize>
@@ -1195,16 +1211,16 @@ FROM            Processes INNER JOIN
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.19524in</Size>
+                                    <Size>1.77024in</Size>
                                     <CellContents>
-                                      <Textbox Name="Expr5">
+                                      <Textbox Name="Textbox268">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!Expr5.Value</Value>
+                                                <Value />
                                                 <Style>
                                                   <FontFamily>Arial</FontFamily>
                                                   <FontSize>12pt</FontSize>
@@ -1217,12 +1233,15 @@ FROM            Processes INNER JOIN
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Expr5</rd:DefaultName>
+                                        <rd:DefaultName>Textbox268</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>DimGray</Color>
                                             <Style>Solid</Style>
                                           </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
                                           <BottomBorder>
                                             <Style>None</Style>
                                           </BottomBorder>
@@ -1315,14 +1334,14 @@ FROM            Processes INNER JOIN
                                               <TablixHeader>
                                                 <Size>1.14198in</Size>
                                                 <CellContents>
-                                                  <Textbox Name="Name">
+                                                  <Textbox Name="Textbox270">
                                                     <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
                                                         <TextRuns>
                                                           <TextRun>
-                                                            <Value>=Fields!Name.Value</Value>
+                                                            <Value />
                                                             <Style>
                                                               <FontFamily>Arial</FontFamily>
                                                               <FontSize>12pt</FontSize>
@@ -1335,12 +1354,15 @@ FROM            Processes INNER JOIN
                                                         </Style>
                                                       </Paragraph>
                                                     </Paragraphs>
-                                                    <rd:DefaultName>Name</rd:DefaultName>
+                                                    <rd:DefaultName>Textbox270</rd:DefaultName>
                                                     <Style>
                                                       <Border>
                                                         <Color>DimGray</Color>
                                                         <Style>Solid</Style>
                                                       </Border>
+                                                      <TopBorder>
+                                                        <Style>None</Style>
+                                                      </TopBorder>
                                                       <BottomBorder>
                                                         <Style>None</Style>
                                                       </BottomBorder>
@@ -1508,14 +1530,14 @@ FROM            Processes INNER JOIN
                                                                   <TablixHeader>
                                                                     <Size>1.14198in</Size>
                                                                     <CellContents>
-                                                                      <Textbox Name="CargoName">
+                                                                      <Textbox Name="Textbox275">
                                                                         <CanGrow>true</CanGrow>
                                                                         <KeepTogether>true</KeepTogether>
                                                                         <Paragraphs>
                                                                           <Paragraph>
                                                                             <TextRuns>
                                                                               <TextRun>
-                                                                                <Value>=Fields!CargoName.Value</Value>
+                                                                                <Value />
                                                                                 <Style>
                                                                                   <FontFamily>Arial</FontFamily>
                                                                                   <FontSize>12pt</FontSize>
@@ -1528,12 +1550,15 @@ FROM            Processes INNER JOIN
                                                                             </Style>
                                                                           </Paragraph>
                                                                         </Paragraphs>
-                                                                        <rd:DefaultName>CargoName</rd:DefaultName>
+                                                                        <rd:DefaultName>Textbox275</rd:DefaultName>
                                                                         <Style>
                                                                           <Border>
                                                                             <Color>DimGray</Color>
                                                                             <Style>Solid</Style>
                                                                           </Border>
+                                                                          <TopBorder>
+                                                                            <Style>None</Style>
+                                                                          </TopBorder>
                                                                           <BottomBorder>
                                                                             <Style>None</Style>
                                                                           </BottomBorder>
@@ -1659,7 +1684,7 @@ FROM            Processes INNER JOIN
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.19524in</Size>
+                                    <Size>1.77024in</Size>
                                     <CellContents>
                                       <Textbox Name="Textbox141">
                                         <CanGrow>true</CanGrow>
@@ -2134,16 +2159,16 @@ FROM            Processes INNER JOIN
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.19524in</Size>
+                                    <Size>1.77024in</Size>
                                     <CellContents>
-                                      <Textbox Name="Textbox268">
+                                      <Textbox Name="Expr5">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
+                                                <Value>=Fields!Expr5.Value</Value>
                                                 <Style>
                                                   <FontFamily>Arial</FontFamily>
                                                   <FontSize>12pt</FontSize>
@@ -2156,7 +2181,7 @@ FROM            Processes INNER JOIN
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox268</rd:DefaultName>
+                                        <rd:DefaultName>Expr5</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>DimGray</Color>
@@ -2169,6 +2194,7 @@ FROM            Processes INNER JOIN
                                             <Style>None</Style>
                                           </BottomBorder>
                                           <BackgroundColor>LightSteelBlue</BackgroundColor>
+                                          <VerticalAlign>Middle</VerticalAlign>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
                                           <PaddingTop>2pt</PaddingTop>
@@ -2257,14 +2283,14 @@ FROM            Processes INNER JOIN
                                               <TablixHeader>
                                                 <Size>1.14198in</Size>
                                                 <CellContents>
-                                                  <Textbox Name="Textbox270">
+                                                  <Textbox Name="Name">
                                                     <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
                                                         <TextRuns>
                                                           <TextRun>
-                                                            <Value />
+                                                            <Value>=Fields!Name.Value</Value>
                                                             <Style>
                                                               <FontFamily>Arial</FontFamily>
                                                               <FontSize>12pt</FontSize>
@@ -2277,7 +2303,7 @@ FROM            Processes INNER JOIN
                                                         </Style>
                                                       </Paragraph>
                                                     </Paragraphs>
-                                                    <rd:DefaultName>Textbox270</rd:DefaultName>
+                                                    <rd:DefaultName>Name</rd:DefaultName>
                                                     <Style>
                                                       <Border>
                                                         <Color>DimGray</Color>
@@ -2290,6 +2316,7 @@ FROM            Processes INNER JOIN
                                                         <Style>None</Style>
                                                       </BottomBorder>
                                                       <BackgroundColor>LightSteelBlue</BackgroundColor>
+                                                      <VerticalAlign>Middle</VerticalAlign>
                                                       <PaddingLeft>2pt</PaddingLeft>
                                                       <PaddingRight>2pt</PaddingRight>
                                                       <PaddingTop>2pt</PaddingTop>
@@ -2453,14 +2480,14 @@ FROM            Processes INNER JOIN
                                                                   <TablixHeader>
                                                                     <Size>1.14198in</Size>
                                                                     <CellContents>
-                                                                      <Textbox Name="Textbox275">
+                                                                      <Textbox Name="CargoName">
                                                                         <CanGrow>true</CanGrow>
                                                                         <KeepTogether>true</KeepTogether>
                                                                         <Paragraphs>
                                                                           <Paragraph>
                                                                             <TextRuns>
                                                                               <TextRun>
-                                                                                <Value />
+                                                                                <Value>=Fields!CargoName.Value</Value>
                                                                                 <Style>
                                                                                   <FontFamily>Arial</FontFamily>
                                                                                   <FontSize>12pt</FontSize>
@@ -2473,7 +2500,7 @@ FROM            Processes INNER JOIN
                                                                             </Style>
                                                                           </Paragraph>
                                                                         </Paragraphs>
-                                                                        <rd:DefaultName>Textbox275</rd:DefaultName>
+                                                                        <rd:DefaultName>CargoName</rd:DefaultName>
                                                                         <Style>
                                                                           <Border>
                                                                             <Color>DimGray</Color>
@@ -2486,6 +2513,7 @@ FROM            Processes INNER JOIN
                                                                             <Style>None</Style>
                                                                           </BottomBorder>
                                                                           <BackgroundColor>LightSteelBlue</BackgroundColor>
+                                                                          <VerticalAlign>Middle</VerticalAlign>
                                                                           <PaddingLeft>2pt</PaddingLeft>
                                                                           <PaddingRight>2pt</PaddingRight>
                                                                           <PaddingTop>2pt</PaddingTop>
@@ -2609,7 +2637,7 @@ FROM            Processes INNER JOIN
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.19524in</Size>
+                                    <Size>1.77024in</Size>
                                     <CellContents>
                                       <Textbox Name="Textbox283">
                                         <CanGrow>true</CanGrow>
@@ -3084,7 +3112,7 @@ FROM            Processes INNER JOIN
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.19524in</Size>
+                                    <Size>1.77024in</Size>
                                     <CellContents>
                                       <Textbox Name="Textbox298">
                                         <CanGrow>true</CanGrow>
@@ -3577,7 +3605,7 @@ FROM            Processes INNER JOIN
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.19524in</Size>
+                                    <Size>1.77024in</Size>
                                     <CellContents>
                                       <Textbox Name="Textbox356">
                                         <CanGrow>true</CanGrow>
@@ -4014,7 +4042,7 @@ FROM            Processes INNER JOIN
             <Top>0.46333in</Top>
             <Left>0.92728cm</Left>
             <Height>1.6111in</Height>
-            <Width>15.24141in</Width>
+            <Width>15.87476in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4748,7 +4776,7 @@ FROM            Processes INNER JOIN
             <Top>2.36693in</Top>
             <Left>8.47571in</Left>
             <Height>4.04167in</Height>
-            <Width>7.13077in</Width>
+            <Width>7.76413in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -4809,7 +4837,7 @@ FROM            Processes INNER JOIN
               <Top>0.98069cm</Top>
               <Left>11.32795cm</Left>
               <Height>0.91889in</Height>
-              <Width>11.14665in</Width>
+              <Width>11.78001in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -4861,7 +4889,7 @@ FROM            Processes INNER JOIN
               <Top>1.44109in</Top>
               <Left>0.93132cm</Left>
               <Height>0in</Height>
-              <Width>15.23982in</Width>
+              <Width>15.87318in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -4874,7 +4902,7 @@ FROM            Processes INNER JOIN
               <Top>1.56609in</Top>
               <Left>0.93132cm</Left>
               <Height>0in</Height>
-              <Width>15.23982in</Width>
+              <Width>15.87318in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -4952,7 +4980,7 @@ FROM            Processes INNER JOIN
               <Top>0.375in</Top>
               <Left>13.63148in</Left>
               <Height>0.25in</Height>
-              <Width>1.975in</Width>
+              <Width>2.60835in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
