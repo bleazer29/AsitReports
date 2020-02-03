@@ -219,6 +219,16 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=Fields!LogsDate.Value</FilterExpression>
+          <Operator>Between</Operator>
+          <FilterValues>
+            <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
+            <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -1836,7 +1846,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
             <Top>0.42in</Top>
             <Left>1.12814cm</Left>
             <Height>1.42696in</Height>
-            <Width>11.39959in</Width>
+            <Width>11.39961in</Width>
             <Visibility>
               <Hidden>=IIF(Previous(Fields!ProcessId.Value) = Fields!ProcessId.Value, True, False)</Hidden>
             </Visibility>

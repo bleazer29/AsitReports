@@ -13,23 +13,12 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>testDataSource1</DataSourceName>
-        <QueryParameters>
-          <QueryParameter Name="@StartDate">
-            <Value>=Parameters!StartDate.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@EndDate">
-            <Value>=Parameters!EndDate.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
         <CommandText>SELECT Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Users.Name, Logs.ErrorEventTypeId, Users.Email, Users.PhoneNumber, Users.Card, ErrorEventTypes.Id, ErrorEventTypes.Name AS ErrorEventTypesName, 
                   ErrorEventTypes.KeyErrorEvent, Logs.UserId, Logs.EquimpmentId, Equimpments.Name AS EquipmentsName, Equimpments.IsEnable, Logs.Id AS LogsId, Logs.ProcessId
 FROM     Logs LEFT OUTER JOIN
                   Equimpments ON Logs.EquimpmentId = Equimpments.Id LEFT OUTER JOIN
                   ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id LEFT OUTER JOIN
-                  Users ON Logs.UserId = Users.Id
-WHERE  (Logs.UserId IS NOT NULL) AND (YEAR(Logs.CheckDate) BETWEEN YEAR(@StartDate) AND YEAR(@EndDate)) AND (MONTH(Logs.CheckDate) BETWEEN MONTH(@StartDate) AND MONTH(@EndDate)) AND (DAY(Logs.CheckDate) 
-                  BETWEEN DAY(@StartDate) AND DAY(@EndDate))
-ORDER BY Users.Name</CommandText>
+                  Users ON Logs.UserId = Users.Id</CommandText>
       </Query>
       <Fields>
         <Field Name="Date">
@@ -105,6 +94,16 @@ ORDER BY Users.Name</CommandText>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=Fields!CheckDate.Value</FilterExpression>
+          <Operator>Between</Operator>
+          <FilterValues>
+            <FilterValue>=Parameters!StartDate.Value</FilterValue>
+            <FilterValue>=Parameters!EndDate.Value</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -1169,7 +1168,6 @@ ORDER BY Users.Name</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1250,21 +1248,27 @@ ORDER BY Users.Name</CommandText>
                   <TablixMembers>
                     <TablixMember>
                       <KeepWithGroup>After</KeepWithGroup>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                     <TablixMember>
                       <KeepWithGroup>After</KeepWithGroup>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                     <TablixMember>
                       <KeepWithGroup>After</KeepWithGroup>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                     <TablixMember>
                       <KeepWithGroup>After</KeepWithGroup>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                     <TablixMember>
                       <KeepWithGroup>After</KeepWithGroup>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                     <TablixMember>
                       <KeepWithGroup>After</KeepWithGroup>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                     <TablixMember>
                       <Group Name="table1_Details_Group">
@@ -1290,7 +1294,7 @@ ORDER BY Users.Name</CommandText>
             <Top>0.40389in</Top>
             <Left>0.93959cm</Left>
             <Height>2.11688in</Height>
-            <Width>10.98293in</Width>
+            <Width>10.98294in</Width>
             <Style>
               <FontSize>12pt</FontSize>
             </Style>

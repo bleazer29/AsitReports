@@ -13,14 +13,6 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>testDataSource1</DataSourceName>
-        <QueryParameters>
-          <QueryParameter Name="@ReportParameter1">
-            <Value>=Parameters!ReportParameter1.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@ReportParameter2">
-            <Value>=Parameters!ReportParameter2.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
         <CommandText>SELECT        Logs.Id, Logs.Date, Logs.CheckDate, Logs.Module, Logs.Record, Logs.UserId, Logs.ProcessId, Logs.ErrorEventTypeId, Logs.EquimpmentId, Users.Name, 
                          Roles.Name AS RolesName, ErrorEventTypes.Name AS EventTypesName, Equimpments.Name AS EquipmentName
 FROM            Equimpments RIGHT OUTER JOIN
@@ -28,8 +20,7 @@ FROM            Equimpments RIGHT OUTER JOIN
                          ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id LEFT OUTER JOIN
                          Roles INNER JOIN
                          Users ON Roles.Id = Users.RoleId ON Logs.UserId = Users.Id
-WHERE        (YEAR(Logs.Date) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportParameter2)) AND (MONTH(Logs.Date) BETWEEN MONTH(@ReportParameter1) AND 
-                         MONTH(@ReportParameter2)) AND (DAY(Logs.Date) BETWEEN DAY(@ReportParameter1) AND DAY(@ReportParameter2))</CommandText>
+</CommandText>
       </Query>
       <Fields>
         <Field Name="Id">
@@ -85,6 +76,16 @@ WHERE        (YEAR(Logs.Date) BETWEEN YEAR(@ReportParameter1) AND YEAR(@ReportPa
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=Fields!Date.Value</FilterExpression>
+          <Operator>Between</Operator>
+          <FilterValues>
+            <FilterValue>=Parameters!ReportParameter1.Value</FilterValue>
+            <FilterValue>=Parameters!ReportParameter2.Value</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
