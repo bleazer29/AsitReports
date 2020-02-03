@@ -369,6 +369,7 @@ FROM     ControlPoints INNER JOIN
                               <Width>92</Width>
                             </StateIndicator>
                           </StateIndicators>
+                          <AutoLayout>true</AutoLayout>
                           <BackFrame>
                             <Style>
                               <Border>
@@ -403,9 +404,6 @@ FROM     ControlPoints INNER JOIN
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                           </Style>
                         </GaugePanel>
@@ -499,7 +497,7 @@ FROM     ControlPoints INNER JOIN
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <Label>#PERCENT</Label>
+                        <Label>#PERCENT{P0}</Label>
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style>
