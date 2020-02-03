@@ -3281,8 +3281,8 @@ FROM            Vehicles AS Vehicles_1 INNER JOIN
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.405in</Top>
-            <Left>0.42333cm</Left>
+            <Top>0.38833in</Top>
+            <Left>0.95034cm</Left>
             <Height>5.71491in</Height>
             <Width>13.97676in</Width>
             <Style />
@@ -3291,7 +3291,7 @@ FROM            Vehicles AS Vehicles_1 INNER JOIN
         <Height>21.37517cm</Height>
         <Style />
       </Body>
-      <Width>35.9243cm</Width>
+      <Width>36.45131cm</Width>
       <Page>
         <PageHeader>
           <Height>4.4647cm</Height>
@@ -3337,7 +3337,7 @@ FROM            Vehicles AS Vehicles_1 INNER JOIN
               <Top>0.98069cm</Top>
               <Left>11.40197cm</Left>
               <Height>0.91889in</Height>
-              <Width>7.74312in</Width>
+              <Width>7.95061in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -3387,7 +3387,7 @@ FROM            Vehicles AS Vehicles_1 INNER JOIN
             </Textbox>
             <Line Name="Line1">
               <Top>1.44109in</Top>
-              <Left>0.42333cm</Left>
+              <Left>0.95036cm</Left>
               <Height>0in</Height>
               <Width>12.06542in</Width>
               <ZIndex>3</ZIndex>
@@ -3400,7 +3400,7 @@ FROM            Vehicles AS Vehicles_1 INNER JOIN
             </Line>
             <Line Name="Line2">
               <Top>1.56609in</Top>
-              <Left>0.42333cm</Left>
+              <Left>0.95036cm</Left>
               <Height>0in</Height>
               <Width>12.06542in</Width>
               <ZIndex>4</ZIndex>
