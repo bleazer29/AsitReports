@@ -1631,7 +1631,7 @@ FROM            Equimpments RIGHT OUTER JOIN
       <Width>36.22372cm</Width>
       <Page>
         <PageHeader>
-          <Height>3.97787cm</Height>
+          <Height>4.48587cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1680,7 +1680,7 @@ FROM            Equimpments RIGHT OUTER JOIN
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <VerticalAlign>Bottom</VerticalAlign>
+                <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>

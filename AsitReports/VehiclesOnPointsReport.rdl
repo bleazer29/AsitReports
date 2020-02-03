@@ -1902,13 +1902,13 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
               <Top>0.95956cm</Top>
               <Left>11.57975cm</Left>
               <Height>0.91889in</Height>
-              <Width>7.1702in</Width>
+              <Width>7.28478in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <VerticalAlign>Bottom</VerticalAlign>
+                <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>

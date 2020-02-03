@@ -2028,10 +2028,11 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               </Paragraphs>
               <rd:DefaultName>textbox1</rd:DefaultName>
               <Left>11.84769cm</Left>
-              <Height>0.67444in</Height>
-              <Width>9.17335in</Width>
+              <Height>1.04667in</Height>
+              <Width>6.20897in</Width>
               <ZIndex>1</ZIndex>
               <Style>
+                <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -2075,7 +2076,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               <Top>2.8702cm</Top>
               <Left>0.05333in</Left>
               <Height>0in</Height>
-              <Width>13.78446in</Width>
+              <Width>10.82008in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -2088,7 +2089,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               <Top>1.19944in</Top>
               <Left>0.13546cm</Left>
               <Height>0in</Height>
-              <Width>13.78446in</Width>
+              <Width>10.82008in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -2157,9 +2158,9 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
               <Top>0.75in</Top>
-              <Left>9.87341in</Left>
+              <Left>8.27966in</Left>
               <Height>0.25in</Height>
-              <Width>1in</Width>
+              <Width>2.59375in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
