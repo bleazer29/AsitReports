@@ -510,7 +510,6 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -720,7 +719,6 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -930,7 +928,6 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1140,7 +1137,6 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1368,7 +1364,6 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1617,7 +1612,6 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2134,7 +2128,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               <Top>0.75in</Top>
               <Left>0.13547cm</Left>
               <Height>0.25in</Height>
-              <Width>1in</Width>
+              <Width>3.29167in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
