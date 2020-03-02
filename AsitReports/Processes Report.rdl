@@ -198,11 +198,11 @@ FROM     Owners AS Owners_1 INNER JOIN
       </Fields>
       <Filters>
         <Filter>
-          <FilterExpression>=Fields!Date.Value</FilterExpression>
+          <FilterExpression>=CDate(Fields!Date.Value)</FilterExpression>
           <Operator>Between</Operator>
           <FilterValues>
-            <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
-            <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
+            <FilterValue>=CDate(Parameters!StartDateParam.Value)</FilterValue>
+            <FilterValue>=CDate(Parameters!EndDateParam.Value)</FilterValue>
           </FilterValues>
         </Filter>
       </Filters>
@@ -277,6 +277,7 @@ FROM            Processes INNER JOIN
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
@@ -320,6 +321,7 @@ FROM            Processes INNER JOIN
                             </Border>
                             <RightBorder>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -369,6 +371,9 @@ FROM            Processes INNER JOIN
                             <BottomBorder>
                               <Style>None</Style>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -507,6 +512,9 @@ FROM            Processes INNER JOIN
                                 <BottomBorder>
                                   <Style>None</Style>
                                 </BottomBorder>
+                                <LeftBorder>
+                                  <Style>None</Style>
+                                </LeftBorder>
                                 <RightBorder>
                                   <Style>None</Style>
                                 </RightBorder>
@@ -522,6 +530,7 @@ FROM            Processes INNER JOIN
                             </Border>
                             <RightBorder>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                           </Style>
@@ -567,6 +576,9 @@ FROM            Processes INNER JOIN
                             <BottomBorder>
                               <Style>None</Style>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -615,6 +627,9 @@ FROM            Processes INNER JOIN
                             <BottomBorder>
                               <Style>None</Style>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -661,8 +676,11 @@ FROM            Processes INNER JOIN
                               <Style>None</Style>
                             </TopBorder>
                             <BottomBorder>
-                              <Width>3pt</Width>
+                              <Width>2pt</Width>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -713,6 +731,7 @@ FROM            Processes INNER JOIN
                           <Border>
                             <Color>DimGray</Color>
                             <Style>Solid</Style>
+                            <Width>2pt</Width>
                           </Border>
                           <BottomBorder>
                             <Style>Solid</Style>
@@ -757,6 +776,7 @@ FROM            Processes INNER JOIN
                               <Border>
                                 <Color>DimGray</Color>
                                 <Style>Solid</Style>
+                                <Width>2pt</Width>
                               </Border>
                               <BottomBorder>
                                 <Style>Solid</Style>
@@ -801,6 +821,7 @@ FROM            Processes INNER JOIN
                                   <Border>
                                     <Color>DimGray</Color>
                                     <Style>Solid</Style>
+                                    <Width>2pt</Width>
                                   </Border>
                                   <BottomBorder>
                                     <Style>Solid</Style>
@@ -845,6 +866,7 @@ FROM            Processes INNER JOIN
                                       <Border>
                                         <Color>DimGray</Color>
                                         <Style>Solid</Style>
+                                        <Width>2pt</Width>
                                       </Border>
                                       <BottomBorder>
                                         <Style>Solid</Style>
@@ -889,6 +911,7 @@ FROM            Processes INNER JOIN
                                           <Border>
                                             <Color>DimGray</Color>
                                             <Style>Solid</Style>
+                                            <Width>2pt</Width>
                                           </Border>
                                           <BottomBorder>
                                             <Style>Solid</Style>
@@ -933,6 +956,7 @@ FROM            Processes INNER JOIN
                                               <Border>
                                                 <Color>DimGray</Color>
                                                 <Style>Solid</Style>
+                                                <Width>2pt</Width>
                                               </Border>
                                               <BottomBorder>
                                                 <Style>Solid</Style>
@@ -977,6 +1001,7 @@ FROM            Processes INNER JOIN
                                                   <Border>
                                                     <Color>DimGray</Color>
                                                     <Style>Solid</Style>
+                                                    <Width>2pt</Width>
                                                   </Border>
                                                   <BottomBorder>
                                                     <Style>Solid</Style>
@@ -1021,6 +1046,7 @@ FROM            Processes INNER JOIN
                                                       <Border>
                                                         <Color>DimGray</Color>
                                                         <Style>Solid</Style>
+                                                        <Width>2pt</Width>
                                                       </Border>
                                                       <BottomBorder>
                                                         <Style>Solid</Style>
@@ -1061,9 +1087,6 @@ FROM            Processes INNER JOIN
                     <GroupExpressions>
                       <GroupExpression>=Format(DateValue(Fields!Date.Value), "dd.MM.yyyy")</GroupExpression>
                     </GroupExpressions>
-                    <PageBreak>
-                      <BreakLocation>Between</BreakLocation>
-                    </PageBreak>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
@@ -1100,10 +1123,13 @@ FROM            Processes INNER JOIN
                             <Style>Solid</Style>
                           </Border>
                           <BottomBorder>
-                            <Width>3pt</Width>
+                            <Width>2pt</Width>
                           </BottomBorder>
+                          <LeftBorder>
+                            <Width>2pt</Width>
+                          </LeftBorder>
                           <RightBorder>
-                            <Width>3pt</Width>
+                            <Width>2pt</Width>
                           </RightBorder>
                           <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
@@ -1650,7 +1676,7 @@ FROM            Processes INNER JOIN
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=IIF(Fields!IsLoading.Value=true, "Погрузка", "Отгрузка")</Value>
+                                            <Value>=IIF(Fields!IsLoading.Value=true, "Приёмка", "Отгрузка")</Value>
                                             <Style>
                                               <FontFamily>Arial</FontFamily>
                                               <FontSize>12pt</FontSize>
@@ -3545,7 +3571,7 @@ FROM            Processes INNER JOIN
                                     <Style>None</Style>
                                   </TopBorder>
                                   <BottomBorder>
-                                    <Width>3pt</Width>
+                                    <Width>2pt</Width>
                                   </BottomBorder>
                                   <BackgroundColor>LightSteelBlue</BackgroundColor>
                                   <PaddingLeft>2pt</PaddingLeft>
@@ -3591,7 +3617,7 @@ FROM            Processes INNER JOIN
                                         <Style>None</Style>
                                       </TopBorder>
                                       <BottomBorder>
-                                        <Width>3pt</Width>
+                                        <Width>2pt</Width>
                                       </BottomBorder>
                                       <BackgroundColor>LightSteelBlue</BackgroundColor>
                                       <PaddingLeft>2pt</PaddingLeft>
@@ -3637,7 +3663,7 @@ FROM            Processes INNER JOIN
                                             <Style>None</Style>
                                           </TopBorder>
                                           <BottomBorder>
-                                            <Width>3pt</Width>
+                                            <Width>2pt</Width>
                                           </BottomBorder>
                                           <BackgroundColor>LightSteelBlue</BackgroundColor>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -3680,7 +3706,7 @@ FROM            Processes INNER JOIN
                                                 <Style>None</Style>
                                               </TopBorder>
                                               <BottomBorder>
-                                                <Width>3pt</Width>
+                                                <Width>2pt</Width>
                                               </BottomBorder>
                                               <BackgroundColor>LightSteelBlue</BackgroundColor>
                                               <PaddingLeft>2pt</PaddingLeft>
@@ -3723,7 +3749,7 @@ FROM            Processes INNER JOIN
                                                     <Style>None</Style>
                                                   </TopBorder>
                                                   <BottomBorder>
-                                                    <Width>3pt</Width>
+                                                    <Width>2pt</Width>
                                                   </BottomBorder>
                                                   <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                   <PaddingLeft>2pt</PaddingLeft>
@@ -3769,7 +3795,7 @@ FROM            Processes INNER JOIN
                                                         <Style>None</Style>
                                                       </TopBorder>
                                                       <BottomBorder>
-                                                        <Width>3pt</Width>
+                                                        <Width>2pt</Width>
                                                       </BottomBorder>
                                                       <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                       <PaddingLeft>2pt</PaddingLeft>
@@ -3812,7 +3838,7 @@ FROM            Processes INNER JOIN
                                                             <Style>None</Style>
                                                           </TopBorder>
                                                           <BottomBorder>
-                                                            <Width>3pt</Width>
+                                                            <Width>2pt</Width>
                                                           </BottomBorder>
                                                           <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                           <PaddingLeft>2pt</PaddingLeft>
@@ -3855,7 +3881,7 @@ FROM            Processes INNER JOIN
                                                                 <Style>None</Style>
                                                               </TopBorder>
                                                               <BottomBorder>
-                                                                <Width>3pt</Width>
+                                                                <Width>2pt</Width>
                                                               </BottomBorder>
                                                               <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                               <PaddingLeft>2pt</PaddingLeft>
@@ -3898,7 +3924,7 @@ FROM            Processes INNER JOIN
                                                                     <Style>None</Style>
                                                                   </TopBorder>
                                                                   <BottomBorder>
-                                                                    <Width>3pt</Width>
+                                                                    <Width>2pt</Width>
                                                                   </BottomBorder>
                                                                   <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                                   <PaddingLeft>2pt</PaddingLeft>
@@ -3941,7 +3967,7 @@ FROM            Processes INNER JOIN
                                                                         <Style>None</Style>
                                                                       </TopBorder>
                                                                       <BottomBorder>
-                                                                        <Width>3pt</Width>
+                                                                        <Width>2pt</Width>
                                                                       </BottomBorder>
                                                                       <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                                       <PaddingLeft>2pt</PaddingLeft>
@@ -3987,7 +4013,7 @@ FROM            Processes INNER JOIN
                                                                             <Style>None</Style>
                                                                           </TopBorder>
                                                                           <BottomBorder>
-                                                                            <Width>3pt</Width>
+                                                                            <Width>2pt</Width>
                                                                           </BottomBorder>
                                                                           <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                                           <PaddingLeft>2pt</PaddingLeft>
@@ -4027,6 +4053,7 @@ FROM            Processes INNER JOIN
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <FixedColumnHeaders>true</FixedColumnHeaders>
+            <KeepTogether>true</KeepTogether>
             <NoRowsMessage>Нет данных.</NoRowsMessage>
             <DataSetName>DataSet1</DataSetName>
             <Filters>
@@ -4376,7 +4403,7 @@ FROM            Processes INNER JOIN
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Title1">
-                <Caption>Диаграмма процессов отгрузки и погрузки (за всё время) </Caption>
+                <Caption>Диаграмма процессов отгрузки и приёмки (за всё время) </Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontFamily>Arial</FontFamily>
@@ -4404,9 +4431,6 @@ FROM            Processes INNER JOIN
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet2</DataSetName>
-            <PageBreak>
-              <BreakLocation>Start</BreakLocation>
-            </PageBreak>
             <Top>2.36693in</Top>
             <Left>0.36507in</Left>
             <Height>4.04167in</Height>
@@ -4770,9 +4794,6 @@ FROM            Processes INNER JOIN
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet2</DataSetName>
-            <PageBreak>
-              <BreakLocation>Start</BreakLocation>
-            </PageBreak>
             <Top>2.36693in</Top>
             <Left>8.47571in</Left>
             <Height>4.04167in</Height>
@@ -4791,7 +4812,7 @@ FROM            Processes INNER JOIN
         <Height>16.27784cm</Height>
         <Style />
       </Body>
-      <Width>71.38332cm</Width>
+      <Width>41.26315cm</Width>
       <Page>
         <PageHeader>
           <Height>4.33769cm</Height>
@@ -4887,9 +4908,9 @@ FROM            Processes INNER JOIN
             </Textbox>
             <Line Name="Line1">
               <Top>1.44109in</Top>
-              <Left>0.93132cm</Left>
+              <Left>0.92728cm</Left>
               <Height>0in</Height>
-              <Width>15.87318in</Width>
+              <Width>15.87477in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -4900,9 +4921,9 @@ FROM            Processes INNER JOIN
             </Line>
             <Line Name="Line2">
               <Top>1.56609in</Top>
-              <Left>0.93132cm</Left>
+              <Left>0.92728cm</Left>
               <Height>0in</Height>
-              <Width>15.87318in</Width>
+              <Width>15.87477in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -4999,7 +5020,7 @@ FROM            Processes INNER JOIN
             </Border>
           </Style>
         </PageFooter>
-        <PageHeight>21cm</PageHeight>
+        <PageHeight>500cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>
         <LeftMargin>2.54cm</LeftMargin>
         <RightMargin>2.54cm</RightMargin>

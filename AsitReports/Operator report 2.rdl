@@ -96,11 +96,11 @@ FROM     Logs LEFT OUTER JOIN
       </Fields>
       <Filters>
         <Filter>
-          <FilterExpression>=Fields!CheckDate.Value</FilterExpression>
+          <FilterExpression>=CDate(Fields!CheckDate.Value)</FilterExpression>
           <Operator>Between</Operator>
           <FilterValues>
-            <FilterValue>=Parameters!StartDate.Value</FilterValue>
-            <FilterValue>=Parameters!EndDate.Value</FilterValue>
+            <FilterValue>=CDate(Parameters!StartDate.Value)</FilterValue>
+            <FilterValue>=CDate(Parameters!EndDate.Value)</FilterValue>
           </FilterValues>
         </Filter>
       </Filters>
@@ -1713,7 +1713,7 @@ FROM     Logs LEFT OUTER JOIN
         <Height>19.21695cm</Height>
         <Style />
       </Body>
-      <Width>31.33621cm</Width>
+      <Width>28.83854cm</Width>
       <Page>
         <PageHeader>
           <Height>4.51087cm</Height>

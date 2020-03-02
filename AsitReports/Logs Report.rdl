@@ -19,8 +19,7 @@ FROM            Equimpments RIGHT OUTER JOIN
                          Logs ON Equimpments.Id = Logs.EquimpmentId LEFT OUTER JOIN
                          ErrorEventTypes ON Logs.ErrorEventTypeId = ErrorEventTypes.Id LEFT OUTER JOIN
                          Roles INNER JOIN
-                         Users ON Roles.Id = Users.RoleId ON Logs.UserId = Users.Id
-</CommandText>
+                         Users ON Roles.Id = Users.RoleId ON Logs.UserId = Users.Id</CommandText>
       </Query>
       <Fields>
         <Field Name="Id">
@@ -78,11 +77,11 @@ FROM            Equimpments RIGHT OUTER JOIN
       </Fields>
       <Filters>
         <Filter>
-          <FilterExpression>=Fields!Date.Value</FilterExpression>
+          <FilterExpression>=DateValue(FormatDateTime(Fields!Date.Value,DateFormat.ShortDate))</FilterExpression>
           <Operator>Between</Operator>
           <FilterValues>
-            <FilterValue>=Parameters!ReportParameter1.Value</FilterValue>
-            <FilterValue>=Parameters!ReportParameter2.Value</FilterValue>
+            <FilterValue>=DateValue(FormatDateTime(Parameters!ReportParameter1.Value, dateFormat.ShortDate))</FilterValue>
+            <FilterValue>=DateValue(FormatDateTime(Parameters!ReportParameter2.Value, DateFormat.ShortDate))</FilterValue>
           </FilterValues>
         </Filter>
       </Filters>
@@ -577,24 +576,24 @@ FROM            Equimpments RIGHT OUTER JOIN
                 <TablixMember>
                   <Group Name="Date1">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Date.Value</GroupExpression>
+                      <GroupExpression>=DateValue(FormatDateTime(Fields!Date.Value, DateFormat.ShortDate))</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Date.Value</Value>
+                      <Value>=DateValue(FormatDateTime(Fields!Date.Value, DateFormat.ShortDate))</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
                     <TablixMember>
                       <Group Name="Date">
                         <GroupExpressions>
-                          <GroupExpression>=Fields!Date.Value</GroupExpression>
+                          <GroupExpression>=DateValue(FormatDateTime(Fields!Date.Value, DateFormat.ShortDate))</GroupExpression>
                         </GroupExpressions>
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!Date.Value</Value>
+                          <Value>=DateValue(FormatDateTime(Fields!Date.Value, DateFormat.ShortDate))</Value>
                         </SortExpression>
                       </SortExpressions>
                       <TablixMembers>
@@ -609,7 +608,7 @@ FROM            Equimpments RIGHT OUTER JOIN
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Fields!Date.Value</Value>
+                                        <Value>=Format(Fields!Date.Value,"dd.MM.yyyy")</Value>
                                         <Style>
                                           <FontFamily>Arial</FontFamily>
                                           <FontSize>12pt</FontSize>
@@ -635,6 +634,7 @@ FROM            Equimpments RIGHT OUTER JOIN
                                   <PaddingBottom>2pt</PaddingBottom>
                                 </Style>
                               </Textbox>
+                              <rd:Selected>true</rd:Selected>
                             </CellContents>
                           </TablixHeader>
                           <TablixMembers>
@@ -649,7 +649,7 @@ FROM            Equimpments RIGHT OUTER JOIN
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Fields!CheckDate.Value</Value>
+                                            <Value>=Format(Fields!CheckDate.Value, "dd.MM.yyyy")</Value>
                                             <Style>
                                               <FontFamily />
                                               <FontSize>12pt</FontSize>
@@ -1231,10 +1231,10 @@ FROM            Equimpments RIGHT OUTER JOIN
             <DataSetName>DataSet1</DataSetName>
             <Filters>
               <Filter>
-                <FilterExpression>=Fields!Date.Value</FilterExpression>
+                <FilterExpression>=DateValue(FormatDateTime(Fields!Date.Value,DateFormat.ShortDate))</FilterExpression>
                 <Operator>Between</Operator>
                 <FilterValues>
-                  <FilterValue>=Parameters!ReportParameter1.Value</FilterValue>
+                  <FilterValue>=DateValue(FormatDateTime(Parameters!ReportParameter1.Value, DateFormat.ShortDate))</FilterValue>
                   <FilterValue>=Parameters!ReportParameter2.Value</FilterValue>
                 </FilterValues>
               </Filter>
@@ -1296,10 +1296,16 @@ FROM            Equimpments RIGHT OUTER JOIN
                       <ChartDataLabel>
                         <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
+                        <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
-                        <Style />
+                        <Type>Circle</Type>
+                        <Style>
+                          <Border>
+                            <Width>5pt</Width>
+                          </Border>
+                        </Style>
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
@@ -1628,7 +1634,7 @@ FROM            Equimpments RIGHT OUTER JOIN
         <Height>17.37995cm</Height>
         <Style />
       </Body>
-      <Width>36.22372cm</Width>
+      <Width>28.79422cm</Width>
       <Page>
         <PageHeader>
           <Height>4.48587cm</Height>

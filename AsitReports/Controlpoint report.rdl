@@ -263,7 +263,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.09968in</Width>
+                  <Width>1.26635in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.46677in</Width>
@@ -313,6 +313,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </Border>
                             <BackgroundColor>#0c4484</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -353,6 +354,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </Border>
                             <BackgroundColor>#0c4484</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -393,6 +395,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </Border>
                             <BackgroundColor>#0c4484</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -423,6 +426,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -491,6 +495,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -559,6 +564,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -605,6 +611,9 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -632,6 +641,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -700,6 +710,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -768,6 +779,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -814,6 +826,9 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -841,6 +856,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -909,6 +925,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -977,6 +994,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1023,6 +1041,9 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1050,6 +1071,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1118,6 +1140,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1186,6 +1209,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1232,6 +1256,9 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1259,6 +1286,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1275,7 +1303,8 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style>Solid</Style>
                             </TopBorder>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1315,7 +1344,8 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style>Solid</Style>
                             </TopBorder>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1339,6 +1369,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1355,7 +1386,8 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style>Solid</Style>
                             </TopBorder>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1395,7 +1427,8 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style>Solid</Style>
                             </TopBorder>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1419,6 +1452,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1435,7 +1469,8 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style>Solid</Style>
                             </TopBorder>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1475,259 +1510,12 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style>Solid</Style>
                             </TopBorder>
                             <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>0.23622in</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox15">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox15</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
                               <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>DimGray</Color>
-                              <Width>3pt</Width>
+                              <Width>2pt</Width>
                             </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox16">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox16</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>DimGray</Color>
-                              <Width>3pt</Width>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox18">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox18</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>DimGray</Color>
-                              <Width>3pt</Width>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox19">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox19</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>DimGray</Color>
-                              <Width>3pt</Width>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox20">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox20</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>DimGray</Color>
-                              <Width>3pt</Width>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox22">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox22</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>DimGray</Color>
-                              <Width>3pt</Width>
-                            </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1783,6 +1571,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                           <Border>
                             <Color>DimGray</Color>
                             <Style>Solid</Style>
+                            <Width>2pt</Width>
                           </Border>
                           <BackgroundColor>#0c4484</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
@@ -1796,7 +1585,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.01102in</Size>
+                        <Size>1.13602in</Size>
                         <CellContents>
                           <Textbox Name="Textbox23">
                             <CanGrow>true</CanGrow>
@@ -1805,7 +1594,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>№ Процесса </Value>
+                                    <Value>Процесс </Value>
                                     <Style>
                                       <FontFamily>Arial</FontFamily>
                                       <FontSize>12pt</FontSize>
@@ -1824,6 +1613,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Border>
                                 <Color>DimGray</Color>
                                 <Style>Solid</Style>
+                                <Width>2pt</Width>
                               </Border>
                               <BackgroundColor>#0c4484</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
@@ -1884,8 +1674,11 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                           </Border>
                           <BottomBorder>
                             <Color>DimGray</Color>
-                            <Width>3pt</Width>
+                            <Width>2pt</Width>
                           </BottomBorder>
+                          <LeftBorder>
+                            <Width>2pt</Width>
+                          </LeftBorder>
                           <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
@@ -1908,7 +1701,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>1.01102in</Size>
+                        <Size>1.13602in</Size>
                         <CellContents>
                           <Textbox Name="ProcessId1">
                             <CanGrow>true</CanGrow>
@@ -1935,10 +1728,10 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               </Border>
                               <BottomBorder>
                                 <Color>DimGray</Color>
-                                <Width>3pt</Width>
+                                <Width>2pt</Width>
                               </BottomBorder>
                               <LeftBorder>
-                                <Width>3pt</Width>
+                                <Width>2pt</Width>
                               </LeftBorder>
                               <BackgroundColor>LightSteelBlue</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
@@ -1958,7 +1751,6 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <TablixMember />
                             <TablixMember />
                             <TablixMember />
-                            <TablixMember />
                           </TablixMembers>
                         </TablixMember>
                       </TablixMembers>
@@ -1970,8 +1762,8 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.21875in</Top>
             <Left>0.42583in</Left>
-            <Height>1.73622in</Height>
-            <Width>10.78675in</Width>
+            <Height>1.5in</Height>
+            <Width>11.07841in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2031,7 +1823,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               <Top>1.00188cm</Top>
               <Left>12.73034cm</Left>
               <Height>1.04667in</Height>
-              <Width>6.20897in</Width>
+              <Width>6.36729in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -2078,7 +1870,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               <Top>4.13667cm</Top>
               <Left>0.40083in</Left>
               <Height>0in</Height>
-              <Width>10.82008in</Width>
+              <Width>10.9784in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -2091,7 +1883,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               <Top>1.79805in</Top>
               <Left>1.01811cm</Left>
               <Height>0in</Height>
-              <Width>10.82008in</Width>
+              <Width>10.9784in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -2164,7 +1956,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
               <Top>0.38333in</Top>
-              <Left>8.65216in</Left>
+              <Left>8.78549in</Left>
               <Height>0.25in</Height>
               <Width>2.59375in</Width>
               <ZIndex>1</ZIndex>

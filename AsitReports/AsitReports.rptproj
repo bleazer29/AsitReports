@@ -61,6 +61,7 @@
     <Report Include="Operator report 2.rdl" />
     <Report Include="Processes Report.rdl" />
     <Report Include="VehiclesOnPointsReport.rdl" />
+    <Report Include="Weight Report1.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>

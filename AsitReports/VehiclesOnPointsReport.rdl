@@ -221,11 +221,11 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
       </Fields>
       <Filters>
         <Filter>
-          <FilterExpression>=Fields!LogsDate.Value</FilterExpression>
+          <FilterExpression>=DateValue(FormatDateTime(Fields!LogsDate.Value, DateFormat.ShortDate))</FilterExpression>
           <Operator>Between</Operator>
           <FilterValues>
-            <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
-            <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
+            <FilterValue>=Datevalue(FormatDateTime(Parameters!StartDateParam.Value, DateFormat.ShortDate))</FilterValue>
+            <FilterValue>=DateValue(FormatDateTime(Parameters!EndDateParam.Value, DateFormat.ShortDate))</FilterValue>
           </FilterValues>
         </Filter>
       </Filters>
@@ -407,6 +407,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>ФИО</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -432,6 +433,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -485,6 +487,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Номер</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -563,6 +566,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Номер</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -646,6 +650,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Телефон</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -671,6 +676,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -724,6 +730,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Цвет</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -802,6 +809,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Цвет</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -885,6 +893,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Почта</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -910,6 +919,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -963,6 +973,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Владелец</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1041,6 +1052,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Владелец</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1124,6 +1136,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Права</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1149,6 +1162,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1202,6 +1216,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Масса брутто</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1280,6 +1295,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Масса брутто</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1363,6 +1379,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Комментарий</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1388,6 +1405,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1441,6 +1459,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Масса нетто</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1519,6 +1538,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Масса нетто</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1853,10 +1873,10 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>4.69128cm</Height>
+        <Height>4.88178cm</Height>
         <Style />
       </Body>
-      <Width>32.46436cm</Width>
+      <Width>30.08315cm</Width>
       <Page>
         <PageHeader>
           <Height>4.29364cm</Height>
