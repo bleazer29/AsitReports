@@ -289,6 +289,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
@@ -332,6 +333,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
@@ -375,6 +377,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
@@ -407,6 +410,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>ФИО</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -433,7 +437,6 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -448,6 +451,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!DriversName.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -487,6 +491,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Номер</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -527,6 +532,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!TruckVehicleNumber.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -566,6 +572,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Номер</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -606,6 +613,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!TrailerVehicleNum.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -624,6 +632,9 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -650,6 +661,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Телефон</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -676,7 +688,6 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -691,6 +702,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!PhoneNumber.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -730,6 +742,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Цвет</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -770,6 +783,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!TruckColore.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -809,6 +823,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Цвет</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -849,6 +864,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!TrailerColore.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -867,6 +883,9 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -893,6 +912,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Почта</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -919,7 +939,6 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -934,6 +953,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!Email.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -973,6 +993,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Владелец</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -1013,6 +1034,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!TruckOwnerName.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1052,6 +1074,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Владелец</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -1092,6 +1115,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!TrailerOwnerName.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1110,6 +1134,9 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1136,6 +1163,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>Права</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -1162,7 +1190,6 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1177,6 +1204,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                   <Value>=Fields!DrivingLicense.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1206,16 +1234,262 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox39">
+                        <Textbox Name="Textbox32">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Масса брутто</Value>
+                                  <Value>=IIf(Fields!IsLoading.Value = True, "Брутто", "Тара")</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox31</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TruckOwnerName2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!GrossWeight_Truck.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TruckOwnerName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox34">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIf(Fields!IsLoading.Value = True, "Брутто", "Тара")</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox31</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TruckOwnerName3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!GrossWeight_Trailer.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TruckOwnerName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.23622in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox46">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Комментарий</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox46</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DriversCommentary">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!DriversCommentary.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>DriversCommentary</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox40">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIf(Fields!IsLoading.Value = True, "Тара", "Брутто")</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -1246,16 +1520,17 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="GrossWeight_Truck">
+                        <Textbox Name="GrossWeight_Truck2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!GrossWeight_Truck.Value</Value>
+                                  <Value>=Fields!NetWeightActual_Truck.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1285,16 +1560,17 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox41">
+                        <Textbox Name="Textbox42">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Масса брутто</Value>
+                                  <Value>=IIf(Fields!IsLoading.Value = True, "Тара", "Брутто")</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -1305,7 +1581,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox41</rd:DefaultName>
+                          <rd:DefaultName>Textbox39</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1325,16 +1601,17 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="GrossWeight_Trailer">
+                        <Textbox Name="GrossWeight_Truck3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!GrossWeight_Trailer.Value</Value>
+                                  <Value>=Fields!NetWeightActual_Trailer.Value</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1344,7 +1621,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>GrossWeight_Trailer</rd:DefaultName>
+                          <rd:DefaultName>GrossWeight_Truck</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1353,6 +1630,9 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1369,16 +1649,17 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox46">
+                        <Textbox Name="Textbox98">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Комментарий</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -1389,7 +1670,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox46</rd:DefaultName>
+                          <rd:DefaultName>Textbox98</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1397,6 +1678,48 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox99">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox99</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1410,55 +1733,17 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="DriversCommentary">
+                        <Textbox Name="Textbox49">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!DriversCommentary.Value</Value>
+                                  <Value>Нетто</Value>
                                   <Style>
                                     <FontFamily />
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>DriversCommentary</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>DimGray</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox48">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Масса нетто</Value>
-                                  <Style>
-                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -1477,6 +1762,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1489,16 +1775,17 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="NetWeightActual_Truck">
+                        <Textbox Name="NetWeightActual_Truck2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NetWeightActual_Truck.Value</Value>
+                                  <Value>=System.Math.Abs(Fields!GrossWeight_Truck.Value - Fields!NetWeightActual_Truck.Value)</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1516,6 +1803,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1528,16 +1816,17 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox50">
+                        <Textbox Name="Textbox51">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Масса нетто</Value>
+                                  <Value>Нетто</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -1548,7 +1837,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox50</rd:DefaultName>
+                          <rd:DefaultName>Textbox48</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1556,6 +1845,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1568,16 +1858,17 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="NetWeightActual_Trailer">
+                        <Textbox Name="NetWeightActual_Truck3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NetWeightActual_Trailer.Value</Value>
+                                  <Value>=System.Math.Abs(Fields!GrossWeight_Trailer.Value - Fields!NetWeightActual_Trailer.Value)</Value>
                                   <Style>
                                     <FontFamily />
+                                    <FontSize>12pt</FontSize>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -1587,7 +1878,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>NetWeightActual_Trailer</rd:DefaultName>
+                          <rd:DefaultName>NetWeightActual_Truck</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1595,7 +1886,11 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             </Border>
                             <BottomBorder>
                               <Style>Solid</Style>
+                              <Width>2pt</Width>
                             </BottomBorder>
+                            <RightBorder>
+                              <Width>2pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1651,6 +1946,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                           <Border>
                             <Color>DimGray</Color>
                             <Style>Solid</Style>
+                            <Width>2pt</Width>
                           </Border>
                           <BottomBorder>
                             <Style>Solid</Style>
@@ -1695,6 +1991,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                               <Border>
                                 <Color>DimGray</Color>
                                 <Style>Solid</Style>
+                                <Width>2pt</Width>
                               </Border>
                               <BottomBorder>
                                 <Style>Solid</Style>
@@ -1721,9 +2018,6 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                     <GroupExpressions>
                       <GroupExpression>=Fields!ControlPointName.Value</GroupExpression>
                     </GroupExpressions>
-                    <PageBreak>
-                      <BreakLocation>Between</BreakLocation>
-                    </PageBreak>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
@@ -1743,6 +2037,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                 <Value>=Fields!ControlPointName.Value</Value>
                                 <Style>
                                   <FontFamily />
+                                  <FontSize>12pt</FontSize>
                                   <Color>#333333</Color>
                                 </Style>
                               </TextRun>
@@ -1760,7 +2055,11 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                           </Border>
                           <BottomBorder>
                             <Style>Solid</Style>
+                            <Width>2pt</Width>
                           </BottomBorder>
+                          <LeftBorder>
+                            <Width>2pt</Width>
+                          </LeftBorder>
                           <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
@@ -1795,6 +2094,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                     <Value>=Format(Fields!LogsDate.Value, "dd.MM.yyyy HH':'mm':'ss")</Value>
                                     <Style>
                                       <FontFamily />
+                                      <FontSize>12pt</FontSize>
                                       <Color>#333333</Color>
                                     </Style>
                                   </TextRun>
@@ -1810,6 +2110,12 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                                 <Color>DimGray</Color>
                                 <Style>Solid</Style>
                               </Border>
+                              <BottomBorder>
+                                <Width>2pt</Width>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Width>2pt</Width>
+                              </LeftBorder>
                               <BackgroundColor>LightSteelBlue</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
@@ -1838,6 +2144,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                             <TablixMember />
                             <TablixMember />
                             <TablixMember />
+                            <TablixMember />
                           </TablixMembers>
                           <Visibility>
                             <Hidden>=IIF(Fields!LogsProcessId.Value = Previous(Fields!LogsProcessId.Value) and DateSerial(DatePart("yyyy",Fields!LogsDate.Value), DatePart("m",Fields!LogsDate.Value), DatePart("d",Fields!LogsDate.Value)) = Previous(DateSerial(DatePart("yyyy",Fields!LogsDate.Value), DatePart("m",Fields!LogsDate.Value), DatePart("d",Fields!LogsDate.Value))) , true, false)</Hidden>
@@ -1852,20 +2159,12 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <KeepTogether>true</KeepTogether>
+            <NoRowsMessage>Нет данных.</NoRowsMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Filters>
-              <Filter>
-                <FilterExpression>=Fields!LogsDate.Value</FilterExpression>
-                <Operator>Between</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
-                  <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-            </Filters>
             <Top>0.42in</Top>
             <Left>1.12814cm</Left>
-            <Height>1.42696in</Height>
+            <Height>1.66318in</Height>
             <Width>11.39961in</Width>
             <Visibility>
               <Hidden>=IIF(Previous(Fields!ProcessId.Value) = Fields!ProcessId.Value, True, False)</Hidden>
@@ -1873,7 +2172,7 @@ WHERE        (Logs.ProcessId IS NOT NULL)</CommandText>
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>4.88178cm</Height>
+        <Height>5.29128cm</Height>
         <Style />
       </Body>
       <Width>30.08315cm</Width>

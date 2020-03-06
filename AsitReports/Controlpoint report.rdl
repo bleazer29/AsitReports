@@ -13,27 +13,23 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>testDataSource1</DataSourceName>
-        <CommandText>SELECT        Processes.StrProcess1CId, Processes.Id AS ProcessId1, Processes.IsLoading AS ProcessIsLoading1, Processes.IsAnotherCounterpartyTrailer, 
-                         Processes.CurrentControlPointId, Processes.RouteId, Processes.DriverId, Processes.CounterpartyId, Processes.VehicleTruckId, Processes.VehicleTrailerId, 
-                         Processes.StrRfidId, Processes.NetWeight1С_Truck, Processes.GrossWeight_Truck, Processes.NetWeightActual_Truck, Processes.GrossWeight_Trailer, 
-                         Processes.NetWeight1С_Trailer, Processes.NetWeightActual_Trailer, Processes.IsCompleted, Processes.IsRun, Processes.IsFirstWeight, Processes.IsSending, 
-                         Processes.Unloaded, Processes.Loaded, Processes.CargoId, Vehicles_1.Id AS TruckId, Vehicles_1.VehicleNumber AS TruckVehicleNum, 
-                         Vehicles_1.Colore AS TruckColore, Vehicles_1.IsTrailer AS TruckIsTrailer, Vehicles_1.OwnerId AS TruckOwnerId, Vehicles_1.Name AS TruckName, 
-                         Vehicles.Id AS TrailerId, Vehicles.Colore AS TrailerColore, Vehicles.VehicleNumber AS TrailerVehicleNum, Vehicles.Name AS TrailerName, 
-                         Vehicles.OwnerId AS TrailerOwnerId, Owners.Id AS OwnerIdTrailer, Owners.Name AS OwnerNameTrailer, Owners_1.Id AS OwnerIdTruck, 
-                         Owners_1.Name AS OwnerNameTruck, ControlPoints.Id AS ControlpointId, ControlPoints.Name AS ControlpointName1, Vehicles_1.Weight AS TruckWeight, 
-                         Vehicles.Weight AS TrailerWeight, Vehicles.IsTrailer AS TrailerIsTrailer, Counterparties.Id AS CounterpartiesId, Counterparties.Name AS CounterpartiesName, 
-                         Drivers.Id AS IdDrivers, Drivers.Name AS NameDrivers, Vehicles.CertificateNumber AS TrailerCertificateNum, Vehicles_1.CertificateNumber AS TruckCertificateNum, 
-                         Drivers.Email, Drivers.PhoneNumber, Drivers.DrivingLicense, Drivers.Commentary
-FROM            Drivers INNER JOIN
-                         Processes INNER JOIN
-                         ControlPoints ON Processes.CurrentControlPointId = ControlPoints.Id ON Drivers.Id = Processes.DriverId INNER JOIN
-                         Counterparties ON Processes.CounterpartyId = Counterparties.Id LEFT OUTER JOIN
-                         Vehicles AS Vehicles_1 INNER JOIN
-                         Owners AS Owners_1 ON Vehicles_1.OwnerId = Owners_1.Id ON Processes.VehicleTruckId = Vehicles_1.Id LEFT OUTER JOIN
-                         Owners INNER JOIN
-                         Vehicles ON Owners.Id = Vehicles.OwnerId ON Processes.VehicleTrailerId = Vehicles.Id
-WHERE        (Processes.IsCompleted = 0)</CommandText>
+        <CommandText>SELECT Processes.StrProcess1CId, Processes.Id AS ProcessId1, Processes.IsAnotherCounterpartyTrailer, Processes.CurrentControlPointId, Processes.RouteId, Processes.DriverId, Processes.CounterpartyId, Processes.VehicleTruckId, 
+                  Processes.VehicleTrailerId, Processes.StrRfidId, Processes.NetWeight1С_Truck, Processes.GrossWeight_Truck, Processes.NetWeightActual_Truck, Processes.GrossWeight_Trailer, Processes.NetWeight1С_Trailer, 
+                  Processes.NetWeightActual_Trailer, Processes.IsCompleted, Processes.IsRun, Processes.IsFirstWeight, Processes.IsSending, Processes.Unloaded, Processes.Loaded, Processes.CargoId, Vehicles_1.Id AS TruckId, 
+                  Vehicles_1.VehicleNumber AS TruckVehicleNum, Vehicles_1.Colore AS TruckColore, Vehicles_1.IsTrailer AS TruckIsTrailer, Vehicles_1.OwnerId AS TruckOwnerId, Vehicles_1.Name AS TruckName, Vehicles.Id AS TrailerId, 
+                  Vehicles.Colore AS TrailerColore, Vehicles.VehicleNumber AS TrailerVehicleNum, Vehicles.Name AS TrailerName, Vehicles.OwnerId AS TrailerOwnerId, Owners.Id AS OwnerIdTrailer, Owners.Name AS OwnerNameTrailer, 
+                  Owners_1.Id AS OwnerIdTruck, Owners_1.Name AS OwnerNameTruck, ControlPoints.Id AS ControlpointId, ControlPoints.Name AS ControlpointName1, Vehicles_1.Weight AS TruckWeight, Vehicles.Weight AS TrailerWeight, 
+                  Vehicles.IsTrailer AS TrailerIsTrailer, Counterparties.Id AS CounterpartiesId, Counterparties.Name AS CounterpartiesName, Drivers.Id AS IdDrivers, Drivers.Name AS NameDrivers, Vehicles.CertificateNumber AS TrailerCertificateNum, 
+                  Vehicles_1.CertificateNumber AS TruckCertificateNum, Drivers.Email, Drivers.PhoneNumber, Drivers.DrivingLicense, Drivers.Commentary, Processes.IsLoading
+FROM     Drivers INNER JOIN
+                  Processes INNER JOIN
+                  ControlPoints ON Processes.CurrentControlPointId = ControlPoints.Id ON Drivers.Id = Processes.DriverId INNER JOIN
+                  Counterparties ON Processes.CounterpartyId = Counterparties.Id LEFT OUTER JOIN
+                  Vehicles AS Vehicles_1 INNER JOIN
+                  Owners AS Owners_1 ON Vehicles_1.OwnerId = Owners_1.Id ON Processes.VehicleTruckId = Vehicles_1.Id LEFT OUTER JOIN
+                  Owners INNER JOIN
+                  Vehicles ON Owners.Id = Vehicles.OwnerId ON Processes.VehicleTrailerId = Vehicles.Id
+WHERE  (Processes.IsCompleted = 0)</CommandText>
       </Query>
       <Fields>
         <Field Name="StrProcess1CId">
@@ -43,10 +39,6 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
         <Field Name="ProcessId1">
           <DataField>ProcessId1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="ProcessIsLoading1">
-          <DataField>ProcessIsLoading1</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="IsAnotherCounterpartyTrailer">
           <DataField>IsAnotherCounterpartyTrailer</DataField>
@@ -252,7 +244,20 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
           <DataField>Commentary</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="IsLoading">
+          <DataField>IsLoading</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=Fields!IsCompleted.Value</FilterExpression>
+          <Operator>Equal</Operator>
+          <FilterValues>
+            <FilterValue>=false</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -1129,25 +1134,28 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox21">
+                        <Textbox Name="Textbox32">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Масса брутто</Value>
+                                  <Value>=IIf(Fields!IsLoading.Value = True, "Брутто", "Тара")</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
+                                    <FontFamily />
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox21</rd:DefaultName>
+                          <rd:DefaultName>Textbox31</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1164,7 +1172,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="GrossWeight_Truck">
+                        <Textbox Name="TruckOwnerName2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1173,20 +1181,26 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                 <TextRun>
                                   <Value>=Fields!GrossWeight_Truck.Value</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
+                                    <FontFamily />
                                     <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>GrossWeight_Truck</rd:DefaultName>
+                          <rd:DefaultName>TruckOwnerName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1198,25 +1212,28 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox41">
+                        <Textbox Name="Textbox33">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Масса брутто</Value>
+                                  <Value>=IIf(Fields!IsLoading.Value = True, "Брутто", "Тара")</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
+                                    <FontFamily />
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox41</rd:DefaultName>
+                          <rd:DefaultName>Textbox31</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1233,7 +1250,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="GrossWeight_Trailer">
+                        <Textbox Name="TruckOwnerName3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1242,23 +1259,26 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                 <TextRun>
                                   <Value>=Fields!GrossWeight_Trailer.Value</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
+                                    <FontFamily />
                                     <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>GrossWeight_Trailer</rd:DefaultName>
+                          <rd:DefaultName>TruckOwnerName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <RightBorder>
-                              <Width>2pt</Width>
-                            </RightBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1304,7 +1324,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             </TopBorder>
                             <BottomBorder>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1345,7 +1365,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             </TopBorder>
                             <BottomBorder>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1358,36 +1378,35 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox35">
+                        <Textbox Name="Textbox46">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Масса нетто</Value>
+                                  <Value>=IIf(Fields!IsLoading.Value = True, "Тара", "Брутто")</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
+                                    <FontFamily />
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox35</rd:DefaultName>
+                          <rd:DefaultName>Textbox39</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
                             <BottomBorder>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1400,7 +1419,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="NetWeightActual_Truck">
+                        <Textbox Name="GrossWeight_Truck2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1409,26 +1428,25 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                                 <TextRun>
                                   <Value>=Fields!NetWeightActual_Truck.Value</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
+                                    <FontFamily />
                                     <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>NetWeightActual_Truck</rd:DefaultName>
+                          <rd:DefaultName>GrossWeight_Truck</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
                             <BottomBorder>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
                             </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1441,14 +1459,100 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox42">
+                        <Textbox Name="Textbox47">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Масса нетто</Value>
+                                  <Value>=IIf(Fields!IsLoading.Value = True, "Тара", "Брутто")</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox39</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="GrossWeight_Truck3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!NetWeightActual_Trailer.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>GrossWeight_Truck</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.23622in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1459,7 +1563,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox42</rd:DefaultName>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1483,14 +1587,14 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="NetWeightActual_Trailer">
+                        <Textbox Name="Textbox7">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NetWeightActual_Trailer.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1500,7 +1604,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>NetWeightActual_Trailer</rd:DefaultName>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -1513,9 +1617,172 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                               <Style>Solid</Style>
                               <Width>2pt</Width>
                             </BottomBorder>
-                            <RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox48">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Нетто</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox48</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
                               <Width>2pt</Width>
-                            </RightBorder>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="NetWeightActual_Truck2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=System.Math.Abs(Fields!GrossWeight_Truck.Value - Fields!NetWeightActual_Truck.Value)</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>NetWeightActual_Truck</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox60">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Нетто</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox48</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
+                            </BottomBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="NetWeightActual_Truck3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=System.Math.Abs(Fields!GrossWeight_Trailer.Value - Fields!NetWeightActual_Trailer.Value)</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>NetWeightActual_Truck</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
+                            </BottomBorder>
                             <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1751,6 +2018,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
                             <TablixMember />
                             <TablixMember />
                             <TablixMember />
+                            <TablixMember />
                           </TablixMembers>
                         </TablixMember>
                       </TablixMembers>
@@ -1762,7 +2030,7 @@ WHERE        (Processes.IsCompleted = 0)</CommandText>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.21875in</Top>
             <Left>0.42583in</Left>
-            <Height>1.5in</Height>
+            <Height>1.73622in</Height>
             <Width>11.07841in</Width>
             <Style>
               <Border>

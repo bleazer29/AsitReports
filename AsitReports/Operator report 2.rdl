@@ -96,11 +96,11 @@ FROM     Logs LEFT OUTER JOIN
       </Fields>
       <Filters>
         <Filter>
-          <FilterExpression>=CDate(Fields!CheckDate.Value)</FilterExpression>
+          <FilterExpression>=DateValue(FormatDateTime(Fields!CheckDate.Value, DateFormat.ShortDate))</FilterExpression>
           <Operator>Between</Operator>
           <FilterValues>
-            <FilterValue>=CDate(Parameters!StartDate.Value)</FilterValue>
-            <FilterValue>=CDate(Parameters!EndDate.Value)</FilterValue>
+            <FilterValue>=DateValue(FormatDateTime(Parameters!StartDate.Value, DateFormat.ShortDate))</FilterValue>
+            <FilterValue>=DateValue(FormatDateTime(Parameters!EndDate.Value, DateFormat.ShortDate))</FilterValue>
           </FilterValues>
         </Filter>
       </Filters>
@@ -814,6 +814,7 @@ FROM     Logs LEFT OUTER JOIN
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -940,7 +941,7 @@ FROM     Logs LEFT OUTER JOIN
                                   <Color>LightGrey</Color>
                                   <Style>None</Style>
                                 </Border>
-                                <BackgroundColor>White</BackgroundColor>
+                                <BackgroundColor>LightSteelBlue</BackgroundColor>
                               </Style>
                             </GaugePanel>
                             <Textbox Name="ErrorEventTypesName">
@@ -996,6 +997,7 @@ FROM     Logs LEFT OUTER JOIN
                             <RightBorder>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                           </Style>
                         </Rectangle>
                       </CellContents>
@@ -1031,6 +1033,7 @@ FROM     Logs LEFT OUTER JOIN
                             <RightBorder>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1074,6 +1077,7 @@ FROM     Logs LEFT OUTER JOIN
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1118,6 +1122,7 @@ FROM     Logs LEFT OUTER JOIN
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1161,6 +1166,7 @@ FROM     Logs LEFT OUTER JOIN
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1205,6 +1211,7 @@ FROM     Logs LEFT OUTER JOIN
                               <Color>DimGray</Color>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>

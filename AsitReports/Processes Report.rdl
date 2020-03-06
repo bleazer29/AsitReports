@@ -198,11 +198,11 @@ FROM     Owners AS Owners_1 INNER JOIN
       </Fields>
       <Filters>
         <Filter>
-          <FilterExpression>=CDate(Fields!Date.Value)</FilterExpression>
+          <FilterExpression>=DateValue(FormatDateTime(Fields!Date.Value, DateFormat.ShortDate))</FilterExpression>
           <Operator>Between</Operator>
           <FilterValues>
-            <FilterValue>=CDate(Parameters!StartDateParam.Value)</FilterValue>
-            <FilterValue>=CDate(Parameters!EndDateParam.Value)</FilterValue>
+            <FilterValue>=DateValue(FormatDateTime(Parameters!StartDateParam.Value, DateFormat.ShortDate))</FilterValue>
+            <FilterValue>=DateValue(FormatDateTime(Parameters!EndDateParam.Value,DateFormat.ShortDate))</FilterValue>
           </FilterValues>
         </Filter>
       </Filters>
@@ -2832,25 +2832,28 @@ FROM            Processes INNER JOIN
                                                   <TablixHeader>
                                                     <Size>1.14198in</Size>
                                                     <CellContents>
-                                                      <Textbox Name="Textbox21">
+                                                      <Textbox Name="Textbox32">
                                                         <CanGrow>true</CanGrow>
                                                         <KeepTogether>true</KeepTogether>
                                                         <Paragraphs>
                                                           <Paragraph>
                                                             <TextRuns>
                                                               <TextRun>
-                                                                <Value>Масса брутто</Value>
+                                                                <Value>=IIf(Fields!IsLoading.Value = True, "Брутто", "Тара")</Value>
                                                                 <Style>
-                                                                  <FontFamily>Arial</FontFamily>
+                                                                  <FontFamily />
                                                                   <FontSize>12pt</FontSize>
                                                                   <FontWeight>Bold</FontWeight>
+                                                                  <Color>#333333</Color>
                                                                 </Style>
                                                               </TextRun>
                                                             </TextRuns>
-                                                            <Style />
+                                                            <Style>
+                                                              <TextAlign>Left</TextAlign>
+                                                            </Style>
                                                           </Paragraph>
                                                         </Paragraphs>
-                                                        <rd:DefaultName>Textbox21</rd:DefaultName>
+                                                        <rd:DefaultName>Textbox31</rd:DefaultName>
                                                         <Style>
                                                           <Border>
                                                             <Color>DimGray</Color>
@@ -2870,7 +2873,7 @@ FROM            Processes INNER JOIN
                                                       <TablixHeader>
                                                         <Size>1.14198in</Size>
                                                         <CellContents>
-                                                          <Textbox Name="GrossWeight_Truck">
+                                                          <Textbox Name="TruckOwnerName2">
                                                             <CanGrow>true</CanGrow>
                                                             <KeepTogether>true</KeepTogether>
                                                             <Paragraphs>
@@ -2879,20 +2882,26 @@ FROM            Processes INNER JOIN
                                                                   <TextRun>
                                                                     <Value>=Fields!GrossWeight_Truck.Value</Value>
                                                                     <Style>
-                                                                      <FontFamily>Arial</FontFamily>
+                                                                      <FontFamily />
                                                                       <FontSize>12pt</FontSize>
+                                                                      <Color>#333333</Color>
                                                                     </Style>
                                                                   </TextRun>
                                                                 </TextRuns>
-                                                                <Style />
+                                                                <Style>
+                                                                  <TextAlign>Left</TextAlign>
+                                                                </Style>
                                                               </Paragraph>
                                                             </Paragraphs>
-                                                            <rd:DefaultName>GrossWeight_Truck</rd:DefaultName>
+                                                            <rd:DefaultName>TruckOwnerName</rd:DefaultName>
                                                             <Style>
                                                               <Border>
                                                                 <Color>DimGray</Color>
                                                                 <Style>Solid</Style>
                                                               </Border>
+                                                              <BottomBorder>
+                                                                <Style>Solid</Style>
+                                                              </BottomBorder>
                                                               <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                               <PaddingLeft>2pt</PaddingLeft>
                                                               <PaddingRight>2pt</PaddingRight>
@@ -2907,25 +2916,28 @@ FROM            Processes INNER JOIN
                                                           <TablixHeader>
                                                             <Size>1.14198in</Size>
                                                             <CellContents>
-                                                              <Textbox Name="Textbox41">
+                                                              <Textbox Name="Textbox33">
                                                                 <CanGrow>true</CanGrow>
                                                                 <KeepTogether>true</KeepTogether>
                                                                 <Paragraphs>
                                                                   <Paragraph>
                                                                     <TextRuns>
                                                                       <TextRun>
-                                                                        <Value>Масса брутто</Value>
+                                                                        <Value>=IIf(Fields!IsLoading.Value = True, "Брутто", "Тара")</Value>
                                                                         <Style>
-                                                                          <FontFamily>Arial</FontFamily>
+                                                                          <FontFamily />
                                                                           <FontSize>12pt</FontSize>
                                                                           <FontWeight>Bold</FontWeight>
+                                                                          <Color>#333333</Color>
                                                                         </Style>
                                                                       </TextRun>
                                                                     </TextRuns>
-                                                                    <Style />
+                                                                    <Style>
+                                                                      <TextAlign>Left</TextAlign>
+                                                                    </Style>
                                                                   </Paragraph>
                                                                 </Paragraphs>
-                                                                <rd:DefaultName>Textbox41</rd:DefaultName>
+                                                                <rd:DefaultName>Textbox31</rd:DefaultName>
                                                                 <Style>
                                                                   <Border>
                                                                     <Color>DimGray</Color>
@@ -2945,7 +2957,7 @@ FROM            Processes INNER JOIN
                                                               <TablixHeader>
                                                                 <Size>1.14198in</Size>
                                                                 <CellContents>
-                                                                  <Textbox Name="GrossWeight_Trailer">
+                                                                  <Textbox Name="TruckOwnerName3">
                                                                     <CanGrow>true</CanGrow>
                                                                     <KeepTogether>true</KeepTogether>
                                                                     <Paragraphs>
@@ -2954,20 +2966,26 @@ FROM            Processes INNER JOIN
                                                                           <TextRun>
                                                                             <Value>=Fields!GrossWeight_Trailer.Value</Value>
                                                                             <Style>
-                                                                              <FontFamily>Arial</FontFamily>
+                                                                              <FontFamily />
                                                                               <FontSize>12pt</FontSize>
+                                                                              <Color>#333333</Color>
                                                                             </Style>
                                                                           </TextRun>
                                                                         </TextRuns>
-                                                                        <Style />
+                                                                        <Style>
+                                                                          <TextAlign>Left</TextAlign>
+                                                                        </Style>
                                                                       </Paragraph>
                                                                     </Paragraphs>
-                                                                    <rd:DefaultName>GrossWeight_Trailer</rd:DefaultName>
+                                                                    <rd:DefaultName>TruckOwnerName</rd:DefaultName>
                                                                     <Style>
                                                                       <Border>
                                                                         <Color>DimGray</Color>
                                                                         <Style>Solid</Style>
                                                                       </Border>
+                                                                      <BottomBorder>
+                                                                        <Style>Solid</Style>
+                                                                      </BottomBorder>
                                                                       <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                                       <PaddingLeft>2pt</PaddingLeft>
                                                                       <PaddingRight>2pt</PaddingRight>
@@ -3313,32 +3331,35 @@ FROM            Processes INNER JOIN
                                                   <TablixHeader>
                                                     <Size>1.14198in</Size>
                                                     <CellContents>
-                                                      <Textbox Name="Textbox35">
+                                                      <Textbox Name="Textbox43">
                                                         <CanGrow>true</CanGrow>
                                                         <KeepTogether>true</KeepTogether>
                                                         <Paragraphs>
                                                           <Paragraph>
                                                             <TextRuns>
                                                               <TextRun>
-                                                                <Value>Масса нетто</Value>
+                                                                <Value>=IIf(Fields!IsLoading.Value = True, "Тара", "Брутто")</Value>
                                                                 <Style>
-                                                                  <FontFamily>Arial</FontFamily>
+                                                                  <FontFamily />
                                                                   <FontSize>12pt</FontSize>
                                                                   <FontWeight>Bold</FontWeight>
+                                                                  <Color>#333333</Color>
                                                                 </Style>
                                                               </TextRun>
                                                             </TextRuns>
-                                                            <Style />
+                                                            <Style>
+                                                              <TextAlign>Left</TextAlign>
+                                                            </Style>
                                                           </Paragraph>
                                                         </Paragraphs>
-                                                        <rd:DefaultName>Textbox35</rd:DefaultName>
+                                                        <rd:DefaultName>Textbox39</rd:DefaultName>
                                                         <Style>
                                                           <Border>
                                                             <Color>DimGray</Color>
                                                             <Style>Solid</Style>
                                                           </Border>
                                                           <BottomBorder>
-                                                            <Style>None</Style>
+                                                            <Style>Solid</Style>
                                                           </BottomBorder>
                                                           <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                           <PaddingLeft>2pt</PaddingLeft>
@@ -3354,7 +3375,7 @@ FROM            Processes INNER JOIN
                                                       <TablixHeader>
                                                         <Size>1.14198in</Size>
                                                         <CellContents>
-                                                          <Textbox Name="NetWeightActual_Truck">
+                                                          <Textbox Name="GrossWeight_Truck2">
                                                             <CanGrow>true</CanGrow>
                                                             <KeepTogether>true</KeepTogether>
                                                             <Paragraphs>
@@ -3363,22 +3384,25 @@ FROM            Processes INNER JOIN
                                                                   <TextRun>
                                                                     <Value>=Fields!NetWeightActual_Truck.Value</Value>
                                                                     <Style>
-                                                                      <FontFamily>Arial</FontFamily>
+                                                                      <FontFamily />
                                                                       <FontSize>12pt</FontSize>
+                                                                      <Color>#333333</Color>
                                                                     </Style>
                                                                   </TextRun>
                                                                 </TextRuns>
-                                                                <Style />
+                                                                <Style>
+                                                                  <TextAlign>Left</TextAlign>
+                                                                </Style>
                                                               </Paragraph>
                                                             </Paragraphs>
-                                                            <rd:DefaultName>NetWeightActual_Truck</rd:DefaultName>
+                                                            <rd:DefaultName>GrossWeight_Truck</rd:DefaultName>
                                                             <Style>
                                                               <Border>
                                                                 <Color>DimGray</Color>
                                                                 <Style>Solid</Style>
                                                               </Border>
                                                               <BottomBorder>
-                                                                <Style>None</Style>
+                                                                <Style>Solid</Style>
                                                               </BottomBorder>
                                                               <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                               <PaddingLeft>2pt</PaddingLeft>
@@ -3394,32 +3418,35 @@ FROM            Processes INNER JOIN
                                                           <TablixHeader>
                                                             <Size>1.14198in</Size>
                                                             <CellContents>
-                                                              <Textbox Name="Textbox42">
+                                                              <Textbox Name="Textbox44">
                                                                 <CanGrow>true</CanGrow>
                                                                 <KeepTogether>true</KeepTogether>
                                                                 <Paragraphs>
                                                                   <Paragraph>
                                                                     <TextRuns>
                                                                       <TextRun>
-                                                                        <Value>Масса нетто</Value>
+                                                                        <Value>=IIf(Fields!IsLoading.Value = True, "Тара", "Брутто")</Value>
                                                                         <Style>
-                                                                          <FontFamily>Arial</FontFamily>
+                                                                          <FontFamily />
                                                                           <FontSize>12pt</FontSize>
                                                                           <FontWeight>Bold</FontWeight>
+                                                                          <Color>#333333</Color>
                                                                         </Style>
                                                                       </TextRun>
                                                                     </TextRuns>
-                                                                    <Style />
+                                                                    <Style>
+                                                                      <TextAlign>Left</TextAlign>
+                                                                    </Style>
                                                                   </Paragraph>
                                                                 </Paragraphs>
-                                                                <rd:DefaultName>Textbox42</rd:DefaultName>
+                                                                <rd:DefaultName>Textbox39</rd:DefaultName>
                                                                 <Style>
                                                                   <Border>
                                                                     <Color>DimGray</Color>
                                                                     <Style>Solid</Style>
                                                                   </Border>
                                                                   <BottomBorder>
-                                                                    <Style>None</Style>
+                                                                    <Style>Solid</Style>
                                                                   </BottomBorder>
                                                                   <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                                   <PaddingLeft>2pt</PaddingLeft>
@@ -3435,7 +3462,7 @@ FROM            Processes INNER JOIN
                                                               <TablixHeader>
                                                                 <Size>1.14198in</Size>
                                                                 <CellContents>
-                                                                  <Textbox Name="NetWeightActual_Trailer">
+                                                                  <Textbox Name="GrossWeight_Truck3">
                                                                     <CanGrow>true</CanGrow>
                                                                     <KeepTogether>true</KeepTogether>
                                                                     <Paragraphs>
@@ -3444,22 +3471,25 @@ FROM            Processes INNER JOIN
                                                                           <TextRun>
                                                                             <Value>=Fields!NetWeightActual_Trailer.Value</Value>
                                                                             <Style>
-                                                                              <FontFamily>Arial</FontFamily>
+                                                                              <FontFamily />
                                                                               <FontSize>12pt</FontSize>
+                                                                              <Color>#333333</Color>
                                                                             </Style>
                                                                           </TextRun>
                                                                         </TextRuns>
-                                                                        <Style />
+                                                                        <Style>
+                                                                          <TextAlign>Left</TextAlign>
+                                                                        </Style>
                                                                       </Paragraph>
                                                                     </Paragraphs>
-                                                                    <rd:DefaultName>NetWeightActual_Trailer</rd:DefaultName>
+                                                                    <rd:DefaultName>GrossWeight_Truck</rd:DefaultName>
                                                                     <Style>
                                                                       <Border>
                                                                         <Color>DimGray</Color>
                                                                         <Style>Solid</Style>
                                                                       </Border>
                                                                       <BottomBorder>
-                                                                        <Style>None</Style>
+                                                                        <Style>Solid</Style>
                                                                       </BottomBorder>
                                                                       <BackgroundColor>LightSteelBlue</BackgroundColor>
                                                                       <PaddingLeft>2pt</PaddingLeft>
@@ -3811,33 +3841,35 @@ FROM            Processes INNER JOIN
                                                   <TablixHeader>
                                                     <Size>1.14198in</Size>
                                                     <CellContents>
-                                                      <Textbox Name="Textbox18">
+                                                      <Textbox Name="Textbox48">
                                                         <CanGrow>true</CanGrow>
                                                         <KeepTogether>true</KeepTogether>
                                                         <Paragraphs>
                                                           <Paragraph>
                                                             <TextRuns>
                                                               <TextRun>
-                                                                <Value />
+                                                                <Value>Нетто</Value>
                                                                 <Style>
-                                                                  <FontFamily>Arial</FontFamily>
+                                                                  <FontFamily />
                                                                   <FontSize>12pt</FontSize>
+                                                                  <FontWeight>Bold</FontWeight>
+                                                                  <Color>#333333</Color>
                                                                 </Style>
                                                               </TextRun>
                                                             </TextRuns>
-                                                            <Style />
+                                                            <Style>
+                                                              <TextAlign>Left</TextAlign>
+                                                            </Style>
                                                           </Paragraph>
                                                         </Paragraphs>
-                                                        <rd:DefaultName>Textbox18</rd:DefaultName>
+                                                        <rd:DefaultName>Textbox48</rd:DefaultName>
                                                         <Style>
                                                           <Border>
                                                             <Color>DimGray</Color>
                                                             <Style>Solid</Style>
                                                           </Border>
-                                                          <TopBorder>
-                                                            <Style>None</Style>
-                                                          </TopBorder>
                                                           <BottomBorder>
+                                                            <Style>Solid</Style>
                                                             <Width>2pt</Width>
                                                           </BottomBorder>
                                                           <BackgroundColor>LightSteelBlue</BackgroundColor>
@@ -3854,33 +3886,34 @@ FROM            Processes INNER JOIN
                                                       <TablixHeader>
                                                         <Size>1.14198in</Size>
                                                         <CellContents>
-                                                          <Textbox Name="Textbox19">
+                                                          <Textbox Name="NetWeightActual_Truck2">
                                                             <CanGrow>true</CanGrow>
                                                             <KeepTogether>true</KeepTogether>
                                                             <Paragraphs>
                                                               <Paragraph>
                                                                 <TextRuns>
                                                                   <TextRun>
-                                                                    <Value />
+                                                                    <Value>=System.Math.Abs(Fields!GrossWeight_Truck.Value - Fields!NetWeightActual_Truck.Value)</Value>
                                                                     <Style>
-                                                                      <FontFamily>Arial</FontFamily>
+                                                                      <FontFamily />
                                                                       <FontSize>12pt</FontSize>
+                                                                      <Color>#333333</Color>
                                                                     </Style>
                                                                   </TextRun>
                                                                 </TextRuns>
-                                                                <Style />
+                                                                <Style>
+                                                                  <TextAlign>Left</TextAlign>
+                                                                </Style>
                                                               </Paragraph>
                                                             </Paragraphs>
-                                                            <rd:DefaultName>Textbox19</rd:DefaultName>
+                                                            <rd:DefaultName>NetWeightActual_Truck</rd:DefaultName>
                                                             <Style>
                                                               <Border>
                                                                 <Color>DimGray</Color>
                                                                 <Style>Solid</Style>
                                                               </Border>
-                                                              <TopBorder>
-                                                                <Style>None</Style>
-                                                              </TopBorder>
                                                               <BottomBorder>
+                                                                <Style>Solid</Style>
                                                                 <Width>2pt</Width>
                                                               </BottomBorder>
                                                               <BackgroundColor>LightSteelBlue</BackgroundColor>
@@ -3897,33 +3930,35 @@ FROM            Processes INNER JOIN
                                                           <TablixHeader>
                                                             <Size>1.14198in</Size>
                                                             <CellContents>
-                                                              <Textbox Name="Textbox20">
+                                                              <Textbox Name="Textbox49">
                                                                 <CanGrow>true</CanGrow>
                                                                 <KeepTogether>true</KeepTogether>
                                                                 <Paragraphs>
                                                                   <Paragraph>
                                                                     <TextRuns>
                                                                       <TextRun>
-                                                                        <Value />
+                                                                        <Value>Нетто</Value>
                                                                         <Style>
-                                                                          <FontFamily>Arial</FontFamily>
+                                                                          <FontFamily />
                                                                           <FontSize>12pt</FontSize>
+                                                                          <FontWeight>Bold</FontWeight>
+                                                                          <Color>#333333</Color>
                                                                         </Style>
                                                                       </TextRun>
                                                                     </TextRuns>
-                                                                    <Style />
+                                                                    <Style>
+                                                                      <TextAlign>Left</TextAlign>
+                                                                    </Style>
                                                                   </Paragraph>
                                                                 </Paragraphs>
-                                                                <rd:DefaultName>Textbox20</rd:DefaultName>
+                                                                <rd:DefaultName>Textbox48</rd:DefaultName>
                                                                 <Style>
                                                                   <Border>
                                                                     <Color>DimGray</Color>
                                                                     <Style>Solid</Style>
                                                                   </Border>
-                                                                  <TopBorder>
-                                                                    <Style>None</Style>
-                                                                  </TopBorder>
                                                                   <BottomBorder>
+                                                                    <Style>Solid</Style>
                                                                     <Width>2pt</Width>
                                                                   </BottomBorder>
                                                                   <BackgroundColor>LightSteelBlue</BackgroundColor>
@@ -3940,33 +3975,34 @@ FROM            Processes INNER JOIN
                                                               <TablixHeader>
                                                                 <Size>1.14198in</Size>
                                                                 <CellContents>
-                                                                  <Textbox Name="Textbox22">
+                                                                  <Textbox Name="NetWeightActual_Truck3">
                                                                     <CanGrow>true</CanGrow>
                                                                     <KeepTogether>true</KeepTogether>
                                                                     <Paragraphs>
                                                                       <Paragraph>
                                                                         <TextRuns>
                                                                           <TextRun>
-                                                                            <Value />
+                                                                            <Value>=System.Math.Abs(Fields!GrossWeight_Trailer.Value - Fields!NetWeightActual_Trailer.Value)</Value>
                                                                             <Style>
-                                                                              <FontFamily>Arial</FontFamily>
+                                                                              <FontFamily />
                                                                               <FontSize>12pt</FontSize>
+                                                                              <Color>#333333</Color>
                                                                             </Style>
                                                                           </TextRun>
                                                                         </TextRuns>
-                                                                        <Style />
+                                                                        <Style>
+                                                                          <TextAlign>Left</TextAlign>
+                                                                        </Style>
                                                                       </Paragraph>
                                                                     </Paragraphs>
-                                                                    <rd:DefaultName>Textbox22</rd:DefaultName>
+                                                                    <rd:DefaultName>NetWeightActual_Truck</rd:DefaultName>
                                                                     <Style>
                                                                       <Border>
                                                                         <Color>DimGray</Color>
                                                                         <Style>Solid</Style>
                                                                       </Border>
-                                                                      <TopBorder>
-                                                                        <Style>None</Style>
-                                                                      </TopBorder>
                                                                       <BottomBorder>
+                                                                        <Style>Solid</Style>
                                                                         <Width>2pt</Width>
                                                                       </BottomBorder>
                                                                       <BackgroundColor>LightSteelBlue</BackgroundColor>
@@ -4056,16 +4092,6 @@ FROM            Processes INNER JOIN
             <KeepTogether>true</KeepTogether>
             <NoRowsMessage>Нет данных.</NoRowsMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Filters>
-              <Filter>
-                <FilterExpression>=Fields!Date.Value</FilterExpression>
-                <Operator>Between</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!StartDateParam.Value</FilterValue>
-                  <FilterValue>=Parameters!EndDateParam.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-            </Filters>
             <Top>0.46333in</Top>
             <Left>0.92728cm</Left>
             <Height>1.6111in</Height>
